@@ -65,7 +65,7 @@
 <br>
 
 ## ・画面遷移図 : https://www.figma.com/file/HTWQFDq9GtqVvmCUoCfoNW/modelers_log?node-id=0%3A1
-## ・ER図： https://gyazo.com/866930335342d01c4c1bf09b140d0d1b
+## ・ER図： https://gyazo.com/2462f31fd092be0635fd3c17ffeb4cb7
 ***
 ## ・スケジュール
 企画〜技術調査：6/26〆切 <br>
