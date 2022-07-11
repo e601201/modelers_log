@@ -1,0 +1,84 @@
+# See https://docs.rubocop.org/rubocop/configuration
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'spec/**/*'
+    - 'node_modules/**/*'
+    - 'config/**/*'
+    - 'Gemfile'
+  DisplayCopNames: true
+
+Layout/MultilineBlockLayout:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/BlockLength:
+  Max: 30
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/**/*'
+
+NumericLiterals:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/WhileUntilModifier:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Lint/UselessMethodDefinition:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
