@@ -1,0 +1,27 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+  static_pages:
+    welcome:
+      title: 'ようこそ！！'
+  workspaces:
+    new:
+      title: '新規ワークスペース'
+    index:
+      title: 'ワークスペース一覧'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: '登録ページへ'
+      password_forget: 'パスワードをお忘れの方はこちら'
+  projects:
+    index:
+      title: 'プロジェクト一覧'
+    new:
+      title: '新規プロジェクト'
+  tasks:
+    index:
+      title: 'タスク一覧'
+    new:
+      title: '新規タスク'
