@@ -8,10 +8,10 @@ class Workspace < ApplicationRecord
   validates :email, uniqueness: true
 
   def received_new_notification?
-    #ユーザーが新規通知を受け取ったかどうかをbool値で返すメソッド
+    # ユーザーが新規通知を受け取ったかどうかをbool値で返すメソッド
   end
   
   def count_new_notification
-    #ユーザーが受け取った未読(checked)の通知をカウントする
+    # ユーザーが受け取った未読(checked)の通知をカウントする
   end
 end
