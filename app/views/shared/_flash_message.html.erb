@@ -1,3 +1,3 @@
 <% flash.each do |message_type, message| %>
-  <div class="alert shadow-lg container mx-auto"><%= message %></div>
+  <div class="alert alert-<%= message_type %> shadow-lg container mx-auto"><%= message %></div>
 <% end %>
