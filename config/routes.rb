@@ -29,14 +29,14 @@ Rails.application.routes.draw do
   end
 
   resources :workspaces do                                          #workspaces_CRUD
-    resource :profile, only: %i[edit update]
+    resource :profile,       only: %i[edit update]
     resource :relationships, only: %i[create destroy]               #好きなwaorkspaceをお気に入りに追加
     member do
-      resource :tool_set, except: [:new]                            #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
-      get 'projects'                                                #プロジェクト一覧
-      get 'followers'                                               #フォロワー一覧
-      get 'followings'                                              #フォロー一覧
-      get 'favorites'                                               #お気に入り一覧
+      resource :tool_set,    except: :new                           #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
+      resources :project,    only: :index                           #プロジェクト一覧
+      resources :followers,  only: :index                           #フォロワー一覧
+      resources :followings, only: :index                           #フォロー一覧
+      resources :favorites,  only: :index                           #お気に入り一覧
     end
   end
 end
