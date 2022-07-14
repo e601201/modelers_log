@@ -12,6 +12,6 @@ class Workspace < ApplicationRecord
   end
   
   def count_new_notification
-    # ユーザーが受け取った未読(checked)の通知をカウントする
+    # ユーザーが受け取った未読(checked)の通知をカウントさない
   end
 end
