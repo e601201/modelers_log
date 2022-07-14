@@ -1,20 +1,47 @@
 ja:
   defaults:
-    login: 'ログイン'
-    logout: 'ログアウト'
+    login: "ログイン"
+    logout: "ログアウト"
+    edit: "編集"
+    back: "戻る"
+    search_word: "検索ワード"
+    password_reset: 'パスワードリセット'
+    message:
+      not_index: "プロジェクトがありません"
+      not_authenticated: "ログインしてください"
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: "削除してもよろしいですか？"
+      require_login: "ログインをしてください"
+      errors_detected: "件のエラーが検出されました"
+  helper:
+  admin:
   static_pages:
     welcome:
       title: 'ようこそ！！'
   workspaces:
     new:
       title: '新規ワークスペース'
+      Back to workspaces: 'ワークスペース一覧へ'
     index:
       title: 'ワークスペース一覧'
+    create:
   user_sessions:
+    form:
+      title: 'ログインページ'
+      Forgot password?: 'パスワードをお忘れですか？'
+      New registration: '新規登録'
     new:
-      title: 'ログイン'
       to_register_page: '登録ページへ'
       password_forget: 'パスワードをお忘れの方はこちら'
+    create:
+      success: 'ログインしました！！'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました！！'
   projects:
     index:
       title: 'プロジェクト一覧'
