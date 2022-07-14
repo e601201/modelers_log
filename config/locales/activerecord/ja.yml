@@ -1,13 +1,43 @@
 ja:
   activerecord:
-    models:
+    models: # (Model).model_name.human
       workspace: 'ワークスペース'
       project: 'プロジェクト'
       task: 'タスク'
-    attributes:
+      toolset: 'ツールセット'
+      tag: 'タグ'
+      sns_information: 'SNS情報'
+      favorite: 'お気に入り'
+      notification: '通知'
+    attributes: # (Model).human_attribute_name(attribute)
       workspace:
+        title: 'タイトル'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
-        last_name: '姓'
-        first_name: '名'
+        crypted_password: '暗号化パスワード'
+        salt: 'ソルト'
+        owner_name: '氏名'
+        owner_avatar: 'アバター'
+        role: '役職'
+      project:
+        title: 'タイトル'
+        body: '内容'
+        image: '画像'
+        status: 'ステータス'
+      task:
+        title: 'タイトル'
+        body: '内容'
+        image: '画像'
+        usage_time: '所要時間'
+      toolset:
+        name: '名前'
+      tag:
+        name: '名前'
+      sns_information:
+        site_url: 'URL情報'
+        sns_category: 'SNSの種類'
+      notification:
+        body: '内容'
+        action_type: 'アクションタイプ'
+        checked: '確認済み'

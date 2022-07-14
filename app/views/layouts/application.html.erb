@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="cupcake" >
+<html data-theme="cmyk" >
   <head>
     <title>ModelersLog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,9 +12,20 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
+    <% if logged_in? %>
+      <%= render 'shared/user_logined_header'%>
+    <% else %>
+      <%= render 'shared/before_login_header'%>
+    <% end %>
+    <%= render 'shared/flash_message' %>
+    <main class= "bg-base-200 border-slate-400 border-y " >
+      <div class='container mx-auto px-5 flex bg-base-100'>
+        <%= yield %>
+      </div>
     </main>
+    <div class="bg-base-200">
+      <%= render 'shared/footer'%>
+    </div>
     <% if Rails.env.development? %>
       <script type="module" src="https://cdn.skypack.dev/@aki77/rails-template-inspector"></script>
       <rails-inspector url-prefix="vscode://file" root="<%= Rails.root %>" combo-key="command-shift-v"></rails-inspector>
