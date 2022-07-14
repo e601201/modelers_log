@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  # mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? #letter_openerの利用inDev環境
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root 'static_pages#welcome'
-
   namespace :admin do
     root 'dashboards#index'
     get  'login',       to: 'user_sessions#new'                     #管理者ログイン画面
@@ -39,4 +38,5 @@ Rails.application.routes.draw do
       resources :favorites,  only: :index                           #お気に入り一覧
     end
   end
+  resources :password_resets, only: %i[create edit update]          #パスワードリセット
 end

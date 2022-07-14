@@ -69,5 +69,6 @@ group :development do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-performance", require: false
+  gem 'letter_opener_web'
 end
 
