@@ -52,11 +52,3 @@ ja:
       title: 'タスク一覧'
     new:
       title: '新規タスク'
-  password_resets:
-    create:
-      success: 'メールが送信されました'
-    update:
-      success: 'パスワードがアップデートされました'
-  workspace_mailer:
-    reset_password_email:
-      success: 'パスワードがリセットされました'
