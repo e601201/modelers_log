@@ -1,0 +1,21 @@
+<div>
+  <h1 class="font-bold text-4xl">PasswordReset</h1>
+  <%= form_with model: @user, url: password_reset_path(@token) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= @user.email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
