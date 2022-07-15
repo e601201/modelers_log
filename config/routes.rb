@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? #letter_openerの利用inDev環境
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? #letter_openerの利用inDev環境
   root 'static_pages#welcome'
 
   namespace :admin do
