@@ -68,8 +68,8 @@ Rails.application.configure do
     address:"smtp.gmail.com",
     domain: 'gmail.com',
     port:587,
-    user_name: 'k.arthur1111@gmail.com',
-    password: 'pvnftvvicfsiqaxy',
+    user_name: Rails.application.credentials.gmail.user_name,
+    password: Rails.application.credentials.gmail.password,
     authentication: :login
   }
   config.action_mailer.perform_deliveries = true
