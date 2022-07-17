@@ -24,7 +24,7 @@ ja:
       title: 'ようこそ！！'
   workspaces:
     new:
-      title: '新規ワークスペース'
+      title: '新規作成'
       Back to workspaces: 'ワークスペース一覧へ'
     index:
       title: 'ワークスペース一覧'
