@@ -12,17 +12,36 @@
   </head>
 
   <body>
+    <!-- header here -->
     <% if logged_in? %>
       <%= render 'shared/user_logined_header'%>
     <% else %>
       <%= render 'shared/before_login_header'%>
     <% end %>
     <%= render 'shared/flash_message' %>
+
+    <!-- main here -->
     <main class= "bg-base-200 border-slate-400 border-y " >
-      <div class='container mx-auto px-5 flex bg-base-100'>
-        <%= yield %>
+      <div class="drawer">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <%= yield %>
+        </div>
+        <div class="drawer-side">
+          <label for="my-drawer" class="drawer-overlay"></label>
+          <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+            <!-- Sidebar content here -->
+            <% if logged_in? %>
+              <%= render 'shared/user_logined_drawer'%>
+            <% else %>
+              <%= render 'shared/before_login_drawer'%>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </main>
+
+    <!-- footer here -->
     <div class="bg-base-200">
       <%= render 'shared/footer'%>
     </div>
@@ -32,3 +51,4 @@
     <% end %>
   </body>
 </html>
+

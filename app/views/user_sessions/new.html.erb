@@ -1,39 +1,29 @@
-<div class="hero min-h-screen bg-base-100">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="card flex-shrink-0 w-screen max-w-sm shadow-2xl">
-      <div class="card-body bg-slate-100">
-        <%= form_with url: login_path, method: :post do |f| %>
-          <div class="form-control">
-            <%= f.label :email, class: "label" do %>
-              <span class="label_text"><%= Workspace.human_attribute_name('email')%></span>
-            <% end %>
-            <%= f.text_field :email, class: "input input-bordered input-primary" %>
-          </div>
-          <div class="form-control">
-            <%= f.label :password, class: "label" do %>
-              <span class="label_text"><%= Workspace.human_attribute_name('password')%></span>
-            <% end %>
-            <%= f.password_field :password, class: "input input-bordered input-primary" %>
-          </div>
-          <label class="label">
-            <a href="#" class="label-text-alt link link-hover"><%= t ('.New registration')%></a>
-          </label>
-          <div class="form-control mt-6">
-            <%= f.submit t('defaults.login'), class: "btn btn-primary", data: { turbo: false } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="card flex-shrink-0 w-screen max-w-sm shadow-2xl">
-      <div class="card-body bg-slate-100">
-        <div class="card-actions">
-          <button class="btn btn-primary w-full">Facebook Login</button>
-          <button class="btn btn-primary w-full">Twitter Login</button>
-          <label class="label">
-            <%= link_to t('.Forgot password?'), new_password_reset_path, class: "label-text-alt link link-hover" %>
-          </label>
+<div class= "container mx-auto sm:flex justify-center" >
+  <div class="card w-screen max-w-sm my-3">
+    <div class="card-body bg-slate-100">
+      <%= form_with url: login_path, method: :post do |f| %>
+        <div class="form-control">
+          <%= f.label :email, class: "label" do %>
+            <span class="label_text"><%= Workspace.human_attribute_name('email')%></span>
+          <% end %>
+          <%= f.text_field :email, class: "input input-bordered input-primary" %>
         </div>
-      </div>
+        <div class="form-control">
+          <%= f.label :password, class: "label" do %>
+            <span class="label_text"><%= Workspace.human_attribute_name('password')%></span>
+          <% end %>
+          <%= f.password_field :password, class: "input input-bordered input-primary" %>
+        </div>
+        <label class="label">
+          <%= link_to t('.sign up'), new_workspace_path, class: "label-text-alt link link-hover" %>
+        </label>
+        <label class="label">
+          <%= link_to t('.Forgot password?'), new_password_reset_path, class: "label-text-alt link link-hover" %>
+        </label>
+        <div class="form-control mt-6">
+          <%= f.submit t('defaults.login'), class: "btn btn-primary", data: { turbo: false } %>
+        </div>
+      <% end %>
     </div>
   </div>
-</div> 
+</div>
