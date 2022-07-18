@@ -3,9 +3,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.id
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 end
