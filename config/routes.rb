@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :workspaces do                                          #workspaces_CRUD
-    resource :profile,       only: %i[edit update]
+    resource :profile,       only: %i[show edit update]             #workspacesの中のprofile
     resource :relationships, only: %i[create destroy]               #好きなwaorkspaceをお気に入りに追加
     member do
       resource :tool_set,    except: :new                           #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
