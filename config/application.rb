@@ -24,6 +24,7 @@ module ModelersLog
     config.active_record.default_timezone = :local
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
+    config.active_storage.variant_processor = :vips
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     # Don't generate system test files.
