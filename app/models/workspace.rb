@@ -1,11 +1,12 @@
 class Workspace < ApplicationRecord
   authenticates_with_sorcery!
   # mount_uploader :avatar, AvatarUploader
+  has_one_attached :owner_avatar
   has_many :projects, dependent: :destroy
   # has_many  :relationships, dependent: :destroy
   # has_many  :sns_informations, dependent: :destroy
   # has_many  :notifications, dependent: :destroy
-  # has_many  :received_nnotifications, dependent: :destroy
+  # has_many  :received_notifications, dependent: :destroy
   # has_many  :own_toolsets, through: :workspace_toolsets, source: :toolset
 
   enum role: { general: 0, guest: 5, admin: 10 }

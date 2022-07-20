@@ -45,6 +45,6 @@ class WorkspacesController < ApplicationController
   end
 
   def workspace_params
-    params.require(:workspace).permit(:email, :password, :password_confirmation)
+    params.require(:workspace).permit(:email, :password, :password_confirmation, :owner_name, :owner_avatar, :role)
   end
 end
