@@ -1,22 +1,24 @@
 <footer class="footer container mx-auto p-10 bg-base-200 text-base-content ">
   <div>
     <span class="footer-title font-bold">プロジェクトを探す</span> 
-    <a class="link link-hover">カテゴリー一覧</a> 
+    <a class="link link-hover">プロジェクト一覧</a>
+    <a class="link link-hover">カテゴリー別</a> 
     <a class="link link-hover">新着プロジェクト</a> 
     <a class="link link-hover">人気のプロジェクト</a> 
-    <a class="link link-hover">Advertisement</a>
   </div> 
   <div>
     <span class="footer-title font-bold" >プロジェクトを創る</span> 
     <a class="link link-hover">設計図作成へ</a> 
     <a class="link link-hover">設計図の書き方</a> 
   </div> 
-  <div>
-    <span class="footer-title font-bold" >あなたのworkspace</span>
-    <a class="link link-hover">新規作成</a>
-    <a class="link link-hover">ログイン</a>
-    <a class="link link-hover">プロフィール編集</a>
-  </div>
+  <% if logged_in? %>
+    <div>
+      <span class="footer-title font-bold" >あなたのWorkspace</span>
+      <a class="link link-hover">ユーザー新規作成</a>
+      <a class="link link-hover">ログイン</a>
+      <a class="link link-hover">プロフィール編集</a>
+    </div>
+  <% end %>
   <div>
     <span class="footer-title font-bold">法的事項</span> 
     <a class="link link-hover">利用規約</a> 

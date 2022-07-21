@@ -18,7 +18,7 @@ ja:
         crypted_password: '暗号化パスワード'
         salt: 'ソルト'
         owner_name: '氏名'
-        owner_avatar: 'アバター'
+        owner_avatar: 'アバター画像'
         role: '役職'
       project:
         title: 'タイトル'
