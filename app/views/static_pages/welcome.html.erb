@@ -1,47 +1,37 @@
 <div class="flex flex-col md:flex-row">
   <div class="mx-auto md:w-2/12 w-10/12 border border-zinc-600" >
     <h1> お知らせ </h1>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto"> 
+      <h1><%= Date.current %></h1>
       <table class="table w-full">
         <!-- head -->
         <thead>
           <tr>
             <th></th>
             <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
           </tr>
         </thead>
         <tbody>
           <!-- row 1 -->
           <tr>
             <th>1</th>
-            <td>Cy Ganderton</td>
             <td>Quality Control Specialist</td>
-            <td>Blue</td>
           </tr>
           <!-- row 2 -->
           <tr>
             <th>2</th>
-            <td>Hart Hagerty</td>
             <td>Desktop Support Technician</td>
-            <td>Purple</td>
           </tr>
           <!-- row 3 -->
           <tr>
             <th>3</th>
-            <td>Brice Swyre</td>
             <td>Tax Accountant</td>
-            <td>Red</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="mx-auto md:w-8/12 w-10/12 border border-zinc-600">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
     <div class="flex justify-between">
       <div clatt="title">
         <h1> Project.all.order(creayed_at: :desc).page(params[:page]).per(6) </h1>

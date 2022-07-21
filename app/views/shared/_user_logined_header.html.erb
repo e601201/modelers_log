@@ -8,21 +8,21 @@
     <%#--profile dropdown start--%>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img src="https://placeimg.com/80/80/people" />
-        </div>
+        <% if current_user.owner_avatar.present? %>
+          <%=cl_image_tag "daichi-test/animal-test/#{current_user.owner_avatar.key}",
+          gravity: "face", height: 150, width: 150, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+        <% else %>
+          <div class="w-10 rounded-full">
+            <img src="https://placeimg.com/80/80/people" />
+          </div>
+        <% end %>
       </label>
       <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        <li> <%= link_to 'My workspace', workspace_path(current_user.id) %> </li>
-        <li>
-          <a class="justify-between">
-            my profile 
-            <span class="badge">New</span>
-          </a>
-          <%= link_to 'change my ID,s', edit_workspace_path(current_user.id), class: "justify-between" %>
-        </li>
+        <li> <%= link_to t('My workspace'), workspace_path(current_user.id) %> </li>
+        <li><%= link_to t('.See my profile'), workspace_profile_path(current_user.id) %></li>
+        <li><%= link_to t('.change my ID,s'), edit_workspace_path(current_user.id), class: "justify-between" %></li>
         <li><a>Settings</a></li>
-        <li><%=button_to "logout", logout_path, method: :delete, data: { turbo: false } %><li>
+        <li><%=button_to t('.logout'), logout_path, method: :delete, data: { turbo: false } %><li>
       </ul>
     </div>
     <%#--profile dropdown end--%>

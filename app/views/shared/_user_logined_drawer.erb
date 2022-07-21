@@ -2,13 +2,18 @@
   <div class="input-group input-group-xs md:input-group-md ">
     <input type="text" placeholder="Search my projects" class="input input-bordered input-xs md:input-md " />
     <button class="btn btn-square btn-xs md:btn-md">
-      go
+      <%= t('defaults.search') %>
     </button>
   </div>
 </div>
-<li><a>ログイン中</a></li>
-<li><a>My projects</a></li>
-<li><%= link_to t('.See my profile'), workspace_profile_path(current_user.id) %></li>
+
+<li><%= " Hello " + current_user.owner_name %></li>
+<li><%= link_to t('.home'), root_path %></li>
+<li><%= link_to t('.See all projects'), projects_path %></li>
+<li><%= link_to t('.See others workspace'), workspaces_path %></li>
 <li><a>See my toolset</a></li>
+<li><a>See my favorite projects </a></li>
+<li><a>See my toolset</a></li>
+
 
 <label for="my-drawer" class="btn btn-primary"> close </label>

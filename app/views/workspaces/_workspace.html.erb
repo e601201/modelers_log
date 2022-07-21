@@ -5,22 +5,9 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('crypted_password') %>:</strong>
-    <%= workspace.crypted_password %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('salt') %>:</strong>
-    <%= workspace.salt %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('owner_avatar') %>:</strong>
     <% if workspace.owner_avatar.present? %>
       <%= image_tag workspace.owner_avatar.variant(resize_to_limit: [100, 100])%>
-      <%=cl_image_tag("daichi-test/animal-test/#{workspace.owner_avatar.key}",
-      transformation: [ effect: "shadow:40", angle: 53 ]
-        ) %>
     <% end %>
   </p>
 

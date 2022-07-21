@@ -4,6 +4,7 @@ ja:
     logout: "ログアウト"
     edit: "編集"
     back: "戻る"
+    search: "検索"
     search_word: "検索ワード"
     password_reset: 'パスワードリセット'
     message:
@@ -17,6 +18,8 @@ ja:
       delete_confirm: "削除してもよろしいですか？"
       require_login: "ログインをしてください"
       errors_detected: "件のエラーが検出されました"
+      not_supported: "はサポートされていないフォーマットです"
+      keep_under: "は%{item}以下の画像にしてください"
   helper:
   admin:
   static_pages:
