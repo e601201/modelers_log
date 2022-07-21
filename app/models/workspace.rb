@@ -1,6 +1,5 @@
 class Workspace < ApplicationRecord
   authenticates_with_sorcery!
-  # mount_uploader :avatar, AvatarUploader
   has_one_attached :owner_avatar
   has_many :projects, dependent: :destroy
   # has_many  :relationships, dependent: :destroy
@@ -17,7 +16,7 @@ class Workspace < ApplicationRecord
 
   validates :email, uniqueness: true
   validates :owner_name, length: { maximum: 255 }
-
+  validates :owner_avatar, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
   def received_new_notification?
     # ユーザーが新規通知を受け取ったかどうかをbool値で返すメソッド
   end

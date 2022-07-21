@@ -17,6 +17,9 @@
 
   <% if workspace.owner_avatar.present? %>
     <%= image_tag workspace.owner_avatar.variant(resize_to_limit: [100, 100])%>
+    <%= link_to owner_avatars_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'} ,class: 'btn btn-error btn-outline' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    <% end %>
   <% end %>
   
   <div class="my-5">
