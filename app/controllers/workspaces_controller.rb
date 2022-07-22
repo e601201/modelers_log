@@ -16,6 +16,7 @@ class WorkspacesController < ApplicationController
 
   def create
     @workspace = Workspace.new(workspace_params)
+    @workspace.owner_name = t('defaults.user.no_name') unless @workspace.owner_name
 
     if @workspace.save
       redirect_to :workspaces, success: t('defaults.message.created', item: Workspace.model_name.human)
