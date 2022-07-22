@@ -1,6 +1,6 @@
 class WorkspacesController < ApplicationController
   before_action :set_workspace, only: %i[show edit update destroy]
-  skip_before_action :require_login, only: %i[index new create]
+  skip_before_action :require_login, only: %i[index show new create]
 
   def index
     @workspaces = Workspace.all

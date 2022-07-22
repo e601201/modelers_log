@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     resources :tasks, except: %i[new create]                         #tasks管理
   end
 
+  scope module: :top do
+    resources :hot_projects,   only: :index
+    resources :hot_workspaces, only: :index
+  end
+
   get  'login',       to: 'user_sessions#new'                        #ユーザーログイン画面
   post 'login',       to: 'user_sessions#create'                     #ユーザーログイン処理
   delete 'logout',    to: 'user_sessions#destroy'                    #ユーザーログアウト処理
@@ -24,7 +29,6 @@ Rails.application.routes.draw do
     collection do
       get 'search'                                                   #projectsの検索
       resource :recent, only: :show, module: 'projects'              #projectの新規作成順
-      resource :hot, only: :show, module: 'projects'                 #お気に入りの多いproject順
     end
   end
 
