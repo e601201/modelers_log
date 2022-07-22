@@ -1,0 +1,25 @@
+<div id="<%= dom_id project %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">title:</strong>
+    <%= project.title %>
+  </p>
+  
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bod:</strong>
+    <%= project.body %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image:</strong>
+    <%= link_to project.project_image.filename, project.project_image if project.project_image.attached? %>
+    <% if project.project_image.present? %>
+      <%= image_tag project.project_image.variant(resize_to_limit: [100, 100])%>
+    <% end %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this project', edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

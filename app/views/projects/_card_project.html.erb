@@ -1,0 +1,24 @@
+<div class="card shadow-l rounded-none ">
+  <%= link_to project, class: "relative" do %>
+    <%= image_tag project.project_image %>
+    <div class="absolute bottom-0 left-0 flex item-center">
+      <%=cl_image_tag "daichi-test/animal-test/#{project.workspace.owner_avatar.key}",
+          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+      <div class="flex items-center flex-1 h-10 ml-2 text-white">
+        <%= tag.p project.workspace.owner_name, class: "font-bold truncate-1 text-shadow" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="card-body p-1">
+    <div class="card-actions justify-between ">
+      <div>
+        <%= tag.p project.title, class: "card-title" %>
+      </div>
+      <div class="radial-progress text-primary" style="--value:70; --size:3rem;">70%</div>
+    </div>
+    <div class="card-actions justify-end ">
+      <div class="badge badge-outline">#neutral</div>
+      <div class="badge badge-primary badge-outline">#primary</div>
+    </div>
+  </div>
+</div>
