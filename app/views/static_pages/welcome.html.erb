@@ -1,234 +1,165 @@
 <div class="flex flex-col md:flex-row">
-  <div class="mx-auto md:w-2/12 w-10/12 border border-zinc-600" >
-    <h1> お知らせ </h1>
+  <!--left side-->
+  <div class="mx-auto md:w-3/12 w-11/12 " >
+    <h1> お知らせ (工事中)</h1>
+    <div class="overflow-x-auto"> 
+      <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
+      <table class="table w-full">
+        <tbody>
+          <!-- row 1 -->
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>いい感じのお知らせ（工事中）</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h1> 新着モデラー (工事中) </h1>
     <div class="overflow-x-auto"> 
       <h1><%= Date.current %></h1>
       <table class="table w-full">
-        <!-- head -->
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-          </tr>
-        </thead>
         <tbody>
-          <!-- row 1 -->
-          <tr>
-            <th>1</th>
-            <td>Quality Control Specialist</td>
-          </tr>
-          <!-- row 2 -->
-          <tr>
-            <th>2</th>
-            <td>Desktop Support Technician</td>
-          </tr>
-          <!-- row 3 -->
-          <tr>
-            <th>3</th>
-            <td>Tax Accountant</td>
-          </tr>
+          <% @workspaces.each do |workspace|%>
+            <tr>
+                <td>
+                  <div class="flex items-center space-x-3">
+                    <div class="avatar">
+                      <div class="mask mask-squircle w-12 h-12">
+                        <% if workspace.owner_avatar.attached? %>
+                          <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
+                          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+                        <% else %>
+                          <div class="w-12 h-12 rounded-full">
+                            <img src="https://placeimg.com/80/80/people" />
+                          </div>  
+                        <% end %>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-bold"><%= workspace.owner_name %></div>
+                    </div>
+                    <div>
+                      <div class="text-sm opacity-50">United States</div>
+                    </div>
+                  </div>
+                </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="mx-auto md:w-8/12 w-10/12 border border-zinc-600">
-    <div class="flex justify-between">
-      <div clatt="title">
-        <h1> Project.all.order(creayed_at: :desc).page(params[:page]).per(6) </h1>
-      </div>
-      <div class="btn-group">
-        <button class="btn btn-xs">1</button>
-        <button class="btn btn-xs btn-active">2</button>
-        <button class="btn btn-xs">3</button>
-        <button class="btn btn-xs">4</button>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog  does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+  <!--center-->
+  <div class="mx-auto md:w-9/12 w-11/12 "> 
+    <!--Finished projects line-->
+    <div id="famous-workspace">
+      <div id="famous-workspace-header">
+        <div class="flex justify-between">
+          <div class="title">
+            <h1> 完成プロジェクトアーカイブ Project.all.order(be_liked: :desc).page(params[:page]).per(10) </h1>
+          </div>
+          <!--ページネーション-->
+          <div class="btn-group"> 
+            <button class="btn btn-xs">1</button>
+            <button class="btn btn-xs btn-active">2</button>
+            <button class="btn btn-xs">3</button>
+            <button class="btn btn-xs">4</button>
           </div>
         </div>
       </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h2 class="card-title">Card title!</h2>
+            <p>If a dog  does he choose?</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">Buy Now</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="flex justify-between">
-      <div clatt="title">
-        <h1>Project.all.order(be_liked: :desc).page(params[:page]).per(10)</h1>
-      </div>
-      <div class="btn-group">
-        <button class="btn btn-xs">1</button>
-        <button class="btn btn-xs btn-active">2</button>
-        <button class="btn btn-xs">3</button>
-        <button class="btn btn-xs">4</button>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+    <!--Favorite projects line-->
+    <div id="favorite-project">
+      <div id="favorite-project-header">
+        <div class="flex justify-between">
+          <div class="title">
+            <h1> 人気プロジェクト Project.all.order(be_liked: :desc).page(params[:page]).per(10) </h1>
+          </div>
+          <!--ページネーション-->
+          <div class="btn-group"> 
+            <button class="btn btn-xs">1</button>
+            <button class="btn btn-xs btn-active">2</button>
+            <button class="btn btn-xs">3</button>
+            <button class="btn btn-xs">4</button>
           </div>
         </div>
       </div>
-      
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+      <!--content grid-->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
+        <!--main content-->
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h2 class="card-title">Card title!</h2>
+            <p>If a dog  does he choose?</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">Buy Now</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-      <div class="flex justify-between">
-      <div clatt="title">
-        <h1>Task.all.recently_completed.par(10)</h1>
+    <!--New projects line-->
+    <div id="new-project">
+      <div id="new-project-header">
+        <div class="flex justify-between">
+          <div class="title">
+            <h1> 新着プロジェクト Project.all.order(cleated_at: :desc).page(params[:page]).per(6) </h1>
+          </div>
+          <!--ページネーション-->
+          <div class="btn-group"> 
+            <button class="btn btn-xs">1</button>
+            <button class="btn btn-xs btn-active">2</button>
+            <button class="btn btn-xs">3</button>
+            <button class="btn btn-xs">4</button>
+          </div>
+        </div>
       </div>
-      <div class="btn-group">
-        <button class="btn btn-xs">1</button>
-        <button class="btn btn-xs btn-active">2</button>
-        <button class="btn btn-xs">3</button>
-        <button class="btn btn-xs">4</button>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
+        <%= render partial: "projects/card_project", collection: @projects, as: 'project' %>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+    <!--New workspaces line-->
+    <div id="new-workspace">
+      <div id="new-workspace-header">
+        <div class="flex justify-between">
+          <div class="title">
+            <h1> 新着 ワークスペース Workspace.all.order(be_liked: :desc).page(params[:page]).per(10) </h1>
+          </div>
+          <!--ページネーション-->
+          <div class="btn-group"> 
+            <button class="btn btn-xs">1</button>
+            <button class="btn btn-xs btn-active">2</button>
+            <button class="btn btn-xs">3</button>
+            <button class="btn btn-xs">4</button>
           </div>
         </div>
       </div>
-      
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Card title!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h2 class="card-title">Card title!</h2>
+            <p>If a dog  does he choose?</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">Buy Now</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    
+    <!--famous workspaces line-->
   </div>
-  <div class="mx-auto md:w-2/12 w-10/12 border border-zinc-600" >
-    <h1>お知らせ</h1>
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <!-- head -->
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- row 1 -->
-          <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
-          </tr>
-          <!-- row 2 -->
-          <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-          </tr>
-          <!-- row 3 -->
-          <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <!--right side-->
 </div>

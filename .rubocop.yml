@@ -13,6 +13,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'config/**/*'
     - 'Gemfile'
+    - 'app/validators/**/*'
   DisplayCopNames: true
 
 Layout/MultilineBlockLayout:

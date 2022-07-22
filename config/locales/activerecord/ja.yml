@@ -23,7 +23,7 @@ ja:
       project:
         title: 'タイトル'
         body: '内容'
-        image: '画像'
+        project_image: '画像'
         status: 'ステータス'
       task:
         title: 'タイトル'

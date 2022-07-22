@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  # mount_uploader :picture, PictureUploader
+  has_one_attached :project_image
   belongs_to :workspace
   # has_many :tasks, dependent: :destroy
   # has_many :favorites, dependent: :destroy

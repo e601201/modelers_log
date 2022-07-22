@@ -1,5 +1,7 @@
 ja:
   defaults:
+    user:
+      no_name: "名無しさん"
     login: "ログイン"
     logout: "ログアウト"
     edit: "編集"
