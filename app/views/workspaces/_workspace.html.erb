@@ -1,19 +1,36 @@
 <div id="<%= dom_id workspace %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('email') %>:</strong>
-    <%= workspace.email %>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('owner_avatar') %>:</strong>
-    <% if workspace.owner_avatar.present? %>
-      <%= image_tag workspace.owner_avatar.variant(resize_to_limit: [100, 100])%>
-    <% end %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this workspace", workspace, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this workspace', edit_workspace_path(workspace), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <!-- <strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('owner_avatar') %>:</strong> -->
+  <div classs= "card">
+    <div class= "flex items-center ">
+      <%= link_to workspace do %>
+        <div class= "flex items-center ">
+          <% if workspace.owner_avatar.present? %>
+            <%=cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
+            gravity: "face", height: 100, width: 100, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+          <% end %>
+          <div class= "ml-5 ">
+            <p class="flex-1 font-bold text-m" > <%= workspace.owner_name %> さん</p>
+          </div>
+        </div>
+      <% end %>
+      <div class= "ml-5">
+        <button class="btn btn-secondary btn-gap-1 btn-sm ">
+          + Follow
+        </button> 
+      </div>
+    </div>
+    <div>
+    オーナからのコメント:
+    検索時はここのコメントの中身を参照する
+    <%# workspace.owner_comment%> <!--後でカラムをworkspaceに追加-->
+    </div>
+  </div>
 </div>
+
+    <!--<strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('email') %>:</strong>-->
+    <%# workspace.email %>
+      <%# if action_name != "show" %>
+    <%# link_to "Show this workspace", workspace, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%# link_to 'Edit this workspace', edit_workspace_path(workspace), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%# end %>

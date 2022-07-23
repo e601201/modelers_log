@@ -1,10 +1,13 @@
-<div class="w-full">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl"><%= t '.title' %></h1>
-    <%= link_to 'New workspace', new_workspace_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="workspaces" class="min-w-full">
-    <%= render @workspaces %>
-  </div>
+<div class="tabs ">
+  <%= link_to t('workspaces.index.title'), workspaces_path, class: 'tab tab-bordered tab-active' %>
+  <%= link_to t('projects.index.title'), projects_path, class: 'tab tab-bordered'%>
 </div>
+<div>
+  実装予定
+  検索機能
+  タブでの検索機能
+</div>
+<div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
+  <%= render @workspaces %>
+</div>
+<%# link_to 'New workspace', new_workspace_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
