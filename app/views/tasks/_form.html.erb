@@ -1,0 +1,35 @@
+<%= form_with model:[project, task], class: "contents" do |form| %>
+<%= render 'shared/error_messages', object: form.object %>
+  <div class="my-5">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :body %>
+    <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <% if task.task_image.present? %>
+    <%= image_tag task.task_image.variant(resize_to_limit: [100, 100])%>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :task_image %>
+    <%= form.file_field :task_image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :usage_time %>
+    <%= form.number_field :usage_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :task_state %>
+    <%= form.select :task_state,Task.task_states.keys, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

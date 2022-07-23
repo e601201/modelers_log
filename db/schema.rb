@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_21_070940) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_070340) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,6 +50,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_070940) do
     t.index ["workspace_id"], name: "index_projects_on_workspace_id"
   end
 
+  create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.string "task_image"
+    t.integer "usage_time", default: 30, null: false
+    t.integer "task_state", default: 0, null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
+
   create_table "workspaces", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -70,4 +82,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_070940) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "projects", "workspaces"
+  add_foreign_key "tasks", "projects"
 end

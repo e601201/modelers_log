@@ -4,6 +4,7 @@ ja:
       no_name: "名無しさん"
     login: "ログイン"
     logout: "ログアウト"
+    home: 'ホーム'
     edit: "編集"
     back: "戻る"
     search: "検索"

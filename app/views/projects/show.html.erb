@@ -1,15 +1,71 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @project %>
-
-    <%= link_to 'Edit this project', edit_project_path(@project), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this project', project_path(@project), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+<!--プロジェクトの中身-->
+<div class="flex flex-col md:flex-row mx-10">
+  <div class="container mx-auto w-full md:w-1/5 ">
+    <div class="text-3xl md:text-5xl">one's project</div>
+    <div>
+      <%= render @project %>
     </div>
-    <%= link_to 'Back to projects', projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% if current_user&.id == @project.workspace_id %>
+      <div>
+        <%= link_to 'New task', new_project_task_path(@project), class: "btn btn-primary" %>
+        <%= link_to 'Edit this project', edit_project_path(@project), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= button_to 'Destroy this project', project_path(@project), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>
+    <% end %>
+    <div>
+      <%= link_to 'Back to home', root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
   </div>
+
+  <div class="mx-auto md:w-3/5 w-full ">
+
+    <div class="flex flex-col w-full lg:flex-row">
+      <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
+        <label class= "badge"> 未完了タスク </label>
+        <div class="main-content">
+          <!--下記の部分はDryにするべきなので、後で一つのテンプレに、まとめてローカルに各々の変数を渡す-->
+          <% if @tasks.present? %>
+            <% @wip_tasks = @tasks.select {|wip_task| wip_task.in_progress?} %>
+            <% @wip_tasks.each do |task| %>
+              <div><%= link_to task.title, project_task_path(@project,task), class: "link" %></div>
+            <% end %>
+          <% else %>
+            <%= tag.div do %>
+              <p>No task here</p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="divider lg:divider-horizontal"> </div>
+      <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
+        <label class= "badge" > 完了タスク </label>
+        <div class="main-content">
+          <!--下記の部分はDryにするべきなので、後で一つのテンプレに、まとめてローカルに各々の変数を渡す-->
+          <% if @tasks.present? %>
+            <% @wip_tasks = @tasks.select {|wip_task| wip_task.done?} %>
+            <% @wip_tasks.each do |task| %>
+              <div><%= link_to task.title, project_task_path(@project,task), class: "link" %></div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%console%>
+    <div class="mx-auto">
+      <% if @tasks.present? %>
+        <% @tasks.each do |task| %>
+          <%= tag.div do %>
+            <%= task.title %>
+            <%= task.body %>
+            <%= link_to "Show this task", project_task_path(@project,task), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+            <% if @project.workspace_id==current_user&.id %>
+              <%= link_to 'Edit this task', edit_project_task_path(@project,task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

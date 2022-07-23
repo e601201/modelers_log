@@ -2,10 +2,12 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
   skip_before_action :require_login, only: %i[index show]
   def index
-    @projects = Project.all
+    @projects = Project.all.includes(:workspace)
   end
 
-  def show; end
+  def show
+    @tasks = @project.tasks
+  end
 
   def new
     @project = Project.new
@@ -33,7 +35,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to projects_url, success: t('defaults.message.deleted', item: Workspace.model_name.human)
+    redirect_to projects_url, success: t('defaults.message.deleted', item: Workspace.model_name.human), status: :see_other
   end
 
   private

@@ -1,18 +1,9 @@
 <%= form_with(model: workspace, class: "contents") do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="my-5">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
   <div class="my-5">
-    <%= f.label :password %>
-    <%= f.text_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= f.label :owner_name %>
+    <%= f.text_field :owner_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <% if workspace.owner_avatar.present? %>
@@ -25,6 +16,21 @@
   <div class="my-5">
     <%= f.label :owner_avatar %>
     <%= f.file_field :owner_avatar, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+    <div class="my-5">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= f.label :password %>
+    <%= f.text_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

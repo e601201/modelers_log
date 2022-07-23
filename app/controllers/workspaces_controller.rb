@@ -6,7 +6,9 @@ class WorkspacesController < ApplicationController
     @workspaces = Workspace.all
   end
 
-  def show; end
+  def show
+    @projects = @workspace.projects
+  end
 
   def new
     @workspace = Workspace.new
@@ -35,8 +37,8 @@ class WorkspacesController < ApplicationController
   end
 
   def destroy
-    @workspace.destroy
-    redirect_to root_path, success: t('defaults.message.deleted', item: Workspace.model_name.human)
+    @workspace.destroy!
+    redirect_to root_path, success: t('defaults.message.deleted', item: Workspace.model_name.human), status: :see_other
   end
 
   private

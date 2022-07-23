@@ -1,9 +1,5 @@
 class ProfilesController < ApplicationController
   def show
-    @profile = current_user.id
+    @profile = Workspace.find(params[:workspace_id])
   end
-
-  def edit; end
-
-  def update; end
 end

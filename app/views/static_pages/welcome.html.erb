@@ -1,58 +1,21 @@
-<div class="flex flex-col md:flex-row">
+<div class="flex flex-col md:flex-row mx-10">
   <!--left side-->
-  <div class="mx-auto md:w-3/12 w-11/12 " >
-    <h1> お知らせ (工事中)</h1>
-    <div class="overflow-x-auto"> 
-      <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
-      <table class="table w-full">
-        <tbody>
-          <!-- row 1 -->
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>いい感じのお知らせ（工事中）</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h1> 新着モデラー (工事中) </h1>
-    <div class="overflow-x-auto"> 
-      <h1><%= Date.current %></h1>
-      <table class="table w-full">
-        <tbody>
-          <% @workspaces.each do |workspace|%>
-            <tr>
-                <td>
-                  <div class="flex items-center space-x-3">
-                    <div class="avatar">
-                      <div class="mask mask-squircle w-12 h-12">
-                        <% if workspace.owner_avatar.attached? %>
-                          <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
-                          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
-                        <% else %>
-                          <div class="w-12 h-12 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" />
-                          </div>  
-                        <% end %>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="font-bold"><%= workspace.owner_name %></div>
-                    </div>
-                    <div>
-                      <div class="text-sm opacity-50">United States</div>
-                    </div>
-                  </div>
-                </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
   <!--center-->
-  <div class="mx-auto md:w-9/12 w-11/12 "> 
+  <div class="container mx-auto md:w-9/12 w-11/12 "> 
+
+    <div class="carousel carousel-center ounded-box p-5 space-x-4">
+      <div class="carousel-item">
+        <img src="https://placeimg.com/400/300/arch" alt="Burger" />
+        <%# image_tag @projects.second.project_image.variant(resize_to_limit: [400, 300])%>
+      </div> 
+      <div class="carousel-item">
+        <img src="https://placeimg.com/400/300/arch" alt="Burger" />
+      </div> 
+      <div class="carousel-item">
+        <img src="https://placeimg.com/400/300/arch" alt="Burger" />
+      </div> 
+    </div>
+
     <!--Finished projects line-->
     <div id="famous-workspace">
       <div id="famous-workspace-header">
@@ -162,4 +125,95 @@
     <!--famous workspaces line-->
   </div>
   <!--right side-->
+  <div class="mx-auto md:w-3/12 w-11/12 " >
+    <h1> お知らせ (工事中)</h1>
+    <div class="overflow-auto h-1/5"> 
+      <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
+      <table class="table w-full">
+        <tbody>
+          <!-- sample -->
+          <!--
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%# news.created_at %></div>
+              <%# link_to news.title , news %>
+            </td>
+          </tr>
+          みたいなやつを後で書く
+          -->
+          <!-- row 1 -->
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>なんかのお知らせ（工事中）</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>いい感じのお知らせ（工事中）</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>気分が上がるお知らせ（工事中）</div>
+            </td>
+          </tr>
+                    <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>なんかのお知らせ（工事中）</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>いい感じのお知らせ（工事中）</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="text-stone-400 text-sm"><%= Date.current %></div>
+              <div>気分が上がるお知らせ（工事中）</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h1> 新着モデラー (工事中) </h1>
+    <div class="overflow-auto h-1/5"> 
+      <h1><%= Date.current %></h1>
+      <table class="table w-full">
+        <tbody>
+          <% @workspaces.each do |workspace|%>
+            <tr>
+                <td>
+                  <div class="flex items-center space-x-3">
+                    <div class="avatar">
+                      <div class="mask mask-squircle w-12 h-12">
+                        <% if workspace.owner_avatar.attached? %>
+                          <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
+                          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+                        <% else %>
+                          <div class="w-12 h-12 rounded-full">
+                            <img src="https://placeimg.com/80/80/people" />
+                          </div>  
+                        <% end %>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-bold"><%= workspace.owner_name %></div>
+                    </div>
+                    <div>
+                      <div class="text-sm opacity-50">United States</div>
+                    </div>
+                  </div>
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

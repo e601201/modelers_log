@@ -1,0 +1,42 @@
+<!--プロフィールフォーム-->
+<div id="<%= dom_id profile %>">
+
+  <p class="my-5">
+    <% if profile.owner_avatar.present? %>
+      <%= image_tag profile.owner_avatar.variant(resize_to_limit: [100, 100])%>
+    <% else %>
+      <%= image_tag "sample", size: "100x100" %>
+    <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">owner_name:</strong>
+    <%= profile.owner_name %>
+  </p>
+
+  <p class="my-5">
+    <div>
+    オーナからのコメント:
+    検索時はここのコメントの中身を参照する
+    <%# workspace.owner_comment%> <!--後でカラムをworkspaceに追加-->
+    </div>
+  </p>
+
+  <p class="my-5">
+    <div>
+    SNS:
+    </div>
+  </p>
+  <p class="my-5">
+    <div>
+    ツールセット:
+    </div>
+  </p>
+</div>
+
+    <!--<strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('email') %>:</strong>-->
+    <%# workspace.email %>
+      <%# if action_name != "show" %>
+    <%# link_to "Show this workspace", workspace, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%# link_to 'Edit this workspace', edit_workspace_path(workspace), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%# end %>
