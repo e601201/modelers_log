@@ -1,24 +1,34 @@
 <footer class="footer container mx-auto p-10 bg-base-200 text-base-content ">
   <div>
     <span class="footer-title font-bold">プロジェクトを探す</span> 
-    <a class="link link-hover">プロジェクト一覧</a>
+    <%= link_to t('.all_project'), projects_path %>
     <a class="link link-hover">カテゴリー別</a> 
     <a class="link link-hover">新着プロジェクト</a> 
     <a class="link link-hover">人気のプロジェクト</a> 
   </div> 
   <div>
     <span class="footer-title font-bold" >プロジェクトを創る</span> 
-    <a class="link link-hover">設計図作成へ</a> 
-    <a class="link link-hover">設計図の書き方</a> 
+    <%= link_to t('.add_project'), new_project_path %> 
+    <a class="link link-hover">How to make a project </a> 
   </div> 
   <% if logged_in? %>
     <div>
       <span class="footer-title font-bold" >あなたのWorkspace</span>
-      <a class="link link-hover">ユーザー新規作成</a>
+      <%= link_to t('.workspace'),workspace_path(current_user.id) %>
+      <%= link_to t('.profile'),workspace_profile_path(current_user.id) %>
+    </div>
+  <% else %>
+    <div>
+      <span class="footer-title font-bold" >Workspace</span>
+      <%= link_to t('.new_workspace'), new_workspace_path %>
       <a class="link link-hover">ログイン</a>
-      <a class="link link-hover">プロフィール編集</a>
     </div>
   <% end %>
+  <div>
+    <span class="footer-title font-bold">カスタマーサポート</span> 
+    <a class="link link-hover">よくある質問</a> 
+    <%= link_to "質問箱", url: "https://forms.gle/Tn7jYn66WbopnYCJ7" %>
+  </div>
   <div>
     <span class="footer-title font-bold">法的事項</span> 
     <a class="link link-hover">利用規約</a> 

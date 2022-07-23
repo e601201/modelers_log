@@ -8,12 +8,11 @@
 </div>
 
 <li><%= " Hello #{current_user.owner_name}" %></li>
-<li><%= link_to t('.home'), root_path %></li>
-<li><%= link_to t('.See new arrivals projects'), projects_path %></li>
-<li><%= link_to t('.Search others workspace'), workspaces_path %></li>
-<li><a>See my toolset</a></li>
-<li><a>See my favorite projects </a></li>
-<li><a>See my toolset</a></li>
+<li><%= link_to t('my workspace'), workspace_path(current_user.id) %></li>
+<li><a>See my favorite projects(工事中)</a></li>
+<li><%= link_to t('defaults.home'), root_path %></li>
+<li><%= link_to t('projects.index.title'), projects_path %></li>
+<li><%= link_to t('workspaces.index.title'), workspaces_path %></li>
 
 
 <label for="my-drawer" class="btn btn-primary"> close </label>
