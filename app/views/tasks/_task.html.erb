@@ -1,0 +1,35 @@
+<div id="<%= dom_id task %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= task.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Body:</strong>
+    <%= task.body %>
+  </p>
+
+  <p class="my-5">
+    <% if task.task_image.present? %>
+      <%= image_tag task.task_image.variant(resize_to_limit: [100, 100])%>
+    <% else %>
+      <%= image_tag "sample", size: "100x100" %>
+    <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Usage time:</strong>
+    <%= task.usage_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Task state:</strong>
+    <%= task.task_state %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this task", project_task_path(task), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this task', edit_task_path(task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

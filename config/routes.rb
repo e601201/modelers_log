@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]       #パスワードリセット
 
   resources :projects do                                             #projects
-    resources :tasks                                                 #tasks
+    resources :tasks, except: :index                                                 #tasks
     resource :preview, only: :show, module: 'projects'               #task設定時のprojectのプレビュー表示
     resources :favorites, only: %i[create destroy]                   #projectをお気に入りに追加
     collection do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   resources :workspaces do                                           #workspaces_CRUD
-    resource :profile,          only: %i[show edit update]           #workspacesの中のprofile
+    resource :profile,          only: :show                          #workspacesの中のprofile
     resource :relationships,    only: %i[create destroy]             #好きなwaorkspaceをお気に入りに追加
     member do
       resources :tool_set                                            #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
