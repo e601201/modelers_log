@@ -53,6 +53,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "sorcery"
 gem "rails-i18n", "~> 7.0.0"
+gem "draper"
 
 gem "cloudinary"
 group :development, :test do
