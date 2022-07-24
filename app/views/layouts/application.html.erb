@@ -42,9 +42,7 @@
     </main>
 
     <!-- footer here -->
-    <div class="bg-base-200">
-      <%= render 'shared/footer'%>
-    </div>
+    <%= render 'shared/footer'%>
     <% if Rails.env.development? %>
       <script type="module" src="https://cdn.skypack.dev/@aki77/rails-template-inspector"></script>
       <rails-inspector url-prefix="vscode://file" root="<%= Rails.root %>" combo-key="command-shift-v"></rails-inspector>
