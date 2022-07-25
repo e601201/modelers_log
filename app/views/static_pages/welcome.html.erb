@@ -2,7 +2,7 @@
   <!--left side-->
   <!--center-->
   <div class="container mx-auto md:w-9/12 w-11/12 "> 
-
+    <label>毎時、プロジェクトの中からランダムに選んだものをカルーセルにして並べる（工事中）</label>
     <div class="carousel carousel-center ounded-box p-5 space-x-4">
       <div class="carousel-item">
         <img src="https://placeimg.com/400/300/arch" alt="Burger" />
@@ -15,13 +15,32 @@
         <img src="https://placeimg.com/400/300/arch" alt="Burger" />
       </div> 
     </div>
-
+    <!--New projects line-->
+    <div id="new-project">
+      <div id="new-project-header">
+        <div class="flex justify-between">
+          <div class="title">
+            <h1> 新着プロジェクト </h1>
+          </div>
+          <!--ページネーション-->
+          <div class="btn-group"> 
+            <button class="btn btn-xs">1</button>
+            <button class="btn btn-xs btn-active">2</button>
+            <button class="btn btn-xs">3</button>
+            <button class="btn btn-xs">4</button>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
+        <%= render partial: "projects/card_project", collection: @projects, as: 'project' %>
+      </div>
+    </div>
     <!--Finished projects line-->
     <div id="famous-workspace">
       <div id="famous-workspace-header">
         <div class="flex justify-between">
           <div class="title">
-            <h1> 完成プロジェクトアーカイブ Project.all.order(be_liked: :desc).page(params[:page]).per(10) </h1>
+            <h1> 新着/完成プロジェクト </h1>
           </div>
           <!--ページネーション-->
           <div class="btn-group"> 
@@ -33,15 +52,7 @@
         </div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body">
-            <h2 class="card-title">Card title!</h2>
-            <p>If a dog  does he choose?</p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+        <%= render partial: "projects/card_project", collection: @projects.recent_dones.each, as: 'project' %>
       </div>
     </div>
     <!--Favorite projects line-->
@@ -49,7 +60,7 @@
       <div id="favorite-project-header">
         <div class="flex justify-between">
           <div class="title">
-            <h1> 人気プロジェクト Project.all.order(be_liked: :desc).page(params[:page]).per(10) </h1>
+            <h1> 人気プロジェクト </h1>
           </div>
           <!--ページネーション-->
           <div class="btn-group"> 
@@ -74,54 +85,7 @@
         </div>
       </div>
     </div>
-    <!--New projects line-->
-    <div id="new-project">
-      <div id="new-project-header">
-        <div class="flex justify-between">
-          <div class="title">
-            <h1> 新着プロジェクト Project.all.order(cleated_at: :desc).page(params[:page]).per(6) </h1>
-          </div>
-          <!--ページネーション-->
-          <div class="btn-group"> 
-            <button class="btn btn-xs">1</button>
-            <button class="btn btn-xs btn-active">2</button>
-            <button class="btn btn-xs">3</button>
-            <button class="btn btn-xs">4</button>
-          </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/card_project", collection: @projects, as: 'project' %>
-      </div>
-    </div>
     <!--New workspaces line-->
-    <div id="new-workspace">
-      <div id="new-workspace-header">
-        <div class="flex justify-between">
-          <div class="title">
-            <h1> 新着 ワークスペース Workspace.all.order(be_liked: :desc).page(params[:page]).per(10) </h1>
-          </div>
-          <!--ページネーション-->
-          <div class="btn-group"> 
-            <button class="btn btn-xs">1</button>
-            <button class="btn btn-xs btn-active">2</button>
-            <button class="btn btn-xs">3</button>
-            <button class="btn btn-xs">4</button>
-          </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body">
-            <h2 class="card-title">Card title!</h2>
-            <p>If a dog  does he choose?</p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!--famous workspaces line-->
   </div>
   <!--right side-->
@@ -135,8 +99,8 @@
           <!--
           <tr>
             <td>
-              <div class="text-stone-400 text-sm"><%# news.created_at %></div>
-              <%# link_to news.title , news %>
+              <div class="text-stone-400 text-sm"><%# @news.created_at %></div>
+              <%# link_to @news.title , news %>
             </td>
           </tr>
           みたいなやつを後で書く
@@ -183,35 +147,9 @@
     </div>
     <h1> 新着モデラー (工事中) </h1>
     <div class="overflow-auto h-1/5"> 
-      <h1><%= Date.current %></h1>
       <table class="table w-full">
         <tbody>
-          <% @workspaces.each do |workspace|%>
-            <tr>
-                <td>
-                  <div class="flex items-center space-x-3">
-                    <div class="avatar">
-                      <div class="mask mask-squircle w-12 h-12">
-                        <% if workspace.owner_avatar.attached? %>
-                          <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
-                          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
-                        <% else %>
-                          <div class="w-12 h-12 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" />
-                          </div>  
-                        <% end %>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="font-bold"><%= workspace.owner_name %></div>
-                    </div>
-                    <div>
-                      <div class="text-sm opacity-50">United States</div>
-                    </div>
-                  </div>
-                </td>
-            </tr>
-          <% end %>
+          <%= render partial: "workspace_avatar", collection: @workspaces, as: "workspace" %>
         </tbody>
       </table>
     </div>

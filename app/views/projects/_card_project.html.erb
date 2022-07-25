@@ -18,7 +18,9 @@
       <div>
         <%= tag.p project.title, class: "card-title" %>
       </div>
-      <div class="radial-progress text-primary" style="--value:70; --size:3rem;">70%</div>
+      <%= tag.div class: "radial-progress text-primary", style: "--value:#{project.decorate.percentage_of_done_tasks}; --size:3rem;" do %>
+        <%= project.decorate.percentage_of_done_tasks %>%
+      <% end %>
     </div>
     <div class="card-actions justify-end ">
       <div class="badge badge-outline">#neutral</div>
