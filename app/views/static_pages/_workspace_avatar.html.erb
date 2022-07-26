@@ -1,23 +1,26 @@
 <tr>
     <td>
-      <div class="flex items-center space-x-3">
-        <div class="avatar">
-          <div class="mask mask-squircle w-12 h-12">
-            <% if workspace.owner_avatar.attached? %>
-              <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}" %>
-            <% else %>
-              <div class="w-12 h-12 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
-              </div>  
-            <% end %>
+      <%= link_to workspace_path(workspace) do%>
+        <div class="flex items-center space-x-3">
+          <div class="avatar">
+            <div class="mask mask-squircle w-12 h-12">
+              <% if workspace.owner_avatar.attached? %>
+                <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}" %>
+              <% else %>
+                <div class="w-12 h-12 rounded-full">
+                  <%= cl_image_tag "daichi-test/animal-test/sample_image.png",
+                  :height=>100, :width=>100, :crop=>"thumb", radius: 'max'%>
+                </div>  
+              <% end %>
+            </div>
+          </div>
+          <div>
+            <div class="font-bold"><%= workspace.owner_name %></div>
+          </div>
+          <div>
+            <div class="text-sm opacity-50">こんにちは</div>
           </div>
         </div>
-        <div>
-          <div class="font-bold"><%= workspace.owner_name %></div>
-        </div>
-        <div>
-          <div class="text-sm opacity-50">こんにちは</div>
-        </div>
-      </div>
+      <% end %>
     </td>
 </tr>
