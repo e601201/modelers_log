@@ -5,7 +5,7 @@
     <% if profile.owner_avatar.present? %>
       <%= image_tag profile.owner_avatar.variant(resize_to_limit: [100, 100])%>
     <% else %>
-      <%= image_tag "sample", size: "100x100" %>
+      <%= cl_image_tag "daichi-test/animal-test/sample_image.png", :height=>100, :width=>100, :crop=>"thumb" %>
     <% end %>
   </p>
 

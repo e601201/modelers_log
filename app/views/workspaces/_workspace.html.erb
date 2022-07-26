@@ -8,6 +8,9 @@
           <% if workspace.owner_avatar.present? %>
             <%=cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
             gravity: "face", height: 100, width: 100, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+          <% else %>
+            <%= cl_image_tag "daichi-test/animal-test/sample_image.png",
+            :height=>100, :width=>100, :crop=>"thumb", radius: 'max'%>
           <% end %>
           <div class= "ml-5 ">
             <p class="flex-1 font-bold text-m" > <%= workspace.owner_name %> さん</p>
