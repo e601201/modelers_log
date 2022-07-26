@@ -4,11 +4,15 @@
       <%=cl_image_tag "daichi-test/animal-test/#{project.project_image.key}",
       gravity: "face", height: 300, width: 400, crop: "thumb", fetch_format: :auto  %>
     <% else %>
-      <%= cl_image_tag "daichi-test/animal-test/sample_image.png", :height=>300, :width=>400, :crop=>"thumb" %>
+      <%= image_tag "sample_project" %>
     <% end %>
     <div class="absolute bottom-0 left-0 flex item-center">
-      <%=cl_image_tag "daichi-test/animal-test/#{project.workspace.owner_avatar.key}",
-          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+      <% if project.workspace.owner_avatar.attached? %>
+        <%=cl_image_tag "daichi-test/animal-test/#{project.workspace.owner_avatar.key}",
+            gravity: "face", height: 30, width: 45, radius: 'max', :quality=>"auto"%>
+      <% else %>
+        <%= image_tag "sample_avatar", size: "40x30", class: 'rounded-full', alt: "アイコン"%>
+      <% end %>
       <div class="flex items-center flex-none h-10 ml-2 px-3">
         <%= tag.p project.workspace.owner_name, class: "font-bold truncate w-28" %>
       </div>
@@ -19,8 +23,15 @@
       <div>
         <%= tag.p project.title, class: "card-title" %>
       </div>
+    </div>
+    <div class="flex justify-between">
       <%= tag.div class: "radial-progress text-primary", style: "--value:#{project.decorate.percentage_of_done_tasks}; --size:3rem;" do %>
         <%= project.decorate.percentage_of_done_tasks %>%
+      <% end %>
+      <%= link_to root_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
       <% end %>
     </div>
     <div class="card-actions justify-end ">
