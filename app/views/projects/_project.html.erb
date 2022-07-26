@@ -1,25 +1,31 @@
-<div id="<%= dom_id project %>">
-  <div class="my-1">
-    <% if project.project_image.present? %>
-      <%= image_tag project.project_image.variant(resize_to_limit: [100, 100])%>
+<div id="<%= dom_id project %>" class="card shadow-l rounded-none ">
+  <%= link_to project, class: "relative" do %>
+    <% if project.project_image.attached? %>
+      <%=cl_image_tag "daichi-test/animal-test/#{project.project_image.key}",
+      gravity: "face", height: 300, width: 400, crop: "thumb", fetch_format: :auto  %>
     <% else %>
-      <%= image_tag "sample", size: "100x100" %>
+      <%= cl_image_tag "daichi-test/animal-test/sample_image.png", :height=>300, :width=>400, :crop=>"thumb" %>
     <% end %>
-  </div>
-  <div class="my-1">
-    <%= project.title %>
-  </div>
-  
-  <div class="my-1">
-    <%= project.body %>
-  </div>
-  <div class="my-1">
-    <%= project.workspace.owner_name %>
-  </div>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this project", project, class: "btn btn-xs" %>
-    <%= link_to 'Edit this project', edit_project_path(project), class: "btn btn-xs" %>
-    <hr class="mt-6">
+    <div class="absolute bottom-0 left-0 flex item-center">
+      <%=cl_image_tag "daichi-test/animal-test/#{project.workspace.owner_avatar.key}",
+          gravity: "face", height: 30, width: 40, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+      <div class="flex items-center flex-none h-10 ml-2 px-3">
+        <%= tag.p project.workspace.owner_name, class: "font-bold truncate w-28" %>
+      </div>
+    </div>
   <% end %>
+  <div class="card-body p-1">
+    <div class="card-actions justify-between ">
+      <div>
+        <%= tag.p project.title, class: "card-title" %>
+      </div>
+      <%= tag.div class: "radial-progress text-primary", style: "--value:#{project.decorate.percentage_of_done_tasks}; --size:3rem;" do %>
+        <%= project.decorate.percentage_of_done_tasks %>%
+      <% end %>
+    </div>
+    <div class="card-actions justify-end ">
+      <div class="badge badge-outline">タグ機能は</div>
+      <div class="badge badge-primary badge-outline">工事中です</div>
+    </div>
+  </div>
 </div>

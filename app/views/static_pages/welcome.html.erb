@@ -22,17 +22,10 @@
           <div class="title">
             <h1> 新着プロジェクト </h1>
           </div>
-          <!--ページネーション-->
-          <div class="btn-group"> 
-            <button class="btn btn-xs">1</button>
-            <button class="btn btn-xs btn-active">2</button>
-            <button class="btn btn-xs">3</button>
-            <button class="btn btn-xs">4</button>
-          </div>
         </div>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/card_project", collection: @projects, as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects, as: 'project' %>
       </div>
     </div>
     <!--Finished projects line-->
@@ -42,17 +35,10 @@
           <div class="title">
             <h1> 新着/完成プロジェクト </h1>
           </div>
-          <!--ページネーション-->
-          <div class="btn-group"> 
-            <button class="btn btn-xs">1</button>
-            <button class="btn btn-xs btn-active">2</button>
-            <button class="btn btn-xs">3</button>
-            <button class="btn btn-xs">4</button>
-          </div>
         </div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/card_project", collection: @projects.recent_dones.each, as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.recent_dones, as: 'project' %>
       </div>
     </div>
     <!--Favorite projects line-->
@@ -61,13 +47,6 @@
         <div class="flex justify-between">
           <div class="title">
             <h1> 人気プロジェクト </h1>
-          </div>
-          <!--ページネーション-->
-          <div class="btn-group"> 
-            <button class="btn btn-xs">1</button>
-            <button class="btn btn-xs btn-active">2</button>
-            <button class="btn btn-xs">3</button>
-            <button class="btn btn-xs">4</button>
           </div>
         </div>
       </div>

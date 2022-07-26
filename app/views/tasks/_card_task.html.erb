@@ -1,0 +1,7 @@
+<div class="flex"> 
+  <p><%=task.title%></p>
+  <%= link_to "show", project_task_path(@project,task), class: "link" %>
+  <% if current_user&.own_project?(@project) %>
+    <%= link_to "edit", edit_project_task_path(@project,task), class: "link" %>
+  <% end %>
+</div>

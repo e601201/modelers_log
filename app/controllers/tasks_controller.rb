@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
-  before_action :set_projecct, only: %i[index new edit create update]
+  before_action :set_projecct, only: %i[show new edit create update]
+  skip_before_action :require_login, only: :show
 
   def show; end
 
@@ -21,11 +22,24 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to @project, success: t('defaults.message.updated', item: Task.model_name.human)
-    else
-      flash.now[:error] = t('defaults.message.not_updated', item: Task.model_name.human)
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      format.html{
+        if @task.update(task_params)
+          redirect_to @project, success: t('defaults.message.updated', item: Task.model_name.human)
+        else
+          flash.now[:error] = t('defaults.message.not_updated', item: Task.model_name.human)
+          render :edit, status: :unprocessable_entity
+        end 
+      }
+      format.js {
+        @task = Task.find(params[:id])
+          if @task.done? #ステータスが完了だったら未完了に変更
+            @task.in_progress!
+          elsif @task.in_progress? #ステータスが未完了だったら完了に変更
+            @task.done!
+          end
+        flash.now[:error] = t('defaults.message.updated', item: Task.model_name.human)
+      }
     end
   end
 
