@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
   skip_before_action :require_login, only: %i[index show]
   def index
-    @projects = Project.all.includes(:workspace)
+    @projects = Project.includes(:workspace)
   end
 
   def show
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = Project.includes(:workspace).find(params[:id])
   end
 
   def project_params
