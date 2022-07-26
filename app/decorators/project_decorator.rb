@@ -3,9 +3,9 @@ class ProjectDecorator < ApplicationDecorator
 
   def percentage_of_done_tasks
     if tasks.present?
-      tasks.done.count*100/tasks.count
+      tasks.done.count * 100 / tasks.count
     else
-      "0"
+      '0'
     end
   end
 end
