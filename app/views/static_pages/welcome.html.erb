@@ -70,6 +70,7 @@
   <!--right side-->
   <div class="mx-auto md:w-3/12 w-11/12 " >
     <h1> お知らせ (工事中)</h1>
+    <h1> １週間ごとに区切ってお知らせ</h1>
     <div class="overflow-auto h-1/5"> 
       <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
       <table class="table w-full">
@@ -125,7 +126,7 @@
       </table>
     </div>
     <h1> 新着モデラー (工事中) </h1>
-    <div class="overflow-auto h-1/5"> 
+    <div class="overflow-x-auto h-2/5"> 
       <table class="table w-full">
         <tbody>
           <%= render partial: "workspace_avatar", collection: @workspaces, as: "workspace" %>

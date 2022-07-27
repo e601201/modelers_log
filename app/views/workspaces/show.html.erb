@@ -1,7 +1,7 @@
 <!--ワークスペースの中身-->
 <div class="flex flex-col md:flex-row mx-10">
   <div class="container mx-auto w-full md:w-1/5 ">
-    <div class="text-3xl md:text-5xl">one's workspace</div>
+    <div class="text-3xl md:text-5xl">Workspace Area</div>
     <div class="">
       <%= render @workspace %>
     </div>
@@ -9,8 +9,9 @@
       <%= link_to 'Edit this workspace', edit_workspace_path(@workspace), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= button_to 'Destroy this workspace', workspace_path(@workspace), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     <% end %>
-    <%= link_to 'show profile', workspace_profile_path(@workspace), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Back to workspaces', workspaces_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <%= link_to 'profile', workspace_profile_path(@workspace), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Back to home', root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
   <div class="mx-auto md:w-3/5 w-full flex">
     <div class="m-5">
