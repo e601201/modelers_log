@@ -19,6 +19,7 @@ ja:
         salt: 'ソルト'
         owner_name: '氏名'
         owner_avatar: 'アバター画像'
+        owner_comment: '自己紹介'
         role: '役職'
       project:
         title: 'タイトル'
