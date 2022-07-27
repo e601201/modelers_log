@@ -18,7 +18,7 @@ class Workspace < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   validates :email, uniqueness: true
-  validates :owner_name, length: { maximum: 255 }
+  validates :owner_name, length: { maximum: 30 }
   validates :owner_avatar, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
 
   def own_workspace?(workspace) #いらないかも
@@ -35,5 +35,9 @@ class Workspace < ApplicationRecord
 
   def count_new_notification
     # ユーザーが受け取った未読(checked)の通知をカウントする
+  end
+
+  def follow?(workspace)
+    workspace.followers.pluck(:id).include?(id)
   end
 end
