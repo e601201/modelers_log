@@ -4,14 +4,14 @@
       <%=cl_image_tag "daichi-test/animal-test/#{project.project_image.key}",
       gravity: "face", height: 300, width: 400, crop: "thumb", fetch_format: :auto  %>
     <% else %>
-      <%= image_tag "sample_project" %>
+      <%= image_tag "sample_project.png" %>
     <% end %>
     <div class="absolute bottom-0 left-0 flex item-center">
       <% if project.workspace.owner_avatar.attached? %>
         <%=cl_image_tag "daichi-test/animal-test/#{project.workspace.owner_avatar.key}",
             gravity: "face", height: 30, width: 45, radius: 'max', :quality=>"auto"%>
       <% else %>
-        <%= image_tag "sample_avatar", size: "40x30", class: 'rounded-full', alt: "アイコン"%>
+        <%= image_tag "sample_avatar.png", size: "40x30", class: 'rounded-full', alt: "アイコン"%>
       <% end %>
       <div class="flex items-center flex-none h-10 ml-2 px-3">
         <%= tag.p project.workspace.owner_name, class: "font-bold truncate w-28" %>
