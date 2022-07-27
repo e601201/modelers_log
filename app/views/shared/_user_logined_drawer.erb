@@ -8,8 +8,8 @@
 </div>
 
 <li><%= " Hello #{current_user.owner_name}" %></li>
-<li><%= link_to t('my workspace'), workspace_path(current_user.id) %></li>
-<li><a>See my following workspaces(工事中)</a></li>
+<li><%= link_to t('my workspace'), workspace_path(current_user) %></li>
+<li><%= link_to t('See my following workspaces'), followings_path(current_user) %></li>
 <li><a>See my favorite projects(工事中)</a></li>
 <li><%= link_to t('defaults.home'), root_path %></li>
 <li><%= link_to t('projects.index.title'), projects_path %></li>

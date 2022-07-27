@@ -21,7 +21,8 @@ class Workspace < ApplicationRecord
   validates :owner_name, length: { maximum: 30 }
   validates :owner_avatar, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
 
-  def own_workspace?(workspace) #いらないかも
+  # maybe_no_need
+  def own_workspace?(workspace)
     self == workspace
   end
 
@@ -35,6 +36,14 @@ class Workspace < ApplicationRecord
 
   def count_new_notification
     # ユーザーが受け取った未読(checked)の通知をカウントする
+  end
+
+  def follow(workspace)
+    followings << workspace
+  end
+
+  def unfollow(workspace)
+    followings.destroy(workspace)
   end
 
   def follow?(workspace)
