@@ -3,7 +3,7 @@ class WorkspacesController < ApplicationController
   skip_before_action :require_login, only: %i[index show new create]
 
   def index
-    @workspaces = Workspace.all
+    @workspaces = Workspace.where.not(id: current_user&.id)
   end
 
   def show
