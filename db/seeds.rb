@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Workspace.destroy_all
+
+Workspace.create(
+  email: 'daichi@example.com',
+  password: 'Itg43y0G',
+  password_confirmation: 'Itg43y0G'
+)
+Workspace.create(
+  email: 'test1@example.com',
+  password: 'Itg43y0G',
+  password_confirmation: 'Itg43y0G'
+)
