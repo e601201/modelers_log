@@ -21,8 +21,8 @@ class Workspace < ApplicationRecord
   validates :owner_name, length: { maximum: 255 }
   validates :owner_avatar, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
 
-  def own_workspace?(workspace)
-    id == workspace.id
+  def own_workspace?(workspace) #いらないかも
+    self == workspace
   end
 
   def own_project?(project)

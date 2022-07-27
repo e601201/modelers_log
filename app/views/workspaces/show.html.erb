@@ -5,7 +5,7 @@
     <div class="">
       <%= render @workspace %>
     </div>
-    <% if current_user&.own_workspace?(@workspace) %>
+    <% if current_user == @workspace %>
       <%= link_to 'Edit this workspace', edit_workspace_path(@workspace), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= button_to 'Destroy this workspace', workspace_path(@workspace), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     <% end %>
