@@ -16,12 +16,12 @@
 
   <p class="my-5">
     <div>
-    オーナからのコメント:
-    検索時はここのコメントの中身を参照する
-    <%# workspace.owner_comment%> <!--後でカラムをworkspaceに追加-->
+    <strong class="block font-medium mb-1">owner_comment:</strong>
+    <%= profile.owner_comment%>
     </div>
   </p>
-
+  <%= link_to "フォロー一覧", followings_path(profile) %>
+  <%= link_to "フォロワー一覧", followers_path(profile) %>
   <p class="my-5">
     <div>
     SNS:
@@ -33,10 +33,3 @@
     </div>
   </p>
 </div>
-
-    <!--<strong class="block font-medium mb-1"><%= Workspace.human_attribute_name('email') %>:</strong>-->
-    <%# workspace.email %>
-      <%# if action_name != "show" %>
-    <%# link_to "Show this workspace", workspace, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%# link_to 'Edit this workspace', edit_workspace_path(workspace), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-  <%# end %>

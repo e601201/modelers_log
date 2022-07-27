@@ -2,7 +2,10 @@ class Workspace < ApplicationRecord
   authenticates_with_sorcery!
   has_one_attached :owner_avatar
   has_many :projects, dependent: :destroy
-  # has_many  :relationships, dependent: :destroy
+  has_many :relationships, foreign_key: :following_id, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follower
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :following
   # has_many  :sns_informations, dependent: :destroy
   # has_many  :notifications, dependent: :destroy
   # has_many  :received_notifications, dependent: :destroy
@@ -15,11 +18,12 @@ class Workspace < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   validates :email, uniqueness: true
-  validates :owner_name, length: { maximum: 255 }
+  validates :owner_name, length: { maximum: 30 }
   validates :owner_avatar, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
 
+  # maybe_no_need
   def own_workspace?(workspace)
-    id == workspace.id
+    self == workspace
   end
 
   def own_project?(project)
@@ -32,5 +36,17 @@ class Workspace < ApplicationRecord
 
   def count_new_notification
     # ユーザーが受け取った未読(checked)の通知をカウントする
+  end
+
+  def follow(workspace)
+    followings << workspace
+  end
+
+  def unfollow(workspace)
+    followings.destroy(workspace)
+  end
+
+  def follow?(workspace)
+    workspace.followers.pluck(:id).include?(id)
   end
 end

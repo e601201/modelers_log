@@ -1,9 +1,14 @@
 <%= form_with(model: workspace, class: "contents") do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <% if action_name == "edit" %>
+  <% if action_name == "edit" || "update" %>
     <div class="my-5">
       <%= f.label :owner_name %>
       <%= f.text_field :owner_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= f.label :owner_comment %>
+      <%= f.text_area :owner_comment, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <% if workspace.owner_avatar.present? %>

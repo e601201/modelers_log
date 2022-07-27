@@ -3,22 +3,23 @@
       <%= link_to workspace_path(workspace) do%>
         <div class="flex items-center space-x-3">
           <div class="avatar">
-            <div class="mask mask-squircle w-12 h-12">
-              <% if workspace.owner_avatar.attached? %>
-                <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}" %>
-              <% else %>
-                <div class="w-12 h-12 rounded-full">
-                  <%= cl_image_tag "daichi-test/animal-test/sample_image.png",
-                  :height=>100, :width=>100, :crop=>"thumb", radius: 'max'%>
-                </div>  
-              <% end %>
+              <div class="mask mask-squircle w-12 h-12">
+                <% if workspace.owner_avatar.attached? %>
+                  <%= cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}" %>
+                <% else %>
+                  <div class="w-12 h-12 rounded-full">
+                    <%= image_tag "sample_avatar" %>
+                  </div>  
+                <% end %>
+              </div>
             </div>
-          </div>
-          <div>
-            <div class="font-bold"><%= workspace.owner_name %></div>
-          </div>
-          <div>
-            <div class="text-sm opacity-50">こんにちは</div>
+          <div class= "">
+            <div class="avatar-name">
+              <div class="font-bold"><%= workspace.owner_name.truncate(20) %></div>
+            </div>
+            <div class="avatar-commment">
+              <div><%= simple_format(workspace.owner_comment.truncate(30)) %></div>
+            </div>
           </div>
         </div>
       <% end %>

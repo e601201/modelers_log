@@ -13,15 +13,14 @@
           gravity: "face", height: 150, width: 150, crop: "thumb", radius: 'max', fetch_format: :auto  %>
         <% else %>
           <div class="w-10 rounded-full">
-            <img src="https://placeimg.com/80/80/people" />
+            <%= image_tag 'sample_avatar', size: '150x150', class: 'rounded-full' %>
           </div>
         <% end %>
       </label>
       <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        <li> <%= link_to t('My workspace'), workspace_path(current_user.id) %> </li>
-        <li><%= link_to t('.See my profile'), workspace_profile_path(current_user.id) %></li>
-        <li><%= link_to t('.See my toolset'), workspace_profile_path(current_user.id) %></li>
-        <li><%= link_to t('.change my ID,s'), edit_workspace_path(current_user.id), class: "justify-between" %></li>
+        <li> <%= link_to t('My workspace'), workspace_path(current_user) %> </li>
+        <li><%= link_to t('.See my profile'), workspace_profile_path(current_user) %></li>
+        <li><%= link_to t('.change my ID,s'), edit_workspace_path(current_user), class: "justify-between" %></li>
         <li><a>Settings</a></li>
         <li><%=button_to t('.logout'), logout_path, method: :delete, data: { turbo: false } %><li>
       </ul>
@@ -38,7 +37,7 @@
   <div class="navbar-center ">
   </div>
   <div class="navbar-end">
-    <%= link_to t('.my_project'), workspace_path(current_user.id), class: "btn btn-primary btn-outline btn-sm mr-3"%>
+    <%= link_to t('.my_project'), workspace_path(current_user), class: "btn btn-primary btn-outline btn-sm mr-3"%>
     <div class="tooltip h-8" data-tip="add project">
       <%= link_to new_project_path, data: { turbo_method: :get, turbo_confirm: 'add new project?'} ,class: 'btn btn-ghost btn-outline btn-sm' do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 4 24 24" stroke="currentColor" stroke-width="2">
