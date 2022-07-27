@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Workspaces::ProfilesController < ApplicationController
   skip_before_action :require_login
 
   def show
