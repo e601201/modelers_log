@@ -1,4 +1,15 @@
+<div class="tabs ">
+  <%= link_to t('workspaces.index.title'), workspaces_path, class: 'tab tab-bordered' %>
+  <%= link_to t('projects.index.title'), projects_path, class: 'tab tab-bordered'%>
+  <% if logged_in? %>
+    <%= link_to t('workspaces.followings.index.title'), followings_path(current_user), class: 'tab tab-bordered tab-active'%>
+  <% end %>
+</div>
 <div>
-  <h1 class="font-bold text-4xl">Followings#index</h1>
-  <p>Find me in app/views/followings/index.html.erb</p>
+  実装予定
+  検索機能
+  タブでの検索機能
+</div>
+<div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
+  <%# render @workspaces %>
 </div>

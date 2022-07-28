@@ -35,6 +35,12 @@ ja:
     index:
       title: 'ワークスペース一覧'
     create:
+    followings:
+      index:
+        title: 'フォロー一覧'
+    followers:
+      index:
+        title: 'フォロワー一覧'
   user_sessions:
     form:
       title: 'ログインページ'
