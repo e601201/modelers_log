@@ -1,13 +1,4 @@
 <div id="<%= dom_id task %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= task.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= task.body %>
-  </p>
 
   <p class="my-5">
     <% if task.task_image.present? %>
@@ -15,6 +6,16 @@
     <% else %>
       <%= cl_image_tag "daichi-test/animal-test/sample_image.png", :height=>100, :width=>100, :crop=>"thumb" %>
     <% end %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= task.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Body:</strong>
+    <%= simple_format(task.body) %>
   </p>
 
   <p class="my-5">
