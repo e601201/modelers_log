@@ -1,15 +1,9 @@
-<div class="tabs ">
-  <%= link_to t('workspaces.index.title'), workspaces_path, class: 'tab tab-bordered' %>
-  <%= link_to t('projects.index.title'), projects_path, class: 'tab tab-bordered'%>
-  <% if logged_in? %>
-    <%= link_to t('workspaces.followings.index.title'), followings_path(current_user), class: 'tab tab-bordered tab-active'%>
-  <% end %>
+<div class="tabs container mx-auto">
+  <%= link_to t('workspaces.index.title'), workspace_path(@workspace), class: 'tab tab-bordered' %>
+  <%= link_to t('workspaces.profile.title'), workspace_profile_path(@workspace), class: 'tab tab-bordered' %>
+  <%= link_to t('workspaces.followings.index.title'), followings_path(@workspace), class: 'tab tab-bordered tab-active'%>
+  <%= link_to t('workspaces.followers.index.title'), followers_path(@workspace), class: 'tab tab-bordered'%>
 </div>
-<div>
-  実装予定
-  検索機能
-  タブでの検索機能
-</div>
-<div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
-  <%# render @workspaces %>
+<div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+  <%= render partial: "workspaces/workspace", collection: @workspaces, as: "workspace" %>
 </div>

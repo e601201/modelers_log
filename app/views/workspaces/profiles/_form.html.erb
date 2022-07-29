@@ -1,35 +1,46 @@
 <!--プロフィールフォーム-->
 <div id="<%= dom_id profile %>">
 
-  <p class="my-5">
+  <div class="my-5">
     <% if profile.owner_avatar.present? %>
       <%= image_tag profile.owner_avatar.variant(resize_to_limit: [100, 100])%>
     <% else %>
-      <%= cl_image_tag "daichi-test/animal-test/sample_image.png", :height=>100, :width=>100, :crop=>"thumb" %>
+      <%= image_tag "sample_avatar.png", size: '100x100' %>
     <% end %>
-  </p>
+  </div>
 
-  <p class="my-5">
+  <div class="my-5">
     <strong class="block font-medium mb-1">owner_name:</strong>
     <%= profile.owner_name %>
-  </p>
+  </div>
 
-  <p class="my-5">
+  <div class="my-5">
     <div>
     <strong class="block font-medium mb-1">owner_comment:</strong>
     <%= profile.owner_comment%>
     </div>
-  </p>
-  <%= link_to "フォロー一覧", followings_path(profile) %>
-  <%= link_to "フォロワー一覧", followers_path(profile) %>
-  <p class="my-5">
+  </div>
+
+  <div class= "flex">
+    <strong class="block font-medium mb-1">follows:</strong>
+    <%= link_to "#{profile.followings.count}", followings_path(profile), class: "link link-hover ml-3" %>
+  </div>
+
+  <div class= "flex">
+    <strong class="block font-medium mb-1">followers:</strong>
+    <%= link_to "#{profile.followers.count}", followers_path(profile), class: "link link-hover ml-3" %>
+  </div>
+
+  <div class="my-5">
     <div>
-    SNS:
+      <strong class="block font-medium mb-1" >SNS:</strong>
     </div>
-  </p>
-  <p class="my-5">
+  </div>
+
+  <div class="my-5">
     <div>
-    ツールセット:
+      <strong class="block font-medium mb-1" >ツールセット:</strong>
     </div>
-  </p>
+  </div>
+
 </div>

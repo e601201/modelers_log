@@ -7,7 +7,7 @@
 
   <div class="my-5">
     <%= form.label :body %>
-    <%= form.text_field :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_area :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
   <% if project.project_image.present? %>
     <%= image_tag project.project_image.variant(resize_to_limit: [100, 100])%>

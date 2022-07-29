@@ -1,4 +1,9 @@
-<div>
-  <h1 class="font-bold text-4xl">Followers#index</h1>
-  <p>Find me in app/views/followers/index.html.erb</p>
+<div class="tabs container mx-auto">
+  <%= link_to t('workspaces.index.title'), workspace_path(@workspace), class: 'tab tab-bordered' %>
+  <%= link_to t('workspaces.profile.title'), workspace_profile_path(@workspace), class: 'tab tab-bordered' %>
+  <%= link_to t('workspaces.followings.index.title'), followings_path(@workspace), class: 'tab tab-bordered'%>
+  <%= link_to t('workspaces.followers.index.title'), followers_path(@workspace), class: 'tab tab-bordered tab-active'%>
+</div>
+<div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+  <%= render partial: "workspaces/workspace", collection: @workspaces, as: "workspace" %>
 </div>
