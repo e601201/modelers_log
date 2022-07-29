@@ -13,4 +13,8 @@ class Project < ApplicationRecord
 
   scope :recent_dones, -> { done.order(created_at: :desc) }
   scope :recent_published, -> { published.order(created_at: :desc) }
+
+  def restore_tasks_state
+    tasks.map(&:in_progress!)
+  end
 end
