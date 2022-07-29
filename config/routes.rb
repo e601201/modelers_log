@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :projects do                                             #projects
     resources :tasks, except: :index                                 #tasks
+    resource :duplications, only: :create, module: 'projects'        #projectを自身のworkspaceに複製する
     resource :preview, only: :show, module: 'projects'               #task設定時のprojectのプレビュー表示
     resources :favorites, only: %i[create destroy]                   #projectをお気に入りに追加
     collection do

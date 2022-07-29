@@ -34,8 +34,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.destroy
-    redirect_to projects_url, success: t('defaults.message.deleted', item: Workspace.model_name.human), status: :see_other
+    @project.destroy!
+    redirect_to current_user, success: t('defaults.message.deleted', item: Workspace.model_name.human), status: :see_other
   end
 
   private

@@ -54,6 +54,7 @@ gem "image_processing", "~> 1.2"
 gem "sorcery"
 gem "rails-i18n", "~> 7.0.0"
 gem "draper"
+gem 'deep_cloneable', '~> 3.2.0'
 
 gem "cloudinary"
 group :development, :test do

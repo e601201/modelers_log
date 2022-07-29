@@ -1,7 +1,13 @@
+<div class="tabs container mx-auto">
+  <%= link_to t('workspaces.index.title'), workspace_path(@workspace), class: 'tab tab-bordered tab-active' %>
+  <%= link_to t('workspaces.profile.title'), workspace_profile_path(@workspace), class: 'tab tab-bordered' %>
+  <%= link_to t('workspaces.followings.index.title'), followings_path(@workspace), class: 'tab tab-bordered'%>
+  <%= link_to t('workspaces.followers.index.title'), followers_path(@workspace), class: 'tab tab-bordered'%>
+</div>
 <!--ワークスペースの中身-->
 <div class="flex flex-col md:flex-row mx-10">
   <div class="container mx-auto w-full md:w-1/5 ">
-    <div class="text-3xl md:text-5xl">Workspace Area</div>
+    <div class="text-3xl my-5 md:text-5xl"><%= @workspace.owner_name %>のworkspace</div>
     <div class="">
       <%= render @workspace %>
     </div>
@@ -9,9 +15,6 @@
       <%= link_to 'Edit this workspace', edit_workspace_path(@workspace), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= button_to 'Destroy this workspace', workspace_path(@workspace), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     <% end %>
-
-    <%= link_to 'profile', workspace_profile_path(@workspace), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Back to home', root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
   <div class="mx-auto md:w-3/5 w-full flex">
     <div class="m-5">
@@ -19,5 +22,8 @@
         <%= render partial: "projects/project", collection: @projects, as: 'project' %>
       </div>
     </div>
+  </div>
+  <div class= "my-5">
+    <%= link_to 'back to home', root_path, class: "btn btn-primary" %>
   </div>
 </div>

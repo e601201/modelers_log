@@ -18,6 +18,7 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
+      duplicated: "%{item}を複製しました"
       delete_confirm: "削除してもよろしいですか？"
       require_login: "ログインをしてください"
       errors_detected: "件のエラーが検出されました"
@@ -33,14 +34,16 @@ ja:
       title: '新規作成'
       Back to workspaces: 'ワークスペース一覧へ'
     index:
-      title: 'ワークスペース一覧'
+      title: 'ワークスペース'
     create:
+    profile:
+      title: 'プロフィール'
     followings:
       index:
-        title: 'フォロー一覧'
+        title: 'フォロー'
     followers:
       index:
-        title: 'フォロワー一覧'
+        title: 'フォロワー'
   user_sessions:
     form:
       title: 'ログインページ'
