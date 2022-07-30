@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects, as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.limit(8), as: 'project' %>
       </div>
     </div>
     <!--Finished projects line-->
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.recent_dones, as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.recent_dones.limit(4), as: 'project' %>
       </div>
     </div>
     <!--Favorite projects line-->
@@ -125,7 +125,7 @@
         </tbody>
       </table>
     </div>
-    <h1> 新着モデラー (工事中) </h1>
+    <%=tag.h1 t('defaults.user.new_user')%>
     <div class="overflow-x-auto h-2/5"> 
       <table class="table w-full">
         <tbody>

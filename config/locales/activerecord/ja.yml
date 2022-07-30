@@ -23,14 +23,16 @@ ja:
         role: '役職'
       project:
         title: 'タイトル'
-        body: '内容'
+        body: '概要'
         project_image: '画像'
         status: 'ステータス'
       task:
-        title: 'タイトル'
-        body: '内容'
+        title: '作業タイトル'
+        body: '作業内容'
         image: '画像'
         usage_time: '所要時間'
+        task_image: '画像'
+        task_state: 'タスクの状態'
       toolset:
         name: '名前'
       tag:

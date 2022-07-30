@@ -19,9 +19,12 @@
     </div>
   <% end %>
   <div class="card-body p-1">
-    <div class="card-actions justify-between ">
+    <div class="card-actions">
+      <div class='border-r border-gray-700 pr-2'>
+        <%= project.title.truncate(30)%>
+      </div>
       <div>
-        <%= simple_format project.body.truncate(30), class: "card-title" %>
+        <%= simple_format project.body.truncate(30) %>
       </div>
     </div>
     <div class="flex justify-between">

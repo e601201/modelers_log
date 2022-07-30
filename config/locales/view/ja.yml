@@ -1,6 +1,7 @@
 ja:
   defaults:
     user:
+      new_user: "新着ユーザー"
       no_name: "名無しさん"
     login: "ログイン"
     logout: "ログアウト"
@@ -34,7 +35,7 @@ ja:
       title: '新規作成'
       Back to workspaces: 'ワークスペース一覧へ'
     index:
-      title: 'ワークスペース'
+      title: 'ワークスペース一覧'
     create:
     profile:
       title: 'プロフィール'

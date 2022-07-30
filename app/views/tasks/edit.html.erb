@@ -2,7 +2,5 @@
   <h1 class="font-bold text-4xl">Editing task</h1>
 
   <%= render "form", {project: @project, task: @task }%>
-
-  <%= link_to "Show this task", project_task_path(@project, @task), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   <%= link_to "Back to tasks", project_path(@project), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

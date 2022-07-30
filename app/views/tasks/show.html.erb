@@ -1,10 +1,10 @@
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
-
     <%= render @task %>
     <% if current_user&.own_project?(@project) %>
       <%= link_to 'Edit this task', edit_project_task_path, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= link_to 'Destroy this task', project_task_path, data: { turbo_method: :delete } , class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= link_to 'change_state', edit_project_task_path, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <% end %>
+      <%= link_to "Back to tasks", project_path(@project), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
