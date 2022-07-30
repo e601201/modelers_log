@@ -57,7 +57,7 @@ class Workspace < ApplicationRecord
   end
 
   def unfavorite(project)
-    favorite_project.destroy(project)
+    favorite_projects.destroy(project)
   end
 
   def favorite?(project)
