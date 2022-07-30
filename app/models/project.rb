@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   has_one_attached :project_image
   belongs_to :workspace
   has_many :tasks, dependent: :destroy
-  # has_many :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   # has_many :project_tags, dependent: :destroy
   # has_many :notifications, dependent: :destroy
 

@@ -6,6 +6,8 @@ class Workspace < ApplicationRecord
   has_many :followings, through: :relationships, source: :follower
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :following
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_projects, through: :favorites, source: :project
   # has_many  :sns_informations, dependent: :destroy
   # has_many  :notifications, dependent: :destroy
   # has_many  :received_notifications, dependent: :destroy
@@ -48,5 +50,17 @@ class Workspace < ApplicationRecord
 
   def follow?(workspace)
     workspace.followers.pluck(:id).include?(id)
+  end
+
+  def favorite(project)
+    favorite_projects << project
+  end
+
+  def unfavorite(project)
+    favorite_project.destroy(project)
+  end
+
+  def favorite?(project)
+    project.favorites.pluck(:workspace_id).include?(id)
   end
 end
