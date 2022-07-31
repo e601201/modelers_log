@@ -36,7 +36,9 @@ ja:
       Back to workspaces: 'ワークスペース一覧へ'
     index:
       title: 'ワークスペース一覧'
-    create:
+      create:
+    show:
+      title: 'ワークスペース'
     profile:
       title: 'プロフィール'
     followings:
@@ -45,6 +47,9 @@ ja:
     followers:
       index:
         title: 'フォロワー'
+    favorites:
+      index:
+        title: 'お気に入り'
   user_sessions:
     form:
       title: 'ログインページ'
