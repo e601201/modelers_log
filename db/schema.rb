@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_27_044906) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_30_094819) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_27_044906) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "workspace_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_favorites_on_project_id"
+    t.index ["workspace_id", "project_id"], name: "index_favorites_on_workspace_id_and_project_id", unique: true
+    t.index ["workspace_id"], name: "index_favorites_on_workspace_id"
   end
 
   create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -92,6 +102,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_27_044906) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "projects"
+  add_foreign_key "favorites", "workspaces"
   add_foreign_key "projects", "workspaces"
   add_foreign_key "tasks", "projects"
 end

@@ -1,0 +1,5 @@
+<% if current_user&.favorite?(project)%>
+  <%= render 'projects/unfavorite', { project: project } %>
+<% else %>
+  <%= render 'projects/favorite', { project: project } %>
+<% end %>

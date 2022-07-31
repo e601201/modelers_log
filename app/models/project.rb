@@ -2,7 +2,8 @@ class Project < ApplicationRecord
   has_one_attached :project_image
   belongs_to :workspace
   has_many :tasks, dependent: :destroy
-  # has_many :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :workspace
   # has_many :project_tags, dependent: :destroy
   # has_many :notifications, dependent: :destroy
 
@@ -10,10 +11,10 @@ class Project < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true, length: { maximum: 65_535 }
   validates :project_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
-
-  scope :recent_dones, -> { done.order(created_at: :desc) }
+  scope :recent_in_progress, -> { done.order(created_at: :desc) }
+  scope :recent_done, -> { done.order(created_at: :desc) }
   scope :recent_published, -> { published.order(created_at: :desc) }
-
+  scope :sort_by_favorites_size, -> { includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} } 
   def restore_tasks_state
     tasks.map(&:in_progress!)
   end

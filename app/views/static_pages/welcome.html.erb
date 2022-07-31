@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.limit(8), as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.recent_in_progress.limit(8), as: 'project' %>
       </div>
     </div>
     <!--Finished projects line-->
@@ -33,39 +33,14 @@
       <div id="famous-workspace-header">
         <div class="flex justify-between">
           <div class="title">
-            <h1> 新着/完成プロジェクト </h1>
+            <h1> 完成プロジェクト </h1>
           </div>
         </div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.recent_dones.limit(4), as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.recent_done.limit(4), as: 'project' %>
       </div>
     </div>
-    <!--Favorite projects line-->
-    <div id="favorite-project">
-      <div id="favorite-project-header">
-        <div class="flex justify-between">
-          <div class="title">
-            <h1> 人気プロジェクト </h1>
-          </div>
-        </div>
-      </div>
-      <!--content grid-->
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <!--main content-->
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body">
-            <h2 class="card-title">Card title!</h2>
-            <p>If a dog  does he choose?</p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--New workspaces line-->
-    <!--famous workspaces line-->
   </div>
   <!--right side-->
   <div class="mx-auto md:w-3/12 w-11/12 " >
