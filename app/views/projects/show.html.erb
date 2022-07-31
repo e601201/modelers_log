@@ -24,13 +24,8 @@
               </svg>
             <% end %>
           </div>
-        <% elsif %>
+        <% else %>
           <div class="flex gap-4 my-5">
-            <%= link_to workspace_profile_path(@project.workspace_id), class: "btn btn-info" do %>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            <% end %>
             <%= link_to workspace_path(@project.workspace_id), class: "btn btn-info" do %>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
@@ -77,7 +72,7 @@
     <div class="flex flex-col w-full lg:flex-row mt-5">
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
         <label class= "badge"> 未完了タスク </label>
-        <div class="main-content container mx-auto px-14">
+        <div class="main-content container mx-auto px-8">
           <% if @tasks.in_progress.present? %>
             <%= render partial: "tasks/card_task", collection: @tasks.in_progress, as: 'task' %>
           <% else %>
@@ -96,7 +91,7 @@
       <div class="divider lg:divider-horizontal"> </div>
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
         <label class= "badge" > 完了タスク </label>
-        <div class="main-content container mx-auto px-14">
+        <div class="main-content container mx-auto px-8">
           <% if @tasks.present? %>
             <%= render partial: "tasks/card_task", collection: @tasks.done, as: 'task' %>
           <% end %>

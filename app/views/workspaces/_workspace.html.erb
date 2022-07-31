@@ -29,7 +29,9 @@
         <% end %>
       </div>
     <div>
-      <%= simple_format(workspace.owner_comment.truncate(30))%>
+      <%= link_to workspace_profile_path(workspace) do %>
+        <%= simple_format(workspace.owner_comment.truncate(30))%>
+      <% end %>
     </div>
   </div>
 </div>

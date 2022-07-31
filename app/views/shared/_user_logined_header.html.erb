@@ -21,7 +21,9 @@
         <div class="m-auto"><%= tag.p "hello #{current_user.owner_name}" %></div>
         <div class="divider"></div>
         <li> <%= link_to t('Your workspace'), workspace_path(current_user) %> </li>
-        <li><%= link_to t('See your profile'), workspace_profile_path(current_user) %></li>
+        <li><%= link_to t('your profile'), workspace_profile_path(current_user) %></li>
+        <li><%= link_to t('your followings'), followings_path(current_user) %></li>
+        <li><%= link_to t('workspaces.favorites.index.title'), favorites_path(current_user)%></li>
         <div class="divider"></div>
         <li><%= link_to t('edit workspace'), edit_workspace_path(current_user), class: "justify-between" %></li>
         <li><a>Settings(工事中)</a></li>
@@ -51,8 +53,8 @@
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <div class='divider'>new project</div>
-          <li><%= link_to '+ new project', new_project_path, data: { turbo_method: :get, turbo_confirm: 'add new project?'} %></li>
-          <div class='divider'>template</div>
+          <li><%= link_to '+ basic-type', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project with no-template-project'} %></li>
+          <div class='divider'>use template</div>
           <li><%= link_to '+ human-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a robot-type template'} %></li>
           <li><%= link_to '+ viecle-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a vehicle-type template'} %></li>
           <li><%= link_to '+ figure-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a human-type template'} %></li>
