@@ -30,7 +30,7 @@ ja:
         title: '作業タイトル'
         body: '作業内容'
         image: '画像'
-        usage_time: '所要時間'
+        usage_time: '所要時間(分)'
         task_image: '画像'
         task_state: 'タスクの状態'
       toolset:
