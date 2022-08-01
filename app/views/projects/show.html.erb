@@ -41,32 +41,8 @@
 
   <div class="mx-auto md:w-3/5 w-full pt-5">
     <!--カルーセルスタート-->
-    <h1>完了したタスクにアタッチしている画像がスライドショーで見れる（工事中）</h1>
     <div class="carousel rounded-box">
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
-      <div class="carousel-item">
-        <img src="https://placeimg.com/200/200/arch" alt="Burger" />
-      </div>
+      <%= render partial: 'tasks/task_image', collection: @tasks.image_attached_tasks, as: 'task' %>
     </div>
     <!--カルーセルエンド-->
     <div class="flex flex-col w-full lg:flex-row mt-5">
@@ -74,16 +50,19 @@
         <label class= "badge"> 未完了タスク </label>
         <div class="main-content container mx-auto px-8">
           <% if @tasks.in_progress.present? %>
-            <%= render partial: "tasks/card_task", collection: @tasks.in_progress, as: 'task' %>
+            <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task' %>
           <% else %>
             <div class='flex'>
               <p>Yay!! You have no task!! <br> finish it yet?</p>
             </div>
-            <%= link_to 'finish project !!', new_project_task_path(@project), data: { turbo_method: :get , turbo_confirm: 'finish this project !! Are you sure?'}, class: "btn btn-secondary my-2 w-full" %>
           <% end %>
           <% if current_user&.own_project?(@project) %>
             <div class= "flex">
-              <%= link_to '+ add task', new_project_task_path(@project), class: "btn btn-primary my-2 w-full" %>
+              <%= link_to '+ add task', new_project_task_path(@project), class: "btn btn-primary my-2 w-5/12" %>
+              <div class="my-2 w-2/12 flex justify-center">
+                <p class="text-4xl" >or</p>
+              </div>
+              <%= link_to 'finish project', new_project_task_path(@project), data: { turbo_method: :get , turbo_confirm: 'finish this project !! Are you sure?'}, class: "btn btn-secondary my-2 w-5/12" %>
             </div>
           <% end %>
         </div>
@@ -93,7 +72,7 @@
         <label class= "badge" > 完了タスク </label>
         <div class="main-content container mx-auto px-8">
           <% if @tasks.present? %>
-            <%= render partial: "tasks/card_task", collection: @tasks.done, as: 'task' %>
+            <%= render partial: "projects/card_task", collection: @tasks.done, as: 'task' %>
           <% end %>
         </div>
       </div>

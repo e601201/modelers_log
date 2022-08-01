@@ -2,18 +2,8 @@
   <!--left side-->
   <!--center-->
   <div class="container mx-auto md:w-9/12 w-11/12 "> 
-    <label>毎時、プロジェクトの中からランダムに選んだものをカルーセルにして並べる（工事中）</label>
-    <div class="carousel carousel-center ounded-box p-5 space-x-4">
-      <div class="carousel-item">
-        <img src="https://placeimg.com/400/300/arch" alt="Burger" />
-        <%# image_tag @projects.second.project_image.variant(resize_to_limit: [400, 300])%>
-      </div> 
-      <div class="carousel-item">
-        <img src="https://placeimg.com/400/300/arch" alt="Burger" />
-      </div> 
-      <div class="carousel-item">
-        <img src="https://placeimg.com/400/300/arch" alt="Burger" />
-      </div> 
+    <div class="carousel carousel-center ounded-box p-5 space-x-4"> 
+      <%= render partial: "projects/project_image", collection: @projects.image_attached_projects.sample(8), as: 'project'%>
     </div>
     <!--New projects line-->
     <div id="new-project">
