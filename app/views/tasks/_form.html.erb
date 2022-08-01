@@ -21,7 +21,7 @@
 
   <div class="my-5">
     <%= form.label :usage_time %>
-    <%= form.number_field :usage_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :usage_time,[15,30,45,60], {} , class: "select select-bordered w-full max-w-xs" %>
   </div>
 
   <div class="my-5 flex flex-col">
