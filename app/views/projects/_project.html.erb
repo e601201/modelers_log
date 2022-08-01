@@ -14,9 +14,11 @@
     <% else %>
       <%= image_tag "sample_avatar.png", size: "40x30", class: 'rounded-full', alt: "アイコン"%>
     <% end %>
-    <div class="flex items-center flex-none h-10 ml-2 px-3">
-      <%= tag.p project.workspace.owner_name, class: "font-bold truncate w-28" %>
-    </div>
+    <%= link_to workspace_profile_path(project.workspace_id) do %>
+      <div class="flex items-center flex-none h-10 ml-2 px-3">
+        <%= tag.p project.workspace.owner_name, class: "font-bold truncate w-28" %>
+      </div>
+    <% end %>
   </div>
   <div class="card-body p-1">
     <div class="card-actions">
