@@ -11,11 +11,11 @@ class Project < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true, length: { maximum: 65_535 }
   validates :project_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
-  scope :image_attached_projects, -> { select{ |a| a.project_image.attached? } }
+  scope :image_attached_projects, -> { select { |a| a.project_image.attached? } }
   scope :recent_in_progress, -> { in_progress.order(created_at: :desc) }
   scope :recent_done, -> { done.order(created_at: :desc) }
   scope :recent_published, -> { published.order(created_at: :desc) }
-  scope :sort_by_favorites_size, -> { includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} } 
+  scope :sort_by_favorites_size, -> { includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size } }
   def restore_tasks_state
     tasks.map(&:in_progress!)
   end

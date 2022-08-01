@@ -2,9 +2,9 @@ class Workspace < ApplicationRecord
   authenticates_with_sorcery!
   has_one_attached :owner_avatar
   has_many :projects, dependent: :destroy
-  has_many :relationships, foreign_key: :following_id, dependent: :destroy
+  has_many :relationships, foreign_key: :following_id, dependent: :destroy, inverse_of: :following
   has_many :followings, through: :relationships, source: :follower
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy, inverse_of: :follower
   has_many :followers, through: :reverse_of_relationships, source: :following
   has_many :favorites, dependent: :destroy
   has_many :favorite_projects, through: :favorites, source: :project
