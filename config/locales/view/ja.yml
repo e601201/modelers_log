@@ -30,6 +30,8 @@ ja:
   static_pages:
     welcome:
       title: 'ようこそ！！'
+      new_project: '新着プロジェクト'
+      done_project: '完成プロジェクト'
   workspaces:
     new:
       title: '新規作成'

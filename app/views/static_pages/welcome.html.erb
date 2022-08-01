@@ -1,102 +1,105 @@
-<div class="flex flex-col md:flex-row mx-10">
+<div class="flex flex-col md:flex-row mx-1 md:mx-10">
   <!--left side-->
   <!--center-->
   <div class="container mx-auto md:w-9/12 w-11/12 "> 
-    <div class="carousel carousel-center ounded-box p-5 space-x-4"> 
+    <div class="carousel carousel-center p-5 space-x-4"> 
       <%= render partial: "projects/project_image", collection: @projects.image_attached_projects.sample(8), as: 'project'%>
     </div>
     <!--New projects line-->
     <div id="new-project">
       <div id="new-project-header">
-        <div class="flex justify-between">
-          <div class="title">
-            <h1> 新着プロジェクト </h1>
-          </div>
-        </div>
+        <%=tag.div t('.new_project'), class: 'divider my-10 text-3xl' %>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
         <%= render partial: "projects/project", collection: @projects.recent_in_progress.limit(8), as: 'project' %>
       </div>
     </div>
     <!--Finished projects line-->
-    <div id="famous-workspace">
-      <div id="famous-workspace-header">
-        <div class="flex justify-between">
-          <div class="title">
-            <h1> 完成プロジェクト </h1>
-          </div>
-        </div>
+    <div id="done-projects">
+      <div id="done-projects-header">
+        <%=tag.div t('.done_project'), class: 'divider my-10 text-3xl' %>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
+      <div id="done-projects-main" class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
         <%= render partial: "projects/project", collection: @projects.recent_done.limit(4), as: 'project' %>
       </div>
     </div>
   </div>
   <!--right side-->
   <div class="mx-auto md:w-3/12 w-11/12 " >
-    <h1> お知らせ (工事中)</h1>
-    <h1> １週間ごとに区切ってお知らせ</h1>
-    <div class="overflow-auto h-1/5"> 
-      <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
-      <table class="table w-full">
-        <tbody>
-          <!-- sample -->
-          <!--
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%# @news.created_at %></div>
-              <%# link_to @news.title , news %>
-            </td>
-          </tr>
-          みたいなやつを後で書く
-          -->
-          <!-- row 1 -->
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>なんかのお知らせ（工事中）</div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>いい感じのお知らせ（工事中）</div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>気分が上がるお知らせ（工事中）</div>
-            </td>
-          </tr>
-                    <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>なんかのお知らせ（工事中）</div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>いい感じのお知らせ（工事中）</div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="text-stone-400 text-sm"><%= Date.current %></div>
-              <div>気分が上がるお知らせ（工事中）</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div id= "news">
+      <div id="news-header">
+        <div class="divider my-10 text-3xl">お知らせ</div>
+      </div>
+      <div id="news-main">
+        <div class="overflow-auto h-40"> 
+          <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
+          <table class="table w-full">
+            <tbody>
+              <!-- sample -->
+              <!--
+              <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%# @news.created_at %></div>
+                  <%# link_to @news.title , news %>
+                </td>
+              </tr>
+              みたいなやつを後で書く
+              -->
+              <!-- row 1 -->
+              <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div>なんかのお知らせ（工事中）</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div>いい感じのお知らせ（工事中）</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div>気分が上がるお知らせ（工事中）</div>
+                </td>
+              </tr>
+                        <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div>なんかのお知らせ（工事中）</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div>いい感じのお知らせ（工事中）</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div>気分が上がるお知らせ（工事中）</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <%=tag.h1 t('defaults.user.new_user')%>
-    <div class="overflow-x-auto h-2/5"> 
-      <table class="table w-full">
-        <tbody>
-          <%= render partial: "workspace_avatar", collection: @workspaces, as: "workspace" %>
-        </tbody>
-      </table>
+    <div id="new-workspace-owners">
+      <div id="new-workspace-owners-header">
+        <%=tag.div t('defaults.user.new_user'), class: 'divider my-10 text-3xl' %>
+      </div>
+      <div id="new-workspace-owners-main">
+        <div class="overflow-x-auto h-2/5"> 
+          <table class="table w-full">
+            <tbody>
+              <%= render partial: "workspace_avatar", collection: @workspaces, as: "workspace" %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
