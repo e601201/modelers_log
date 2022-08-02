@@ -49,21 +49,28 @@
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
         <label class= "badge"> 未完了タスク </label>
         <div class="main-content container mx-auto px-8">
-          <% if @tasks.in_progress.present? %>
-            <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task' %>
-          <% else %>
-            <div class='flex'>
-              <p>Yay!! You have no task!! <br> finish it yet?</p>
-            </div>
-          <% end %>
-          <% if current_user&.own_project?(@project) %>
-            <div class= "flex">
-              <%= link_to '+ add task', new_project_task_path(@project), class: "btn btn-primary my-2 w-5/12" %>
-              <div class="my-2 w-2/12 flex justify-center">
-                <p class="text-4xl" >or</p>
+          <% if @project.in_progress? %>
+            <% if @tasks.in_progress.present? %>
+              <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task' %>
+            <% else %>
+              <div class='flex'>
+                <p>Yay!! You have no task!! <br> finish it yet?</p>
               </div>
-              <%= link_to 'finish project', new_project_task_path(@project), data: { turbo_method: :get , turbo_confirm: 'finish this project !! Are you sure?'}, class: "btn btn-secondary my-2 w-5/12" %>
-            </div>
+            <% end %>
+            <% if current_user&.own_project?(@project) %>
+              <div class= "flex">
+                <%= link_to '+ add task', new_project_task_path(@project), class: "btn btn-primary my-2 w-5/12" %>
+                <% if @tasks.in_progress.blank? %>
+                  <div class="my-2 w-2/12 flex justify-center">
+                    <p class="text-4xl" >or</p>
+                  </div>
+                  <%= link_to 'finish project', new_project_task_path(@project), data: { turbo_method: :get , turbo_confirm: 'finish this project !! Are you sure?'}, class: "btn btn-secondary my-2 w-5/12" %>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>このプロジェクトは完了しました<p>
+              <%= tag.button "revert",class: "btn" if @project.workspace_id == current_user.id %>
           <% end %>
         </div>
       </div>
