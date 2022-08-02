@@ -1,11 +1,9 @@
 class Favorite < ApplicationRecord
   belongs_to :workspace
   belongs_to :project
-  after_create :notification_to_folowers
+  has_one :notification, as: :notifiable, dependent: :destroy
 
-  private
-
-  def notification_to_folowers
-    logger.debug 'フォロワーにいいねされたことを通知する(今後実装)'
+  def send_notification(project)
+    Notification.find_or_create_by!(notifiable: self, workspace_id: project.workspace_id, action_type: "favorit_to_own_project")
   end
 end

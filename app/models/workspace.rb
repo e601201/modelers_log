@@ -9,7 +9,7 @@ class Workspace < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_projects, through: :favorites, source: :project
   # has_many  :sns_informations, dependent: :destroy
-  # has_many  :notifications, dependent: :destroy
+  has_many  :notifications, dependent: :destroy
   # has_many  :received_notifications, dependent: :destroy
   # has_many  :own_toolsets, through: :workspace_toolsets, source: :toolset
 
@@ -32,6 +32,10 @@ class Workspace < ApplicationRecord
     id == project.workspace_id
   end
 
+  def send_notification(workspace)
+    Notification.find_or_create_by!(notifiable: workspace, workspace_id: workspace.follower_id, action_type: "followed_me")
+  end
+
   def received_new_notification?
     # ユーザーが新規通知を受け取ったかどうかをbool値で返すメソッド
   end
@@ -41,7 +45,7 @@ class Workspace < ApplicationRecord
   end
 
   def follow(workspace)
-    followings << workspace
+    relationships.create!(follower_id: workspace.id)
   end
 
   def unfollow(workspace)
@@ -53,7 +57,7 @@ class Workspace < ApplicationRecord
   end
 
   def favorite(project)
-    favorite_projects << project
+    favorites.create!(project_id: project.id)
   end
 
   def unfavorite(project)
