@@ -1,0 +1,28 @@
+<%= render 'shared/main_tab', {object: current_user}%>
+
+<div class="container mx-auto overflow-x-auto">
+  <table class="table table-compact w-full">
+    <thead>
+      <tr>
+        <th>ID</th> 
+        <th>notifiable_type</th> 
+        <th>owner_name</th>
+        <th>read</th> 
+        <th>action_type</th> 
+        <th>created_at</th> 
+      </tr>
+    </thead> 
+    <tbody>
+      <% @notifications.each do |notification| %>
+        <tr>
+          <th><%= notification.id %></th> 
+          <td><%= notification.notifiable_type %></td>
+          <td>owner_name</td>
+          <td><%= notification.read %></td> 
+          <td><%= notification.action_type %></td> 
+          <td><%= notification.created_at %></td> 
+        </tr>
+      <% end %>
+    </tbody> 
+  </table>
+</div>

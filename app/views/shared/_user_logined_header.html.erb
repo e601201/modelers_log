@@ -5,17 +5,26 @@
   <div class= "navbar-center ">
   </div>
   <div class= "navbar-end">
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      </label>
+      <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        <div class="divider">お知らせ</div>
+        <%= link_to "一覧を見る", notifications_path(current_user), class: "btn btn-info btn-sm text-slate-100" %>
+        <li><a>Settings(工事中)</a></li>
+        <li><a>Settings(工事中)</a></li>
+        <li><a>Settings(工事中)</a></li>
+        <li><a>Settings(工事中)</a></li>
+        <li><a>Settings(工事中)</a></li>
+      </ul>
+    </div>
     <%#--profile dropdown start--%>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <% if current_user.owner_avatar.present? %>
-          <%=cl_image_tag "daichi-test/animal-test/#{current_user.owner_avatar.key}",
-          gravity: "face", height: 150, width: 150, crop: "thumb", radius: 'max', fetch_format: :auto  %>
-        <% else %>
-          <div class="w-10 rounded-full">
-            <%= image_tag 'sample_avatar.png', size: '150x150', class: 'rounded-full' %>
-          </div>
-        <% end %>
+        <%= render 'shared/owner_avatar'%>
       </label>
       <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
         <div class="m-auto"><%= tag.p "hello #{current_user.owner_name}" %></div>
@@ -55,7 +64,7 @@
           <div class='divider'>new project</div>
           <li><%= link_to '+ basic-type', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project with no-template-project'} %></li>
           <div class='divider'>use template</div>
-          <li><%= link_to '+ human-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a robot-type template'} %></li>
+          <li><%= link_to '+ human-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a human-type template'} %></li>
           <li><%= link_to '+ vehicle-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a vehicle-type template'} %></li>
           <li><%= link_to '+ figure-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a human-type template'} %></li>
         </ul>

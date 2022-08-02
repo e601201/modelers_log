@@ -1,7 +1,8 @@
 class FavoritesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
-    current_user.favorite(@project)
+    @favorite = current_user.favorite(@project)
+    @favorite.send_notification(@project)
   end
 
   def destroy

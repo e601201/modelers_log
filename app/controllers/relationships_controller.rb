@@ -1,7 +1,8 @@
 class RelationshipsController < ApplicationController
   def create
     @workspace = Workspace.find(params[:workspace_id])
-    current_user.follow(@workspace)
+    @follower = current_user.follow(@workspace)
+    current_user.send_notification(@follower)
     redirect_to request.referer || root_path
   end
 
