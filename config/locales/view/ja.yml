@@ -52,6 +52,9 @@ ja:
     favorites:
       index:
         title: 'お気に入り'
+    notifications:
+      index:
+        title: 'お知らせ'
   user_sessions:
     form:
       title: 'ログインページ'
