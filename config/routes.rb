@@ -35,12 +35,16 @@ Rails.application.routes.draw do
 
   resources :workspaces do                                           #workspaces_CRUD
     resource :profile,          only: :show, module: 'workspaces'    #workspacesの中のprofile
+    resources :notifications, only: [] do
+      resource :read, only: %i[create]
+    end
     resource :relationships,    only: %i[create destroy]             #好きなwaorkspaceをお気に入りに追加
     member do
       resources :tool_set                                            #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
       resources :followers,     only: :index, module: 'workspaces'   #フォロワー一覧
       resources :followings,    only: :index, module: 'workspaces'   #フォロー一覧
       resources :favorites,     only: :index, module: 'workspaces'   #お気に入り一覧
+      resources :notifications, only: :index, module: 'workspaces'   #通知一覧
       resource  :owner_avatars, only: :destroy, module: 'workspaces'
     end
   end
