@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorite(@project)
     @favorite.send_notification(@project)
   end
+
   def destroy
     @project = current_user.favorites.find(params[:id]).project
     current_user.unfavorite(@project)
