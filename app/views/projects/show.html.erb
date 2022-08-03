@@ -64,14 +64,16 @@
                   <div class="my-2 w-2/12 flex justify-center">
                     <p class="text-4xl" >or</p>
                   </div>
-                  <%= link_to 'finish project', project_status_change_path(@project), data: { turbo_method: :post , turbo_confirm: t('defaults.message.done_confirm', item: Project.model_name.human)}, class: "btn btn-secondary my-2 w-5/12" %>
+                  <%= link_to 'finish project', project_status_change_path(@project),
+                    data: { turbo_method: :patch , turbo_confirm: t('defaults.message.done_confirm', item: Project.model_name.human)},
+                    class: "btn btn-secondary my-2 w-5/12" %>
                 <% end %>
               </div>
             <% end %>
           <% else %>
             <%= tag.p t('.message.done')%>
             <%= link_to t('defaults.revert') , project_status_change_path(@project),
-              data: { turbo_method: :delete , turbo_confirm: t('defaults.message.in_progress_confirm', item: Project.model_name.human) },
+              data: { turbo_method: :patch , turbo_confirm: t('defaults.message.in_progress_confirm', item: Project.model_name.human) },
               class: "btn btn-secondary my-2 " if @project.workspace_id == current_user.id
             %>
           <% end %>
