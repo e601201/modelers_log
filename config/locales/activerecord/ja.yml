@@ -32,7 +32,7 @@ ja:
         image: '画像'
         usage_time: '所要時間(分)'
         task_image: '画像'
-        task_state: 'タスクの状態'
+        task_state: '進捗状況'
       toolset:
         name: '名前'
       tag:
@@ -44,3 +44,12 @@ ja:
         body: '内容'
         action_type: 'アクションタイプ'
         checked: '確認済み'
+  enums:
+    project:
+      state:
+        in_progress: '未完成プロジェクト'
+        done: '完成！！'
+    task:
+      task_state:
+        in_progress: '未完了タスク'
+        done: '完了タスク'

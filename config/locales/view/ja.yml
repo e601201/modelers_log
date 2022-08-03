@@ -7,10 +7,13 @@ ja:
     logout: "ログアウト"
     home: 'ホーム'
     edit: "編集"
+    destroy: "削除"
     back: "戻る"
+    revert: "元に戻す"
     search: "検索"
     search_word: "検索ワード"
     password_reset: 'パスワードリセット'
+    danger: '危険'
     message:
       not_index: "プロジェクトがありません"
       not_authenticated: "ログインしてください"
@@ -41,6 +44,11 @@ ja:
       create:
     show:
       title: 'ワークスペース'
+    edit:
+      title: 'ワークスペース: 編集画面'
+    destroy:
+      submit: 'ワークスペースの削除'
+      message: "%{item}を削除いたします。ユーザー情報等も全て失われますが、よろしいですか？"
     profile:
       title: 'プロフィール'
     followings:
@@ -73,6 +81,13 @@ ja:
       title: 'プロジェクト一覧'
     new:
       title: '新規プロジェクト'
+    edit:
+      title: 'プロジェクト: 編集画面'
+      show: 'プロジェクトを見る'
+    show:
+      message:
+        in_progress: "タスクがありませんよ？ プロジェクトを完了させますか？"
+        done: "タスクはありません。 このプロジェクトは完了しました"
   tasks:
     index:
       title: 'タスク一覧'
