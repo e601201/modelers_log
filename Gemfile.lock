@@ -137,6 +137,8 @@ GEM
       activesupport (>= 5.0)
       request_store (>= 1.0)
       ruby2_keywords
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     faraday (2.3.0)
       faraday-net_http (~> 2.0)
@@ -361,6 +363,7 @@ DEPENDENCIES
   debug
   deep_cloneable (~> 3.2.0)
   draper
+  enum_help
   image_processing (~> 1.2)
   importmap-rails
   letter_opener_web

@@ -19,4 +19,12 @@ class Project < ApplicationRecord
   def restore_tasks_state
     tasks.map(&:in_progress!)
   end
+
+  def change_state
+    if in_progress?
+      done!
+    else
+      in_progress!
+    end
+  end
 end

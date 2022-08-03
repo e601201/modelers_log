@@ -41,7 +41,7 @@
 
   <p class="my-5">
     <%= tag.strong Task.human_attribute_name('task_state'), class: "block font-medium" %>
-    <%= task.task_state %>
+    <%= task.task_state_i18n %>
   </p>
 
   <% if action_name != "show" %>

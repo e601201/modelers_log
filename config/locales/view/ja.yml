@@ -7,10 +7,13 @@ ja:
     logout: "ログアウト"
     home: 'ホーム'
     edit: "編集"
+    destroy: "削除"
     back: "戻る"
+    revert: "元に戻す"
     search: "検索"
     search_word: "検索ワード"
     password_reset: 'パスワードリセット'
+    danger: '取扱注意'
     message:
       not_index: "プロジェクトがありません"
       not_authenticated: "ログインしてください"
@@ -25,6 +28,9 @@ ja:
       errors_detected: "件のエラーが検出されました"
       not_supported: "はサポートされていないフォーマットです"
       keep_under: "は%{item}以下の画像にしてください"
+      change_status_confirm: "%{item}のステータスを変更させてもよろしいですか？"
+      done_confirm: "%{item}を完了状態にさせてもよろしいですか？"
+      in_progress_confirm: "%{item}を未完了状態に戻してもよろしいですか？"
   helper:
   admin:
   static_pages:
@@ -41,6 +47,11 @@ ja:
       create:
     show:
       title: 'ワークスペース'
+    edit:
+      title: 'ワークスペース: 編集画面'
+    destroy:
+      submit: 'ワークスペースの削除'
+      message: "%{item}を削除いたします。ユーザー情報等も全て失われますが、よろしいですか？"
     profile:
       title: 'プロフィール'
     followings:
@@ -73,11 +84,23 @@ ja:
       title: 'プロジェクト一覧'
     new:
       title: '新規プロジェクト'
+    edit:
+      title: 'プロジェクト: 編集画面'
+      show: 'プロジェクトを見る'
+    show:
+      message:
+        in_progress: "タスクがありませんよ？ プロジェクトを完了させますか？"
+        done: "タスクはありません。 このプロジェクトは完了しました"
+    card_task:
+      message:
+        status_change: ""
   tasks:
     index:
-      title: 'タスク一覧'
+      title: 'タスク:一覧'
     new:
       title: '新規タスク'
+    edit:
+      title: 'タスク編集画面'
   password_resets:
     create:
       success: 'パスワード変更用のメールが送信されました'

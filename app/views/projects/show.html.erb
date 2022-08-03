@@ -13,12 +13,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
               </svg>
             <% end %>
-            <%= button_to project_path(@project), method: :delete, form: { data: { turbo_confirm: "Destroy this project !! Are you sure?" } }, class: "btn btn-warning"  do %>
+            <%= link_to project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Destroy this project !! Are you sure?" }, class: "btn btn-warning"  do %>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
               </svg>
             <% end %>
-            <%= button_to project_duplications_path(@project),method: :post, form: { data: { turbo_confirm: "Dupricate and make new project!! Are you sure? " } }, class: "btn btn-accent"  do %>
+            <%= link_to project_duplications_path(@project), data: { turbo_method: :post, turbo_confirm: "Dupricate and make new project!! Are you sure? " }, class: "btn btn-accent"  do %>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
               </svg>
@@ -47,14 +47,14 @@
     <!--カルーセルエンド-->
     <div class="flex flex-col w-full lg:flex-row mt-5">
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
-        <label class= "badge"> 未完了タスク </label>
+        <%= tag.label t('enums.task.task_state.in_progress'), class: 'badge my-2'%>
         <div class="main-content container mx-auto px-8">
           <% if @project.in_progress? %>
             <% if @tasks.in_progress.present? %>
               <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task' %>
             <% else %>
               <div class='flex'>
-                <p>Yay!! You have no task!! <br> finish it yet?</p>
+                <%= tag.p t('.message.in_progress')%>
               </div>
             <% end %>
             <% if current_user&.own_project?(@project) %>
@@ -64,19 +64,24 @@
                   <div class="my-2 w-2/12 flex justify-center">
                     <p class="text-4xl" >or</p>
                   </div>
-                  <%= link_to 'finish project', new_project_task_path(@project), data: { turbo_method: :get , turbo_confirm: 'finish this project !! Are you sure?'}, class: "btn btn-secondary my-2 w-5/12" %>
+                  <%= link_to 'finish project', project_status_change_path(@project),
+                    data: { turbo_method: :patch , turbo_confirm: t('defaults.message.done_confirm', item: Project.model_name.human)},
+                    class: "btn btn-secondary my-2 w-5/12" %>
                 <% end %>
               </div>
             <% end %>
           <% else %>
-            <p>このプロジェクトは完了しました<p>
-              <%= tag.button "revert",class: "btn" if @project.workspace_id == current_user.id %>
+            <%= tag.p t('.message.done')%>
+            <%= link_to t('defaults.revert') , project_status_change_path(@project),
+              data: { turbo_method: :patch , turbo_confirm: t('defaults.message.in_progress_confirm', item: Project.model_name.human) },
+              class: "btn btn-secondary my-2 " if @project.workspace_id == current_user.id
+            %>
           <% end %>
         </div>
       </div>
       <div class="divider lg:divider-horizontal"> </div>
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
-        <label class= "badge" > 完了タスク </label>
+        <%= tag.label t('enums.task.task_state.done'), class: 'badge my-2'%>
         <div class="main-content container mx-auto px-8">
           <% if @tasks.present? %>
             <%= render partial: "projects/card_task", collection: @tasks.done, as: 'task' %>

@@ -1,6 +1,9 @@
 <div class="mx-auto md:w-2/3 w-full px-10">
-  <h1 class="font-bold text-4xl">Editing workspace</h1>
+  <%= tag.h1 t('.title'), class: 'font-bold text-4xl' %>
 
   <%= render "form", workspace: @workspace %>
   <%= link_to "Back", :back, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= tag.div t('defaults.danger'), class: 'divider' %>
+  <%= button_to t('workspaces.destroy.submit'), workspace_path(@workspace), method: :delete, form: { data: { turbo_confirm: t('workspaces.destroy.message', item: Workspace.model_name.human) } }, class: "btn btn-error"%>
+  <%= tag.div t('defaults.danger'), class: 'divider' %>
 </div>

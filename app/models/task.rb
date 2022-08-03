@@ -1,7 +1,6 @@
 class Task < ApplicationRecord
   has_one_attached :task_image
   belongs_to :project
-  # has_many  :relationships, dependent: :destroy
 
   enum task_state: { in_progress: 0, done: 5 }
 
@@ -11,4 +10,12 @@ class Task < ApplicationRecord
 
   scope :image_attached_tasks, -> { select { |a| a.task_image.attached? } }
   scope :recent_in_progress, -> { in_progress.order(created_at: :desc) }
+
+  def change_state
+    if in_progress?
+      done!
+    else
+      in_progress!
+    end
+  end
 end
