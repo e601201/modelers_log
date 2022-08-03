@@ -47,7 +47,7 @@
     <!--カルーセルエンド-->
     <div class="flex flex-col w-full lg:flex-row mt-5">
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
-        <%= tag.label t('enums.task.task_state.in_progress'), class: 'badge'%>
+        <%= tag.label t('enums.task.task_state.in_progress'), class: 'badge my-2'%>
         <div class="main-content container mx-auto px-8">
           <% if @project.in_progress? %>
             <% if @tasks.in_progress.present? %>
@@ -70,13 +70,13 @@
             <% end %>
           <% else %>
             <%= tag.p t('.message.done')%>
-              <%= tag.button t('defaults.revert'),class: "btn" if @project.workspace_id == current_user.id %>
+              <%= tag.button t('defaults.revert'),class: "btn my-3" if @project.workspace_id == current_user.id %>
           <% end %>
         </div>
       </div>
       <div class="divider lg:divider-horizontal"> </div>
       <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
-        <%= tag.label t('enums.task.task_state.done'), class: 'badge'%>
+        <%= tag.label t('enums.task.task_state.done'), class: 'badge my-2'%>
         <div class="main-content container mx-auto px-8">
           <% if @tasks.present? %>
             <%= render partial: "projects/card_task", collection: @tasks.done, as: 'task' %>

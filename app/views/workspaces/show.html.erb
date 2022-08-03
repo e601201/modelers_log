@@ -2,7 +2,7 @@
 <!--ワークスペースの中身-->
 <div class="flex flex-col md:flex-row mx-10">
   <div class="container mx-auto w-full md:w-1/5 ">
-    <div class="text-3xl my-5 md:text-5xl"><%= @workspace.owner_name %>のworkspace
+    <div class="text-3xl my-5 md:text-4xl"><%= @workspace.owner_name %>のworkspace
     </div>
     <div>
       <%= render @workspace %>
@@ -26,7 +26,9 @@
     </div>
     </div>
     <div class="mx-auto md:w-3/5 w-full flex">
-      <div class="m-5">
+      <div>
+        <div class="text-3xl my-5 md:text-4xl"><%= @workspace.owner_name %>のprojects
+        </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
           <%= render partial: "projects/project", collection: @projects, as: 'project' %>
         </div>
