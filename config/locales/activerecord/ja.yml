@@ -47,9 +47,9 @@ ja:
   enums:
     project:
       state:
-        in_progress: '未完成プロジェクト'
+        in_progress: '未完成'
         done: '完成！！'
     task:
       task_state:
-        in_progress: '未完了タスク'
-        done: '完了タスク'
+        in_progress: '未完了(タスク)'
+        done: '完了(タスク)'

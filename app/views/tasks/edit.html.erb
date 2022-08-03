@@ -1,5 +1,5 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing task</h1>
+  <%= tag.h1 t('.title'), class: 'font-bold text-4xl'%>
 
   <%= render "form", {project: @project, task: @task }%>
   <%= link_to "Back to tasks", project_path(@project), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

@@ -26,8 +26,9 @@
 
   <div class="my-5 flex flex-col">
       <%= form.label :task_state %>
-      <%= form.select :task_state,Task.task_states.keys, {} ,class: "select select-bordered w-full max-w-xs" %>
+      <%= form.select :task_state,Task.task_states_i18n.invert, {} ,class: "select select-bordered w-full max-w-xs" %>
   </div>
+
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
