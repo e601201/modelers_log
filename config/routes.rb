@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 
   resources :projects do                                             #projects
     resources :tasks, except: :index do                                 #tasks
-      resource :status_change, only: %i[create destroy], module: 'tasks'
+      resource :status_change, only: :update, module: 'tasks'
     end
-    resource :status_change, only: %i[create destroy], module: 'projects'
+    resource :status_change, only: :update, module: 'projects'
     resource :duplications, only: :create, module: 'projects'        #projectを自身のworkspaceに複製する
     resource :preview, only: :show, module: 'projects'               #task設定時のprojectのプレビュー表示
     resources :favorites, only: %i[create destroy]                   #projectをお気に入りに追加
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :workspaces do                                           #workspaces_CRUD
     resource :profile,          only: :show, module: 'workspaces'    #workspacesの中のprofile
     resources :notifications, only: [] do
-      resource :read, only: %i[create]
+      resource :read, only: :create
     end
     resource :relationships,    only: %i[create destroy]             #好きなwaorkspaceをお気に入りに追加
     member do
