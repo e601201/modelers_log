@@ -1,10 +1,5 @@
 class WorkspacesLoyalty < ApplicationLoyalty
-
-  def edit?
-    user == record || user.admin?
-  end
-
   def update?
-    edit?
+    user == record || user.admin?
   end
 end
