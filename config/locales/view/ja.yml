@@ -35,6 +35,8 @@ ja:
       in_progress_confirm: "%{item}を未完成状態に戻してもよろしいですか？"
   helper:
   admin:
+  banken:
+    default: 'それを行う権限がありません'
   static_pages:
     welcome:
       title: 'ようこそ！！'

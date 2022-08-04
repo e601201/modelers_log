@@ -111,6 +111,8 @@ GEM
     aws-sigv4 (1.5.0)
       aws-eventstream (~> 1, >= 1.0.2)
     aws_cf_signer (0.1.3)
+    banken (1.0.3)
+      activesupport (>= 3.0.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.12.0)
@@ -358,6 +360,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-rails (~> 3)
   aws-sdk-s3 (~> 1)
+  banken
   bootsnap
   cloudinary
   debug

@@ -13,7 +13,9 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
-  def edit; end
+  def edit
+    authorize! @project
+  end
 
   def create
     @project = current_user.projects.build(project_params)
@@ -26,6 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    authorize! @project
     if @project.update(project_params)
       redirect_to @project, success: t('defaults.message.updated', item: Project.model_name.human)
     else
