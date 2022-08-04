@@ -14,7 +14,9 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new
   end
 
-  def edit; end
+  def edit
+    authorize! @workspace
+  end
 
   def create
     @workspace = Workspace.new(workspace_params)
@@ -28,6 +30,8 @@ class WorkspacesController < ApplicationController
   end
 
   def update
+    authorize! @workspace
+
     if @workspace.update(workspace_params)
       redirect_to @workspace, success: t('defaults.message.updated', item: Workspace.model_name.human)
     else
@@ -37,6 +41,7 @@ class WorkspacesController < ApplicationController
   end
 
   def destroy
+    authorize! @workspace
     @workspace.destroy!
     redirect_to root_path, success: t('defaults.message.deleted', item: Workspace.model_name.human), status: :see_other
   end

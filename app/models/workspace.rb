@@ -49,7 +49,7 @@ class Workspace < ApplicationRecord
   end
 
   def unfollow(workspace)
-    followings.destroy(workspace)
+    followings.destroy!(workspace)
   end
 
   def follow?(workspace)

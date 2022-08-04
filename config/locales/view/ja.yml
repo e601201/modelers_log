@@ -7,6 +7,7 @@ ja:
     logout: "ログアウト"
     home: 'ホーム'
     edit: "編集"
+    state_change: "進捗状況の変更"
     destroy: "削除"
     back: "戻る"
     revert: "元に戻す"
@@ -23,16 +24,19 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       duplicated: "%{item}を複製しました"
-      delete_confirm: "削除してもよろしいですか？"
+      duplicate_confirm: "%{item}を複製してもよろしいですか？"
+      delete_confirm: "%{item}を削除してもよろしいですか？"
       require_login: "ログインをしてください"
       errors_detected: "件のエラーが検出されました"
       not_supported: "はサポートされていないフォーマットです"
       keep_under: "は%{item}以下の画像にしてください"
       change_status_confirm: "%{item}のステータスを変更させてもよろしいですか？"
-      done_confirm: "%{item}を完了状態にさせてもよろしいですか？"
-      in_progress_confirm: "%{item}を未完了状態に戻してもよろしいですか？"
+      done_confirm: "%{item}を完成状態にさせてもよろしいですか？"
+      in_progress_confirm: "%{item}を未完成状態に戻してもよろしいですか？"
   helper:
   admin:
+  banken:
+    default: 'それを行う権限がありません'
   static_pages:
     welcome:
       title: 'ようこそ！！'
@@ -89,8 +93,10 @@ ja:
       show: 'プロジェクトを見る'
     show:
       message:
-        in_progress: "タスクがありませんよ？ プロジェクトを完了させますか？"
+        in_progress: "タスクがありませんよ？ プロジェクトは完成しましたか？"
         done: "タスクはありません。 このプロジェクトは完了しました"
+      done_project: "プロジェクトを完成させる"
+      add_task: "+ タスクを追加"
     card_task:
       message:
         status_change: ""
