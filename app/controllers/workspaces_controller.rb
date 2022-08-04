@@ -41,6 +41,7 @@ class WorkspacesController < ApplicationController
   end
 
   def destroy
+    authorize! @workspace
     @workspace.destroy!
     redirect_to root_path, success: t('defaults.message.deleted', item: Workspace.model_name.human), status: :see_other
   end

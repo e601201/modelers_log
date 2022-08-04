@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize! @project
     @project.destroy!
     redirect_to current_user, success: t('defaults.message.deleted', item: Project.model_name.human), status: :see_other
   end
