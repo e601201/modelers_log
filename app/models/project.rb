@@ -16,7 +16,8 @@ class Project < ApplicationRecord
   scope :recent_done, -> { done.order(created_at: :desc) }
   scope :recent_published, -> { published.order(created_at: :desc) }
   scope :sort_by_favorites_size, -> { includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size } }
-  def restore_tasks_state
+  def restore_all_state
+    in_progress!
     tasks.map(&:in_progress!)
   end
 
