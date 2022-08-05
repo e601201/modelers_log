@@ -31,7 +31,6 @@ Rails.application.routes.draw do
     resource :preview, only: :show, module: 'projects'               #task設定時のprojectのプレビュー表示
     resources :favorites, only: %i[create destroy]                   #projectをお気に入りに追加
     collection do
-      get 'search'                                                   #projectsの検索
       resource :recent, only: :show, module: 'projects'              #projectの新規作成順
     end
   end
