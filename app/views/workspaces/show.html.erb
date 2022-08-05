@@ -24,14 +24,20 @@
       <%= link_to t('defaults.back'), :back, class: "btn btn-primary ml-3" %>
       <%= link_to t('defaults.home'), root_path, class: "btn btn-primary ml-3" %>
     </div>
-    </div>
-    <div class="mx-auto md:w-3/5 w-full flex">
-      <div>
-        <div class="text-3xl my-5 md:text-4xl"><%= @workspace.owner_name %>のprojects
+  </div>
+  <div id="workspace-project" class="mx-auto md:w-3/5 w-full flex">
+    <div>
+      <div id="project-head">
+        <div id="project-title" class="text-3xl my-5 md:text-4xl"><%= @workspace.owner_name %>のprojects
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-          <%= render partial: "projects/project", collection: @projects, as: 'project' %>
-        </div>
+        <%= render 'projects/search_form',{q: @q, url: workspace_path} %>
       </div>
+      <div id="project-main" class="grid grid-cols-2 lg:grid-cols-3 gap-4 ">
+        <%= render partial: "projects/project", collection: @projects.order(created_at: :desc), as: 'project' %>
+      </div>
+      <div>
+        <%= paginate @projects %>
+      </div>
+    </div>
   </div>
 </div>
