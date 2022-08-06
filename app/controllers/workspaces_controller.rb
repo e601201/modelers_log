@@ -3,11 +3,13 @@ class WorkspacesController < ApplicationController
   skip_before_action :require_login, only: %i[index show new create]
 
   def index
-    @workspaces = Workspace.where.not(id: current_user&.id)
+    @q = Workspace.ransack(params[:q])
+    @workspaces = @q.result(distinct: true).includes(:projects).page(params[:page])
   end
 
   def show
-    @projects = @workspace.projects
+    @q = @workspace.projects.ransack(params[:q])
+    @projects = @q.result(distinct: true).includes(:workspace).page(params[:page])
   end
 
   def new

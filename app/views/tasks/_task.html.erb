@@ -17,23 +17,6 @@
     <%= tag.strong Task.human_attribute_name('body'), class: "block font-medium" %>
     <%= simple_format(task.body) %>
   </p>
-  <div class="form-control">
-  <p>ToDoリストは工事中</p>
-  <label class="label cursor-pointer">
-    <input type="checkbox" checked="checked" class="checkbox" />
-    <span class="label-text">タスク1</span> 
-  </label>
-  <label class="label cursor-pointer">
-    <input type="checkbox" checked="checked" class="checkbox" />
-    <span class="label-text">タスク1</span> 
-  </label>
-  <label class="label cursor-pointer">
-    <input type="checkbox" checked="checked" class="checkbox" />
-    <span class="label-text">タスク1</span> 
-  </label>
-</div>
-<progress class="progress progress-success w-full" value="10" max="100"></progress>
-
   <p class="my-5">
     <%= tag.strong Task.human_attribute_name('usage_time'), class: "block font-medium" %>
     <%= task.usage_time %>

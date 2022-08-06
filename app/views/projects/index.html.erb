@@ -2,11 +2,10 @@
   <%= link_to t('workspaces.index.title'), workspaces_path, class: 'tab tab-bordered' %>
   <%= link_to t('projects.index.title'), projects_path, class: 'tab tab-bordered tab-active'%>
 </div>
-<div>
-  実装予定
-  検索機能
-  タブでの検索機能
-</div>
-<div class="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
+<%= render 'projects/search_form', {q: @q, url: projects_path } %>
+<div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
   <%= render @projects %>
+</div>
+<div>
+  <%= paginate @projects %>
 </div>

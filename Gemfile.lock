@@ -166,6 +166,18 @@ GEM
     jmespath (1.6.1)
     json (2.6.2)
     jwt (2.4.1)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.1)
@@ -260,6 +272,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -369,11 +385,13 @@ DEPENDENCIES
   enum_help
   image_processing (~> 1.2)
   importmap-rails
+  kaminari
   letter_opener_web
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (~> 7.0.3)
   rails-i18n (~> 7.0.0)
+  ransack
   rspec-rails
   rubocop
   rubocop-performance

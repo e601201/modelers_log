@@ -1,0 +1,3 @@
+<span class="page<%= ' text-2xl' if page.current? %>">
+  <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel} %>
+</span>

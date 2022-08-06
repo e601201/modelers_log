@@ -3,7 +3,7 @@
   <!--center-->
   <div class="container mx-auto md:w-9/12 w-11/12 "> 
     <div class="carousel carousel-center p-5 space-x-4"> 
-      <%= render partial: "projects/project_image", collection: @projects.image_attached_projects.sample(8), as: 'project'%>
+      <%= render partial: "projects/project_image", collection: @projects.image_attached_projects(8), as: 'project'%>
     </div>
     <!--New projects line-->
     <div id="new-project">
@@ -11,7 +11,7 @@
         <%=tag.div t('.new_project'), class: 'divider my-10 text-3xl' %>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.recent_in_progress.limit(8), as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.recent_in_progress(8), as: 'project' %>
       </div>
     </div>
     <!--Finished projects line-->
@@ -20,7 +20,7 @@
         <%=tag.div t('.done_project'), class: 'divider my-10 text-3xl' %>
       </div>
       <div id="done-projects-main" class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.recent_done.limit(4), as: 'project' %>
+        <%= render partial: "projects/project", collection: @projects.recent_done(4), as: 'project' %>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@
         <div class="overflow-x-auto h-2/5"> 
           <table class="table w-full">
             <tbody>
-              <%= render partial: "workspace_avatar", collection: @workspaces, as: "workspace" %>
+              <%= render partial: "workspace_avatar", collection: @workspaces.limit(8), as: "workspace" %>
             </tbody>
           </table>
         </div>

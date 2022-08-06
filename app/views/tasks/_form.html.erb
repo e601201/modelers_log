@@ -1,36 +1,49 @@
 <%= form_with model:[project, task], class: "contents" do |form| %>
-<%= render 'shared/error_messages', object: form.object %>
-  <% unless action_name == 'new' || request.method == 'POST' %>
-    <% if task.task_image.present? %>
-      <%= image_tag task.task_image.variant(resize_to_limit: [100, 100])%>
-    <% end %>
-    <div class="my-5">
-      <%= form.label :task_image %>
-      <%= form.file_field :task_image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <%= render 'shared/error_messages', object: form.object %>
+  <div class= "flex">
+    <div>
+      <% if task.task_image.representable? %>
+        <%= image_tag task.task_image.representation(resize_to_limit: [200, 200])%>
+      <% end %>
     </div>
-  <% end %>
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div class="ml-5">
+      <div class="my-5">
+        <%= form.label :title %>（必須）
+        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+      <div class="my-5">
+        <%= form.label :task_image %>
+        <%= form.file_field :task_image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :body %>
-    <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :task_category %>
+        <%= form.select :task_category, [["組み立て",1],["表面処理",2],["塗装",3],["撮影のみ",4],["その他",5]],{},
+          class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :usage_time %>
-    <%= form.select :usage_time,[15,30,45,60], {} , class: "select select-bordered w-full max-w-xs" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :body %>
+        <div>
+          <p>(こだわりのポイントや備忘録用にお使いください)</p>
+        </div>
+        <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
 
-  <div class="my-5 flex flex-col">
-      <%= form.label :task_state %>
-      <%= form.select :task_state,Task.task_states_i18n.invert, {} ,class: "select select-bordered w-full max-w-xs" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :usage_time %>
+        <%= form.select :usage_time,[15,30,45,60,"60以上"], {} , class: "select select-bordered w-full max-w-xs" %>
+      </div>
 
+      <div class="my-5 flex flex-col">
+          <%= form.label :task_state %>
+          <%= form.select :task_state,Task.task_states_i18n.invert, {} ,class: "select select-bordered w-full max-w-xs" %>
+      </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <div class="inline">
+        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      </div>
+      <%= link_to t('defaults.back'), project_path(project), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
   </div>
 <% end %>
