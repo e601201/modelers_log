@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="flex justify-between">
-      <div class="border-slate-400 border rounded-lg py-2 px-7" >
+      <div class="border-slate-400 border rounded-lg py-2 px-3" >
         <%= tag.p t(Task.human_attribute_name('task_state')), class: "text-xs"%>
         <%= tag.div class: "radial-progress text-primary", style: "--value:#{project.decorate.percentage_of_done_tasks}; --size:3rem;" do %>
           <%= project.decorate.rate_of_done_tasks %>
