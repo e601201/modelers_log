@@ -22,24 +22,11 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      format.html do
-        if @task.update(task_params)
-          redirect_to @project, success: t('defaults.message.updated', item: Task.model_name.human)
-        else
-          flash.now[:error] = t('defaults.message.not_updated', item: Task.model_name.human)
-          render :edit, status: :unprocessable_entity
-        end
-      end
-      format.js do
-        @task = Task.find(params[:id])
-        if @task.done?
-          @task.in_progress!
-        elsif @task.in_progress?
-          @task.done!
-        end
-        flash.now[:error] = t('defaults.message.updated', item: Task.model_name.human)
-      end
+    if @task.update(task_params)
+      redirect_to @project, success: t('defaults.message.updated', item: Task.model_name.human)
+    else
+      flash.now[:error] = t('defaults.message.not_updated', item: Task.model_name.human)
+      render :edit, status: :unprocessable_entity
     end
   end
 
