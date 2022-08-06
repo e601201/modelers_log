@@ -24,12 +24,15 @@
 
       <div class="my-5">
         <%= form.label :body %>
+        <div>
+          <p>(こだわりのポイントや備忘録用にお使いください)</p>
+        </div>
         <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="my-5">
         <%= form.label :usage_time %>
-        <%= form.select :usage_time,[15,30,45,60], {} , class: "select select-bordered w-full max-w-xs" %>
+        <%= form.select :usage_time,[15,30,45,60,"60以上"], {} , class: "select select-bordered w-full max-w-xs" %>
       </div>
 
       <div class="my-5 flex flex-col">

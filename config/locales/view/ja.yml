@@ -3,6 +3,12 @@ ja:
     user:
       new_user: "新着ユーザー"
       no_name: "名無しさん"
+      workspace: "Your workspace"
+      profile: "Your profile"
+      followings: "Your followings"
+      followers: "Your followers"
+      favorites: "Your favorites"
+
     login: "ログイン"
     logout: "ログアウト"
     home: 'ホーム'
@@ -97,9 +103,6 @@ ja:
         done: "タスクはありません。 このプロジェクトは完了しました"
       done_project: "プロジェクトを完成させる"
       add_task: "+ タスクを追加"
-    card_task:
-      message:
-        status_change: ""
   tasks:
     index:
       title: 'タスク:一覧'
