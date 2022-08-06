@@ -31,11 +31,7 @@
           <label for="my-drawer" class="drawer-overlay"></label>
           <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             <!-- Sidebar content here -->
-            <% if logged_in? %>
-              <%= render 'shared/user_logined_drawer'%>
-            <% else %>
-              <%= render 'shared/before_login_drawer'%>
-            <% end %>
+            <%= render 'shared/drawer'%>
           </ul>
         </div>
       </div>
