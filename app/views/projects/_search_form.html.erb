@@ -1,0 +1,19 @@
+<div id="project-search" class="container mx-auto flex my-4 bordered border-2 rounded-lg border-dotted p-4 ">
+  <div>
+    <%= search_form_for q, url: url do |f| %>
+      <%= f.search_field :title_or_body_cont,
+        placeholder: 'キーワード検索',
+        class: "input input-bordered input-primary"
+      %>
+      <%= f.select :state_eq_any,Project.states_i18n.invert.map{|key, value| [key, Project.states[value]]},
+        {},class: "select select-bordered"
+      %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div id="project-paginate" class="container mx-auto flex my-4 bordered border-2 rounded-lg border-dotted p-4 ">
+  <div>
+    <%= sort_link(q, :created_at) %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div id="workspace-search" class="container mx-auto flex my-4 bordered border-2 rounded-lg border-dotted p-4">
+  <div>
+    <%= search_form_for q, url: url do |f| %>
+      <%= f.search_field :owner_name_or_owner_comment_cont,
+        placeholder: 'キーワード検索',
+        class: "input input-bordered input-primary"
+      %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div id="workspace-paginate" class="container mx-auto flex my-4 bordered border-2 rounded-lg border-dotted p-4">
+  <div>
+    <%= sort_link(q, :created_at) %>
+  </div>
+</div>
