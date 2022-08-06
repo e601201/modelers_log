@@ -1,23 +1,37 @@
 <%= form_with(model: project, class: "contents") do |form| %>
   <%= render 'shared/error_messages', object: form.object %>
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <div class= "flex">
+    <div>
+      <% if project.project_image.representable? %>
+        <%= image_tag project.project_image.representation(resize_to_limit: [200, 200])%>
+      <% end %>
+    </div>
+    <div class="ml-5">
+      <div class="my-5">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-5/6" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :body %>
-    <%= form.text_area :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-  <% if project.project_image.present? %>
-    <%= image_tag project.project_image.variant(resize_to_limit: [100, 100])%>
-  <% end %>
-  <div class="my-5">
-    <%= form.label :project_image %>
-    <p>(JPEG・jpgもしくはPNG)</p>
-    <%= form.file_field :project_image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <div class="my-5">
+        <%= form.label :body %>
+        <%= form.text_area :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-5/6" %>
+      </div>
+
+      <div class="my-5">
+        <%= form.label :category %>
+        <%= form.select :category, [["ガンプラ",1],["キャラクター関連",2],["車",3],["バイク",4],["戦車",5],["航空機",6],["お城、建築物",7]],
+          prompt: "カテゴリーを選択してください",
+          class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-5/6" %>
+      </div>
+      <div class="my-5">
+        <%= form.label :project_image %>
+        <p>(JPEG・jpgもしくはPNG)</p>
+        <%= form.file_field :project_image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-5/6" %>
+      </div>
+      <div class="inline">
+        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        <%= link_to t('defaults.back'), :back, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </div>
+    </div>
   </div>
 <% end %>
