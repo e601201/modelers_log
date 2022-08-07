@@ -4,10 +4,6 @@
     <div class='flex gap-4 '>
       <% if current_user&.own_project?(@project) %>
         <%= link_to t('defaults.edit'), edit_project_task_path, class: "btn btn-primary" %>
-        <%= button_to t('defaults.state_change'), project_task_status_change_path(@project,@task),
-          method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } },
-          class: 'btn btn-secondary'
-        %>
       <% end %>
       <%= link_to t('defaults.back'), project_path(@project), class: 'btn btn-primary' %>
     </div>
