@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
   def index
     @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true).includes(:workspace).page(params[:page])
+    @projects = @q.result(distinct: true).includes(:workspace).order(created_at: :desc).page(params[:page])
   end
 
   def show
