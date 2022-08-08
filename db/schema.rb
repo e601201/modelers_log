@@ -63,7 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_085614) do
 
   create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
-    t.text "body", null: false
+    t.text "body"
+    t.integer "project_category", default: 0, null: false
     t.string "project_image"
     t.integer "state", default: 0, null: false
     t.bigint "workspace_id", null: false
@@ -84,9 +85,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_085614) do
 
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
-    t.text "body", null: false
+    t.text "body"
     t.string "task_image"
-    t.integer "usage_time", default: 30, null: false
+    t.integer "task_category", default: 0, null: false
     t.integer "task_state", default: 0, null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
