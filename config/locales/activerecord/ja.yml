@@ -31,7 +31,6 @@ ja:
         body: '具体的な作業内容'
         image: 'イメージ画像'
         task_category: '作業カテゴリー'
-        usage_time: '所要時間(分)'
         task_image: '画像'
         task_state: '進捗状況'
       toolset:
@@ -56,7 +55,22 @@ ja:
         in_progress: '未完成'
         done: '完成！！'
         published: 'レシピ(工事中)'
+      project_category:
+        gun_pla: 'ガンプラ'
+        charactor: 'キャラクター関連'
+        car: '車'
+        bike: 'バイク'
+        battle_tank: '戦車'
+        airplane: '航空機'
+        buildings: 'お城 建物関連'
+        other: 'その他'
     task:
       task_state:
         in_progress: '未完了(タスク)'
         done: '完了(タスク)'
+      task_category:
+        assembly: '組み立て'
+        surface: '表面処理'
+        painting: '塗装'
+        photography: '撮影のみ'
+        other: 'その他'
