@@ -10,7 +10,7 @@
             <%= image_tag "sample_avatar.png", size: '100x100', class: 'rounded-full' %>
           <% end %>
           <div class= "ml-5 ">
-            <p class="flex-1 font-bold text-m" > <%= workspace.owner_name.truncate(20) %> さん</p>
+            <p class="flex-1 font-bold text-m" > <%= workspace.owner_name&.truncate(20) %> さん</p>
           </div>
         </div>
       <% end %>
@@ -18,7 +18,7 @@
       <%= render 'workspaces/follow_button', { workspace: workspace } %>
     <div>
       <%= link_to workspace_profile_path(workspace) do %>
-        <%= simple_format(workspace.owner_comment.truncate(30))%>
+        <%= simple_format(workspace.owner_comment&.truncate(30))%>
       <% end %>
     </div>
   </div>

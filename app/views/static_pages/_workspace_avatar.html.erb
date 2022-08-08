@@ -15,10 +15,10 @@
             </div>
           <div class= "">
             <div class="avatar-name">
-              <div class="font-bold"><%= workspace.owner_name.truncate(20) %></div>
+              <div class="font-bold"><%= workspace.owner_name&.truncate(20) %></div>
             </div>
             <div class="avatar-commment">
-              <div><%= simple_format(workspace.owner_comment.truncate(30)) %></div>
+              <div><%= simple_format(workspace.owner_comment&.truncate(30)) %></div>
             </div>
           </div>
         </div>
