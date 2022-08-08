@@ -7,7 +7,6 @@ RSpec.describe "tasks/index", type: :view do
         title: "Title",
         body: "MyText",
         task_image: "Task Image",
-        usage_time: 2,
         task_state: 3,
         project: nil
       ),
@@ -15,7 +14,6 @@ RSpec.describe "tasks/index", type: :view do
         title: "Title",
         body: "MyText",
         task_image: "Task Image",
-        usage_time: 2,
         task_state: 3,
         project: nil
       )
