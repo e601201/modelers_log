@@ -6,7 +6,6 @@ RSpec.describe "tasks/edit", type: :view do
       title: "MyString",
       body: "MyText",
       task_image: "MyString",
-      usage_time: 1,
       task_state: 1,
       project: nil
     ))
@@ -22,8 +21,6 @@ RSpec.describe "tasks/edit", type: :view do
       assert_select "textarea[name=?]", "task[body]"
 
       assert_select "input[name=?]", "task[task_image]"
-
-      assert_select "input[name=?]", "task[usage_time]"
 
       assert_select "input[name=?]", "task[task_state]"
 

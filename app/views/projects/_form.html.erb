@@ -18,8 +18,8 @@
       </div>
 
       <div class="my-5">
-        <%= form.label :category %>
-        <%= form.select :category, [["ガンプラ",1],["キャラクター関連",2],["車",3],["バイク",4],["戦車",5],["航空機",6],["お城、建築物",7]],
+        <%= form.label :project_category %>
+        <%= form.select :project_category, Project.project_categories_i18n.invert,
           prompt: "カテゴリーを選択してください",
           class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-5/6" %>
       </div>

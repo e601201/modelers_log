@@ -17,10 +17,6 @@
     <%= tag.strong Task.human_attribute_name('body'), class: "block font-medium" %>
     <%= simple_format(task.body) %>
   </p>
-  <p class="my-5">
-    <%= tag.strong Task.human_attribute_name('usage_time'), class: "block font-medium" %>
-    <%= task.usage_time %>
-  </p>
 
   <p class="my-5">
     <%= tag.strong Task.human_attribute_name('task_state'), class: "block font-medium" %>

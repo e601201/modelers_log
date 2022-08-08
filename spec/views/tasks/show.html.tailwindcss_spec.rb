@@ -6,7 +6,6 @@ RSpec.describe "tasks/show", type: :view do
       title: "Title",
       body: "MyText",
       task_image: "Task Image",
-      usage_time: 2,
       task_state: 3,
       project: nil
     ))

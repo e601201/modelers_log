@@ -3,7 +3,7 @@
     <p><%=task.title.truncate(10)%></p>
   </div>
   <div class="w-1/4">
-    <%= tag.p "#{task.usage_time}min"%>
+    <%= tag.p task.task_category_i18n %>
   </div>
   <div class= "flex">
     <%= link_to project_task_path(@project,task), class: "link" do %>
