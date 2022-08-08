@@ -18,7 +18,7 @@
 
       <div class="my-5">
         <%= form.label :task_category %>
-        <%= form.select :task_category, [["組み立て",1],["表面処理",2],["塗装",3],["撮影のみ",4],["その他",5]],{},
+        <%= form.select :task_category, Task.task_categories_i18n.invert,{},
           class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
@@ -28,11 +28,6 @@
           <p>(こだわりのポイントや備忘録用にお使いください)</p>
         </div>
         <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
-
-      <div class="my-5">
-        <%= form.label :usage_time %>
-        <%= form.select :usage_time,[15,30,45,60,"60以上"], {} , class: "select select-bordered w-full max-w-xs" %>
       </div>
 
       <div class="my-5 flex flex-col">
