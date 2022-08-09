@@ -1,5 +1,4 @@
 class TasksLoyalty < ApplicationLoyalty
-
   def create?
     user.id == record.workspace_id || user.admin?
   end
