@@ -1,3 +1,4 @@
+<%= content_for(:title, @workspace.owner_name + ' | ' + t('workspaces.followings.index.title')) %>
 <%= render 'shared/main_tab', {object: @workspace}%>
 <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
   <%= render partial: "workspaces/workspace", collection: @workspaces, as: "workspace" %>
