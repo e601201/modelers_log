@@ -1,6 +1,8 @@
 ja:
   defaults:
     user:
+      guest: "guest"
+      page: "Your Page"
       new_user: "新着ユーザー"
       no_name: "名無しさん"
       workspace: "Your workspace"
@@ -20,6 +22,7 @@ ja:
     search_word: "検索ワード"
     password_reset: 'パスワードリセット'
     danger: '取扱注意'
+    customer_support: 'カスタマーサポート'
     message:
       not_index: "プロジェクトがありません"
       not_authenticated: "ログインしてください"
@@ -55,9 +58,9 @@ ja:
       title: 'ワークスペース一覧'
       create:
     show:
-      title: 'ワークスペース'
+      title: 'ワークスペース詳細'
     edit:
-      title: 'ワークスペース: 編集画面'
+      title: 'ワークスペース編集画面'
     destroy:
       submit: 'ワークスペースの削除'
       message: "%{item}を削除いたします。ユーザー情報等も全て失われますが、よろしいですか？"
@@ -91,6 +94,13 @@ ja:
   projects:
     index:
       title: 'プロジェクト一覧'
+    show:
+      title: 'プロジェクト詳細'
+      message:
+        in_progress: "タスクがありませんよ？ プロジェクトは完成しましたか？"
+        done: "タスクはありません。 このプロジェクトは完了しました"
+      done_project: "プロジェクトを完成させる"
+      add_task: "+ タスクを追加"
     new:
       title: '新規プロジェクト'
       buttons:
@@ -102,22 +112,20 @@ ja:
         basic: "プロジェクトの新規作成を行います"
         template: "%{item}のテンプレートを使用してプロジェクトを作成します"
     edit:
-      title: 'プロジェクト: 編集画面'
+      title: 'プロジェクト編集画面'
       show: 'プロジェクトを見る'
-    show:
-      message:
-        in_progress: "タスクがありませんよ？ プロジェクトは完成しましたか？"
-        done: "タスクはありません。 このプロジェクトは完了しました"
-      done_project: "プロジェクトを完成させる"
-      add_task: "+ タスクを追加"
   tasks:
     index:
       title: 'タスク:一覧'
+    show:
+      title: 'タスク詳細'
     new:
       title: '新規タスク'
     edit:
       title: 'タスク編集画面'
   password_resets:
+    edit:
+      title: 'パスワードリセット画面'
     create:
       success: 'パスワード変更用のメールが送信されました'
     update:
