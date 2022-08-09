@@ -1,3 +1,4 @@
+<%= content_for(:title, @profile.owner_name + " | " + t('workspaces.profile.title')) %>
 <%= render 'shared/main_tab', {object: @profile}%>
 <div class="container mx-auto" >
   <%= render "form", profile: @profile %>

@@ -1,3 +1,4 @@
+<%= content_for(:title, @workspace.owner_name + " | " + t('workspaces.show.title')) %>
 <%= render 'shared/main_tab', {object: @workspace}%>
 <!--ワークスペースの中身-->
 <div class="flex flex-col md:flex-row mx-10">
