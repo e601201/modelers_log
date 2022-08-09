@@ -60,12 +60,12 @@
           </svg>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-          <div class='divider'>new project</div>
-          <li><%= link_to '+ basic-type', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project with no-template-project'} %></li>
-          <div class='divider'>use template</div>
-          <li><%= link_to '+ human-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a human-type template'} %></li>
-          <li><%= link_to '+ vehicle-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a vehicle-type template'} %></li>
-          <li><%= link_to '+ figure-type ', new_project_path, data: { turbo_method: :get, turbo_confirm: 'Add project using a human-type template'} %></li>
+          <%= tag.div t('new_project'), class: 'divider' %>
+          <li><%= link_to t('projects.new.buttons.basic'), new_project_path, data: { turbo_method: :get, turbo_confirm: t('projects.new.message.basic')} %></li>
+          <%= tag.div t('template.gun_pla'), class: 'divider' %>
+          <li><%= link_to t('projects.new.buttons.assembly'), template_assembly_path, data: { turbo_method: :post, turbo_confirm: t('projects.new.message.template',item: t('template.assembly'))} %></li>
+          <li><%= link_to t('projects.new.buttons.painting'), template_painting_path, data: { turbo_method: :post, turbo_confirm: t('projects.new.message.template',item: t('template.painting'))} %></li>
+          <li><%= link_to t('projects.new.buttons.photography'), template_photography_path, data: { turbo_method: :post, turbo_confirm: t('projects.new.message.template',item: t('template.photography'))} %></li>
         </ul>
       </div>
     </div>

@@ -8,7 +8,6 @@ ja:
       followings: "Your followings"
       followers: "Your followers"
       favorites: "Your favorites"
-
     login: "ログイン"
     logout: "ログアウト"
     home: 'ホーム'
@@ -94,6 +93,14 @@ ja:
       title: 'プロジェクト一覧'
     new:
       title: '新規プロジェクト'
+      buttons:
+        basic: '+ ベーシック'
+        assembly: '+ 組み立てのみ'
+        painting: '+ 組立〜塗装'
+        photography: '+ 撮影のみ'
+      message:
+        basic: "プロジェクトの新規作成を行います"
+        template: "%{item}のテンプレートを使用してプロジェクトを作成します"
     edit:
       title: 'プロジェクト: 編集画面'
       show: 'プロジェクトを見る'
@@ -118,3 +125,8 @@ ja:
   user_mailer:
     reset_password_email:
       success: 'パスワードがリセットされました'
+  template:
+    gun_pla: 'テンプレート'
+    assembly: 'ガンプラ（素組み）'
+    painting: 'ガンプラ（組立〜塗装）'
+    photography: 'ガンプラ（撮影のみ）'

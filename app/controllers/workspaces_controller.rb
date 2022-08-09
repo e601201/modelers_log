@@ -4,7 +4,7 @@ class WorkspacesController < ApplicationController
 
   def index
     @q = Workspace.ransack(params[:q])
-    @workspaces = @q.result(distinct: true).includes(:projects).page(params[:page])
+    @workspaces = @q.result(distinct: true).includes(:projects).order(created_at: :desc).page(params[:page])
   end
 
   def show

@@ -8,6 +8,9 @@
       <%= f.select :state_eq_any,Project.states_i18n.invert.map{|key, value| [key, Project.states[value]]},
         {},class: "select select-bordered"
       %>
+      <%= f.select :project_category_eq_any,Project.project_categories_i18n.invert.map{|key, value| [key, Project.project_categories[value]]},
+        {},class: "select select-bordered"
+      %>
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
   </div>
