@@ -1,3 +1,4 @@
+<%= content_for(:title, @task.title + " | " + t('tasks.show.title')) %>
 <div class="mx-auto md:w-2/3 w-full">
   <div class="mx-auto">
     <%= render @task %>

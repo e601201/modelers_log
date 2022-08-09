@@ -7,9 +7,7 @@
   <div class= "navbar-end">
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg>
+        <%= render 'shared/crud_svg',{object: 'bell', size: 'h-6 w-6'} %>
       </label>
       <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
         <div class="divider">お知らせ</div>
@@ -45,7 +43,9 @@
 <div class="navbar bg-base-100 container mx-auto border-b">
   <div class="navbar-start">
     <label for="my-drawer" class="btn btn-circle swap swap-rotate">
-      <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+      <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+        <%= tag.path d:emmbed_svg('menu')['path'] %>
+      </svg>
     </label>
   </div>
   <div class="navbar-center ">
@@ -55,9 +55,7 @@
     <div class="tooltip h-8" data-tip="add project">
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-outline">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-          </svg>
+          <%= render 'shared/crud_svg', {object: 'folder-add', size: 'h-11 w-11' } %>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <%= tag.div t('new_project'), class: 'divider' %>

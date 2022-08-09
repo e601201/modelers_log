@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   # has_many :notifications, dependent: :destroy
 
   enum state: { in_progress: 0, done: 5, published: 10 }
-  enum project_category: { gun_pla: 0, charactor: 1, car: 2, bike: 3, battle_tank: 4, airplane: 5, buildings: 6, other:10 }
+  enum project_category: { gun_pla: 0, charactor: 1, car: 2, bike: 3, battle_tank: 4, airplane: 5, buildings: 6, other: 10 }
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }
   validates :project_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }

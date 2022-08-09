@@ -1,3 +1,4 @@
+<%= content_for(:title, current_user.owner_name + ' | ' + t('workspaces.notifications.index.title')) %>
 <%= render 'shared/main_tab', {object: current_user}%>
 
 <div class="container mx-auto overflow-x-auto">

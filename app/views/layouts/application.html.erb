@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-theme="cmyk" >
   <head>
-    <title>ModelersLog</title>
+    <title><%= page_title(yield(:title))%></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -26,6 +26,8 @@
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           <%= yield %>
+          <!-- footer here -->
+          <%= render 'shared/footer'%>
         </div>
         <div class="drawer-side">
           <label for="my-drawer" class="drawer-overlay"></label>
@@ -36,9 +38,6 @@
         </div>
       </div>
     </main>
-
-    <!-- footer here -->
-    <%= render 'shared/footer'%>
     <% if Rails.env.development? %>
       <script type="module" src="https://cdn.skypack.dev/@aki77/rails-template-inspector"></script>
       <rails-inspector url-prefix="vscode://file" root="<%= Rails.root %>" combo-key="command-shift-v"></rails-inspector>
