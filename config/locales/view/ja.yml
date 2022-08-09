@@ -23,6 +23,7 @@ ja:
     password_reset: 'パスワードリセット'
     danger: '取扱注意'
     customer_support: 'カスタマーサポート'
+    question_box: '質問箱'
     message:
       not_index: "プロジェクトがありません"
       not_authenticated: "ログインしてください"
