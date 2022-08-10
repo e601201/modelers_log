@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   has_one_attached :task_image
   belongs_to :project
+  acts_as_list scope: :project
 
   enum task_state: { in_progress: 0, done: 5 }
   enum task_category: { assembly: 0, surface: 1, painting: 2, photography: 3, other: 4 }
