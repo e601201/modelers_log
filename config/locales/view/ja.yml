@@ -18,6 +18,7 @@ ja:
     destroy: "削除"
     back: "戻る"
     revert: "元に戻す"
+    read_more: "もっと見る"
     search: "検索"
     search_word: "検索ワード"
     password_reset: 'パスワードリセット'
