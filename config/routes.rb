@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   resources :projects do                                             #projects
     resources :tasks, except: :index do                              #tasks
       resource :status_change, only: :update, module: 'tasks'        #task_statusの変更
+      resource :move_higher, only: :update, module: 'tasks'
+      resource :move_lower, only: :update, module: 'tasks'
     end
     resource :status_change, only: :update, module: 'projects'       #project_statusの変更
     resource :duplications, only: :create, module: 'projects'        #projectを自身のworkspaceに複製する

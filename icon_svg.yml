@@ -40,3 +40,9 @@ user:
 folder-add:
   xmins: 'http://www.w3.org/2000/svg'
   path: 'M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z'
+arrow-sm-up:
+  xmins: 'http://www.w3.org/2000/svg'
+  path: 'M7 11l5-5m0 0l5 5m-5-5v12'
+arrow-sm-down:
+  xmins: 'http://www.w3.org/2000/svg'
+  path: 'M17 13l-5 5m0 0l-5-5m5 5V6'

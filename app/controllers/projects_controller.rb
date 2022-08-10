@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @tasks = @project.tasks
+    @tasks = @project.tasks.order(:position)
   end
 
   def new
