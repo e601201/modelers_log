@@ -1,0 +1,21 @@
+<tbody class='border-b-2'>
+  <tr>
+    <th class="text-rose-300 pl-1">
+      <%= render 'shared/crud_svg', {object: 'heart', size: 'h-10 w-10'} %>
+    </th>
+    <td>
+      <div class= 'avatar hover:bg-stone-100'>
+        <%= link_to workspace_path(note.notifiable.workspace) do %>
+          <%= render 'shared/owner_avatar', {user: note.notifiable.workspace}%>
+        <% end %>
+      </div>
+      <div class='hover:bg-stone-100'>
+        <%= tag.div " #{note.notifiable.workspace.owner_name} さんが、あなたのプロジェクトをお気に入りにしました。", class: 'font-bold' %>
+        <%= link_to project_path(note.notifiable.project) do %>
+          <%= tag.div note.notifiable.project.title, class: 'text-stone-400' %>
+          <%= tag.div note.notifiable.project.body.truncate(20), class: 'text-stone-400' %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</tbody>

@@ -5,23 +5,22 @@
   <div class= "navbar-center ">
   </div>
   <div class= "navbar-end">
-    <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <%= render 'shared/crud_svg',{object: 'bell', size: 'h-6 w-6'} %>
-      </label>
-      <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        <div class="divider">お知らせ</div>
-        <%= link_to "一覧を見る", notifications_path(current_user), class: "btn btn-info btn-sm text-slate-100" %>
-        <li><a>通知内容(工事中)</a></li>
-        <li><a>通知内容(工事中)</a></li>
-        <li><a>通知内容(工事中)</a></li>
-        <li><a>通知内容(工事中)</a></li>
-      </ul>
+    <div class="indicator mr-5">
+      <% if current_user.unread_notifications.size > 0 %>
+        <%= tag.span current_user.unread_notifications.size, class: 'indicator-item badge badge-secondary mt-2 mr-2' %>
+      <% end %>
+      <div class="dropdown dropdown-end">
+        <div class="btn btn-ghost btn-circle avatar">
+          <%= link_to notifications_path(current_user) do %>
+            <%= render 'shared/crud_svg',{object: 'bell', size: 'h-8 w-8'} %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <%#--profile dropdown start--%>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <%= render 'shared/owner_avatar'%>
+        <%= render 'shared/owner_avatar', {user: current_user} %>
       </label>
       <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
         <div class="m-auto"><%= tag.p "hello #{current_user.owner_name}" %></div>
