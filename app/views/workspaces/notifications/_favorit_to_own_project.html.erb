@@ -6,7 +6,7 @@
     <td>
       <div class= 'avatar hover:bg-stone-100'>
         <%= link_to workspace_path(note.notifiable.workspace) do %>
-          <%= render 'shared/owner_avatar', {user: note.notifiable.workspace}%>
+          <%= render 'projects/owner_avatar', {user: note.notifiable.workspace}%>
         <% end %>
       </div>
       <div class='hover:bg-stone-100'>
