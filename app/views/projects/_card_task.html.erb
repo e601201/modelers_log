@@ -1,7 +1,7 @@
 <div class="flex my-2 border-b"> 
   <div class="w-2/4 flex">
-    <%= link_to project_task_path(@project,task), class: "link" do %>
-      <%= tag.p task.title&.truncate(10), class: 'link' %>
+    <%= link_to project_task_path(@project,task) do %>
+      <%= tag.p task.title&.truncate(10), class: 'hover:text-3xl link' %>
     <% end %>
   </div>
   <div class="w-1/4">
@@ -11,15 +11,15 @@
     <% if current_user&.own_project?(@project) %>
       <% if @project.in_progress? %>
         <div id= 'task-position-change' class= 'flex mr-3'>
-          <%= button_to project_task_move_higher_path(@project,task), method: :patch do %>
+          <%= button_to project_task_move_higher_path(@project,task), method: :patch, class: 'hover:bg-gray-200 hover:scale-150' do %>
             <%= render 'shared/crud_svg', {object: 'arrow-sm-up', size: 'h-6 w-6'} %>
           <% end %>
-          <%= button_to project_task_move_lower_path(@project,task),  method: :patch do%>
+          <%= button_to project_task_move_lower_path(@project,task),  method: :patch, class: 'hover:bg-gray-200 hover:scale-150' do%>
             <%= render 'shared/crud_svg', {object: 'arrow-sm-down', size: 'h-6 w-6'} %>
           <% end %>
         </div>
-        <div class= 'task-state-change'>
-          <%= button_to project_task_status_change_path(@project,task), method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } } , class: "link link-primary" do %>
+        <div id= 'task-state-change'>
+          <%= button_to project_task_status_change_path(@project,task), method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } } , class: 'link link-primary hover:bg-gray-200 hover:scale-150' do %>
             <%= render 'shared/crud_svg', {object: 'arrows', size: 'h-6 w-6'} %>
           <% end %>
         </div>
