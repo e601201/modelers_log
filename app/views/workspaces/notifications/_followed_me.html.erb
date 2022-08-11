@@ -1,0 +1,19 @@
+<tbody class='border-b-2' >
+  <tr>
+    <th class="text-blue-300">
+      <%= render 'shared/crud_svg', {object: 'user', size: 'h-10 w-10'} %>
+    </th>
+    <td>
+      <%= link_to workspace_path(note.notifiable.following) do %>
+        <div class='avatar hover:bg-stone-200'>
+          <%= render 'projects/owner_avatar', {user: note.notifiable.following}%>
+        </div>
+        <div class="flex items-center space-x-3">
+          <div>
+            <%= tag.div " #{note.notifiable.following.owner_name} さんが、あなたをフォローしました。", class: 'font-bold hover:bg-stone-200' %>
+          </div>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+</tbody>

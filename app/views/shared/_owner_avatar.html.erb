@@ -1,8 +1,0 @@
-<% if current_user.owner_avatar.present? %>
-  <%=cl_image_tag "daichi-test/animal-test/#{current_user.owner_avatar.key}",
-  gravity: "face", height: 150, width: 150, crop: "thumb", radius: 'max', fetch_format: :auto  %>
-<% else %>
-  <div class="w-10 rounded-full">
-    <%= image_tag 'sample_avatar.png', size: '150x150', class: 'rounded-full' %>
-  </div>
-<% end %>

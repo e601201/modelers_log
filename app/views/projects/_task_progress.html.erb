@@ -1,0 +1,4 @@
+<%= tag.p t(Task.human_attribute_name('task_state')), class: "text-xs"%>
+<%= tag.div class: "radial-progress text-primary", style: "--value:#{project.decorate.percentage_of_done_tasks}; --size:3rem;" do %>
+  <%= project.decorate.rate_of_done_tasks %>
+<% end %>

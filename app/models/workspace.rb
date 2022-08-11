@@ -36,12 +36,8 @@ class Workspace < ApplicationRecord
     Notification.find_or_create_by!(notifiable: workspace, workspace_id: workspace.follower_id, action_type: 'followed_me')
   end
 
-  def received_new_notification?
-    # ユーザーが新規通知を受け取ったかどうかをbool値で返すメソッド
-  end
-
-  def count_new_notification
-    # ユーザーが受け取った未読(checked)の通知をカウントする
+  def unread_notifications
+    notifications.select(&:unread?)
   end
 
   def follow(workspace)
