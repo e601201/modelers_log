@@ -10,8 +10,10 @@
         <%= button_to project_task_path(@project,@task), method: :delete, form: { data: { turbo_confirm: t('defaults.message.delete_confirm', item:Task.model_name.human) } } , class: "link link-secondary" do %>
           <%= render 'shared/crud_svg', {object: 'dustbin', size: 'h-10 w-10'} %>
         <% end %>
-        <%= button_to project_task_status_change_path(@project,@task), method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } } , class: "link link-primary" do %>
-          <%= render 'shared/crud_svg', {object: 'arrows', size: 'h-10 w-10'} %>
+        <% if @project.in_progress? %>
+          <%= button_to project_task_status_change_path(@project,@task), method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } } , class: "link link-primary" do %>
+            <%= render 'shared/crud_svg', {object: 'arrows', size: 'h-10 w-10'} %>
+          <% end %>
         <% end %>
       <% end %>
       <%= link_to t('defaults.back'), project_path(@project), class: 'btn btn-outline' %>
