@@ -1,6 +1,8 @@
-<% if project.project_image.attached? %>
-  <%=cl_image_tag "daichi-test/animal-test/#{project.project_image.key}",
-  gravity: "face", height: 300, width: 400, :crop=>"fill", fetch_format: :auto  %>
-<% else %>
-  <%= image_tag "sample_project.png" %>
+<%= link_to project do %>
+  <% if project.project_image.attached? %>
+    <%=cl_image_tag "daichi-test/animal-test/#{project.project_image.key}",
+    gravity: "face", height: height, width: width, :crop=>"fill", fetch_format: :auto  %>
+  <% else %>
+    <%= image_tag "sample_project.png" %>
+  <% end %>
 <% end %>
