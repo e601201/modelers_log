@@ -1,26 +1,15 @@
 <div id="<%= dom_id task %>">
 
   <p class="my-5">
-    <% if task.task_image.present? %>
-      <%= image_tag task.task_image.variant(resize_to_limit: [200, 200])%>
-    <% else %>
-      <%= image_tag 'sample_project.png', size: '200x200' %>
-    <% end %>
-  </p>
-
-  <p class="my-5">
-    <%= tag.strong Task.human_attribute_name('title'), class: "block font-medium" %>
     <%= task.title %>
   </p>
 
   <p class="my-5">
-    <%= tag.strong Task.human_attribute_name('body'), class: "block font-medium" %>
-    <%= simple_format(task.body) %>
+    <%= render 'tasks/task_image', {task: task} %>
   </p>
 
   <p class="my-5">
-    <%= tag.strong Task.human_attribute_name('task_state'), class: "block font-medium" %>
-    <%= task.task_state_i18n %>
+    <%= simple_format(task.body) %>
   </p>
 
   <% if action_name != "show" %>
