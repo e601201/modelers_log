@@ -1,46 +1,44 @@
 <!--プロフィールフォーム-->
-<div id="<%= dom_id profile %>">
-
-  <div class="my-5">
-    <% if profile.owner_avatar.present? %>
-      <%= image_tag profile.owner_avatar.variant(resize_to_limit: [100, 100])%>
-    <% else %>
-      <%= image_tag "sample_avatar.png", size: '100x100' %>
-    <% end %>
-  </div>
-
-  <div class="my-5">
-    <strong class="block font-medium mb-1">owner_name:</strong>
-    <%= profile.owner_name %>
-  </div>
-
-  <div class="my-5">
-    <div>
-    <strong class="block font-medium mb-1">owner_comment:</strong>
-    <%= simple_format(profile.owner_comment) %>
+<div id="<%= dom_id profile %>" class="flex flex-col mx-3 md:flex-row md:mx-10" >
+  <div id="profile-id-content">
+    <div id="profile-avatar" class="">
+      <% if profile.owner_avatar.present? %>
+        <%= image_tag profile.owner_avatar.variant(resize_to_limit: [100, 100])%>
+      <% else %>
+        <%= image_tag "sample_avatar.png", size: '100x100' %>
+      <% end %>
+    </div>
+    <div id="profile-name" class="">
+      <p class="text">
+        <%= profile.owner_name %>
+      </p>
+    </div>
+    <div id="profile-comment" class="">
+      <div>
+      <%= simple_format(profile.owner_comment) %>
+      </div>
+    </div>
+    <div id="profile-relations" class= "flex gap-3">
+      <div id="profile-followings" class= "flex">
+        <%= link_to "#{profile.followings.count}", followings_path(profile), class: "link text-lg mr-1" %>
+        <strong class="block font-medium mb-1">フォロー中</strong>
+      </div>
+      <div id="profile-followers" class= "flex">
+        <%= link_to "#{profile.followers.count}", followers_path(profile), class: "link text-lg mr-1" %>
+        <strong class="block font-medium mb-1">フォロワー</strong>
+      </div>
+    </div>
+    <div id="profile-sns" class="">
+      <div>
+        <strong class="block font-medium mb-1" >SNS:</strong>
+      </div>
+      <div>
+        <p>工事中</p>
+      </div>
     </div>
   </div>
 
-  <div class= "flex">
-    <strong class="block font-medium mb-1">follows:</strong>
-    <%= link_to "#{profile.followings.count}", followings_path(profile), class: "link link-hover ml-3" %>
-  </div>
-
-  <div class= "flex">
-    <strong class="block font-medium mb-1">followers:</strong>
-    <%= link_to "#{profile.followers.count}", followers_path(profile), class: "link link-hover ml-3" %>
-  </div>
-
-  <div class="my-5">
-    <div>
-      <strong class="block font-medium mb-1" >SNS:</strong>
-    </div>
-    <div>
-      <p>工事中</p>
-    </div>
-  </div>
-
-  <div class="my-5">
+  <div id="profile-toolsets-content" class="">
     <div>
       <strong class="block font-medium mb-1" >ツールセット:</strong>
     </div>
@@ -48,5 +46,4 @@
       <p>工事中</p>
     </div>
   </div>
-
 </div>

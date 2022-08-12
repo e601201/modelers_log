@@ -3,7 +3,7 @@
   <div id="center-welcome-page" class="container mx-auto md:w-9/12 w-11/12 "> 
     <!--カルーセル-->
     <div id="carousel-image" class="carousel carousel-center p-5 space-x-4"> 
-      <%= render partial: "projects/project_image", collection: @projects.image_attached_projects(8), as: 'project'%>
+      <%= render partial: "projects/project_image", collection: @projects.image_attached_projects(8), as: 'project', locals: {height: 200, width: 200} %>
     </div>
     <!--新規プロジェクト-->
     <div id="new-project">

@@ -4,9 +4,9 @@
       <%= render 'shared/crud_svg', {object: 'heart', size: 'h-10 w-10'} %>
     </th>
     <td>
-      <div class= 'avatar hover:bg-stone-100'>
+      <div class= 'hover:bg-stone-100'>
         <%= link_to workspace_path(note.notifiable.workspace) do %>
-          <%= render 'projects/owner_avatar', {user: note.notifiable.workspace}%>
+          <%= render 'workspaces/owner_avatar', {user: note.notifiable.workspace, size: '50x50'}%>
         <% end %>
       </div>
       <div class='hover:bg-stone-100'>

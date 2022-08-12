@@ -6,7 +6,7 @@
     <td>
       <%= link_to workspace_path(note.notifiable.following) do %>
         <div class='avatar hover:bg-stone-200'>
-          <%= render 'projects/owner_avatar', {user: note.notifiable.following}%>
+          <%= render 'workspaces/owner_avatar', {user: note.notifiable.following, size: '50x50'}%>
         </div>
         <div class="flex items-center space-x-3">
           <div>

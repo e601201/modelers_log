@@ -1,8 +1,10 @@
 <%= content_for(:title, @project.title + " | " + t('projects.show.title')) %>
-<!--プロジェクトの中身-->
-<div class="flex flex-col md:flex-row mx-10">
-  <div class="container mx-auto w-full md:w-1/5 ">
-    <div class="text-3xl my-5 md:text-5xl"><%= @project.title&.truncate(20) %></div>
+
+<div id="project-header" class="container text-3xl mx-3 my-5 md:text-5xl md:mx-10">
+  <%= @project.title&.truncate(20) %>
+</div>
+<div id="project-content" class="flex flex-col mx-3 md:flex-row md:mx-10">
+  <div id="project-sidebar" class="container mx-auto w-full md:w-1/5 ">
     <div>
       <%= render @project %>
     </div>
@@ -21,57 +23,11 @@
       </div>
     </div>
   </div>
-
-  <div class="mx-auto md:w-3/5 w-full pt-5 mb-10">
-    <!--カルーセルスタート-->
-    <div class="carousel rounded-box">
-      <%= render partial: 'tasks/task_image', collection: @tasks, as: 'task' %>
-    </div>
-    <!--カルーセルエンド-->
-    <div class="flex flex-col w-full xl:flex-row mt-5">
-      <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
-        <%= tag.label t('enums.task.task_state.in_progress'), class: 'badge my-2'%>
-        <div class="main-content container mx-auto px-8">
-          <% if @project.in_progress? %>
-            <% if @tasks.in_progress.present? %>
-              <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task' %>
-            <% else %>
-              <div class='flex'>
-                <%= tag.p t('.message.in_progress')%>
-              </div>
-            <% end %>
-            <% if current_user&.own_project?(@project) %>
-              <div class= "flex">
-                <%= link_to t('.add_task'), new_project_task_path(@project), class: "btn btn-primary my-2 w-5/12 text-white" %>
-                <% if @tasks.in_progress.blank? %>
-                  <div class="my-2 w-2/12 flex justify-center">
-                    <p class="text-4xl" >or</p>
-                  </div>
-                  <%= link_to t('.done_project'), project_status_change_path(@project),
-                    data: { turbo_method: :patch , turbo_confirm: t('defaults.message.done_confirm', item: Project.model_name.human)},
-                    class: "btn btn-secondary my-2 w-5/12"
-                  %>
-                <% end %>
-              </div>
-            <% end %>
-          <% else %>
-            <%= tag.p t('.message.done')%>
-            <%= link_to t('defaults.revert') , project_status_change_path(@project),
-              data: { turbo_method: :patch , turbo_confirm: t('defaults.message.in_progress_confirm', item: Project.model_name.human) },
-              class: "btn btn-secondary my-2 " if @project.workspace_id == current_user&.id
-            %>
-          <% end %>
-        </div>
-      </div>
-      <div class="divider lg:divider-horizontal"> </div>
-      <div class="flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border">
-        <%= tag.label t('enums.task.task_state.done'), class: 'badge my-2'%>
-        <div class="main-content container mx-auto px-8">
-          <% if @tasks.present? %>
-            <%= render partial: "projects/card_task", collection: @tasks.done, as: 'task' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div id="project-main" class="mx-auto md:w-3/5 w-full pt-5 mb-10">
+    <% if @project.in_progress? %>
+      <%= render 'projects/in_progress_tasks' %>
+    <% elsif %>
+      <%= render 'projects/done_tasks' %>
+    <% end %>
   </div>
 </div>
