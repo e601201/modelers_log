@@ -10,6 +10,6 @@ class ProjectDecorator < ApplicationDecorator
   def rate_of_done_tasks
     return '0/0' if tasks.blank?
 
-    "#{tasks.done.count} / #{tasks.count}"
+    "#{tasks.done.count}/#{tasks.count}"
   end
 end
