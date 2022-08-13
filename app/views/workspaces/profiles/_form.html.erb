@@ -1,13 +1,7 @@
 <!--プロフィールフォーム-->
 <div id="<%= dom_id profile %>" class="flex flex-col mx-3 md:flex-row md:mx-10" >
   <div id="profile-id-content">
-    <div id="profile-avatar" class="">
-      <% if profile.owner_avatar.present? %>
-        <%= image_tag profile.owner_avatar.variant(resize_to_limit: [100, 100])%>
-      <% else %>
-        <%= image_tag "sample_avatar.png", size: '100x100' %>
-      <% end %>
-    </div>
+    <%= render "workspaces/owner_avatar", {user: profile, size: '100x100'} %>
     <div id="profile-name" class="">
       <p class="text">
         <%= profile.owner_name %>
