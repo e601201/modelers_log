@@ -24,6 +24,7 @@ ja:
       project:
         title: 'タイトル'
         body: '概要'
+        project_category: 'カテゴリー'
         project_image: '画像'
         status: 'ステータス'
       task:
