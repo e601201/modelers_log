@@ -12,4 +12,12 @@ class ProjectDecorator < ApplicationDecorator
 
     "#{tasks.done.count}/#{tasks.count}"
   end
+
+  def form_body
+    <<~EOSQL
+      例)
+      * 組立からスミ入れまで。
+      * 合わせ目やパーティングラインの処理に力を入れました！！
+    EOSQL
+  end
 end

@@ -1,44 +1,52 @@
-<%= form_with model:[project, task], class: "contents" do |form| %>
+<%= form_with model:[project, task], class: 'contents' do |form| %>
   <%= render 'shared/error_messages', object: form.object %>
-  <div class= "flex">
+  <div class= 'flex my-5'>
     <div>
       <% if task.task_image.representable? %>
         <%= image_tag task.task_image.representation(resize_to_limit: [200, 200])%>
       <% end %>
     </div>
-    <div class="ml-5">
-      <div class="my-5">
-        <%= form.label :title %>（必須）
-        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class='ml-5'>
+      <div>
+        <%= tag.span '*', class: 'text-xl text-red-500' %>
+        <%= tag.span t('.message.required') %>
       </div>
-      <div class="my-5">
-        <%= form.label :task_image %>
-        <%= form.file_field :task_image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <div class='my-5'>
+        <%= form.label :title, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
+        <%= form.text_field :title, class: 'input input-bordered px-3 py-2 mt-2 w-full', placeholder: t('.placeholder.body') %>
       </div>
-
-      <div class="my-5">
-        <%= form.label :task_category %>
-        <%= form.select :task_category, Task.task_categories_i18n.invert,{},
-          class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <div class='my-5'>
+        <%= form.label :task_image, class: 'label font-mono' %>
+        <label class='label py-0'>
+          <%= tag.span t('.message.image'), class: 'label-text-alt text-xs text-slate-400'%>
+        </label>
+        <%= form.file_field :task_image, class: 'input input-bordered  px-3 py-2 mt-2 w-full', accept: '.png, .jpg, .jpeg' %>
       </div>
-
-      <div class="my-5">
-        <%= form.label :body %>
-        <div>
-          <p>(こだわりのポイントや備忘録用にお使いください)</p>
-        </div>
-        <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <div class='my-5'>
+        <%= form.label :task_category, class: 'label font-mono' %>
+        <%= form.select :task_category, Task.task_categories_i18n.invert, {},
+          class: 'select select-bordered  px-3 py-2 mt-2 w-full' %>
       </div>
-
-      <div class="my-5 flex flex-col">
-          <%= form.label :task_state %>
-          <%= form.select :task_state,Task.task_states_i18n.invert, {} ,class: "select select-bordered w-full max-w-xs" %>
+      <div class='my-5'>
+        <%= form.label :body, class: 'label font-mono' %>
+        <label class='label py-0'>
+          <%= tag.span t('.message.body'), class: 'label-text-alt text-xs text-slate-400'%>
+        </label>
+        <%= form.text_area :body, rows: 4, class: 'textarea textarea-bordered  px-3 py-2 mt-2 w-full', placeholder: task.decorate.form_body %>
       </div>
-
-      <div class="inline">
-        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <div class='my-5 flex flex-col'>
+          <%= form.label :task_state, class: 'label font-mono' %>
+          <label class='label py-0'>
+            <%= tag.span t('.message.task_state'), class: 'label-text-alt text-xs text-slate-400'%>
+          </label>
+          <%= form.select :task_state,Task.task_states_i18n.invert, {},
+            class: 'select select-bordered w-full max-w-xs'
+          %>
       </div>
-      <%= link_to t('defaults.back'), project_path(project), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class='inline'>
+        <%= form.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>
+      </div>
+      <%= link_to t('defaults.back'), project_path(project), class: 'ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium' %>
     </div>
   </div>
 <% end %>
