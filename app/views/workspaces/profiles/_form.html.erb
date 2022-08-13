@@ -1,30 +1,30 @@
 <!--プロフィールフォーム-->
-<div id="<%= dom_id profile %>" class="flex flex-col mx-3 md:flex-row md:mx-10" >
-  <div id="profile-id-content">
-    <%= render "workspaces/owner_avatar", {user: profile, size: '100x100'} %>
-    <div id="profile-name" class="">
-      <p class="text">
+<div id="<%= dom_id profile %>" class='flex flex-col mx-3 md:flex-row md:mx-10' >
+  <div id='profile-id-content'>
+    <%= render 'workspaces/owner_avatar', {user: profile, size: '100x100'} %>
+    <div id='profile-name' class='my-3'>
+      <p class='text'>
         <%= profile.owner_name %>
       </p>
     </div>
-    <div id="profile-comment" class="">
+    <div id='profile-comment' class='my-3'>
       <div>
       <%= simple_format(profile.owner_comment) %>
       </div>
     </div>
-    <div id="profile-relations" class= "flex gap-3">
-      <div id="profile-followings" class= "flex">
-        <%= link_to "#{profile.followings.count}", followings_path(profile), class: "link text-lg mr-1" %>
-        <strong class="block font-medium mb-1">フォロー中</strong>
+    <div id='profile-relations' class= 'flex gap-3 my-3'>
+      <div id='profile-followings' class= 'flex'>
+        <%= link_to "#{profile.followings.count}", followings_path(profile), class: 'link text-lg mr-1' %>
+        <strong class='block font-medium mb-1'>フォロー中</strong>
       </div>
-      <div id="profile-followers" class= "flex">
-        <%= link_to "#{profile.followers.count}", followers_path(profile), class: "link text-lg mr-1" %>
-        <strong class="block font-medium mb-1">フォロワー</strong>
+      <div id='profile-followers' class= 'flex'>
+        <%= link_to "#{profile.followers.count}", followers_path(profile), class: 'link text-lg mr-1' %>
+        <strong class='block font-medium mb-1'>フォロワー</strong>
       </div>
     </div>
-    <div id="profile-sns" class="">
+    <div id='profile-sns' class='my-3'>
       <div>
-        <strong class="block font-medium mb-1" >SNS:</strong>
+        <strong class='block font-medium mb-1' >SNS:</strong>
       </div>
       <div>
         <p>工事中</p>
@@ -32,9 +32,9 @@
     </div>
   </div>
 
-  <div id="profile-toolsets-content" class="">
+  <div id='profile-toolsets-content' class='border-2 p-5 w-full rounded-xl my-3'>
     <div>
-      <strong class="block font-medium mb-1" >ツールセット:</strong>
+      <strong class='block font-medium mb-1' >ツールセット:</strong>
     </div>
     <div>
       <p>工事中</p>

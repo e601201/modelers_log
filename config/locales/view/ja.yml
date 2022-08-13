@@ -1,48 +1,49 @@
 ja:
   defaults:
     user:
-      guest: "guest"
-      page: "Your Page"
-      new_user: "新着ユーザー"
-      no_name: "名無しさん"
-      workspace: "Your workspace"
-      profile: "Your profile"
-      followings: "Your followings"
-      followers: "Your followers"
-      favorites: "Your favorites"
-    login: "ログイン"
-    logout: "ログアウト"
+      guest: 'guest'
+      page: 'Your Page'
+      new_user: '新着ユーザー'
+      no_name: '名無しさん'
+      workspace: 'Your workspace'
+      profile: 'Your profile'
+      followings: 'Your followings'
+      followers: 'Your followers'
+      favorites: 'Your favorites'
+    login: 'ログイン'
+    logout: 'ログアウト'
     home: 'ホーム'
-    edit: "編集"
-    state_change: "進捗状況の変更"
-    destroy: "削除"
-    back: "戻る"
-    revert: "元に戻す"
-    read_more: "もっと見る"
-    search: "検索"
-    search_word: "検索ワード"
+    edit: '編集'
+    state_change: '進捗状況の変更'
+    destroy: '削除'
+    back: '戻る'
+    revert: '元に戻す'
+    read_more: 'もっと見る'
+    search: '検索'
+    search_word: '検索ワード'
     password_reset: 'パスワードリセット'
     danger: '取扱注意'
     customer_support: 'カスタマーサポート'
     question_box: '質問箱'
     message:
-      not_index: "プロジェクトがありません"
-      not_authenticated: "ログインしてください"
-      created: "%{item}を作成しました"
-      not_created: "%{item}を作成できませんでした"
-      updated: "%{item}を更新しました"
-      not_updated: "%{item}を更新できませんでした"
-      deleted: "%{item}を削除しました"
-      duplicated: "%{item}を複製しました"
-      duplicate_confirm: "%{item}を複製してもよろしいですか？"
-      delete_confirm: "%{item}を削除してもよろしいですか？"
-      require_login: "ログインをしてください"
-      errors_detected: "件のエラーが検出されました"
-      not_supported: "はサポートされていないフォーマットです"
-      keep_under: "は%{item}以下の画像にしてください"
-      change_status_confirm: "%{item}のステータスを変更させてもよろしいですか？"
-      done_confirm: "%{item}を完成状態にさせてもよろしいですか？"
-      in_progress_confirm: "%{item}を未完成状態に戻してもよろしいですか？"
+      not_index: 'プロジェクトがありません'
+      not_authenticated: 'ログインしてください'
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      updated: '%{item}を更新しました'
+      not_updated: '%{item}を更新できませんでした'
+      deleted: '%{item}を削除しました'
+      duplicated: '%{item}を複製しました'
+      duplicate_confirm: '%{item}を複製してもよろしいですか？'
+      delete_confirm: '%{item}を削除してもよろしいですか？'
+      require_login: 'ログインをしてください'
+      errors_detected: '件のエラーが検出されました'
+      not_supported: 'はサポートされていないフォーマットです'
+      keep_under: 'は%{item}以下の画像にしてください'
+      status_in_progress_confirm: '%{item}を未完成状態に戻します'
+      status_done_confirm: '%{item}を完成状態にします'
+      done_confirm: '%{item}を完成状態にさせてもよろしいですか？'
+      in_progress_confirm: '%{item}を未完成状態に戻してもよろしいですか？'
   helper:
   admin:
   banken:
@@ -65,7 +66,7 @@ ja:
       title: 'ワークスペース編集画面'
     destroy:
       submit: 'ワークスペースの削除'
-      message: "%{item}を削除いたします。ユーザー情報等も全て失われますが、よろしいですか？"
+      message: '%{item}を削除いたします。ユーザー情報等も全て失われますが、よろしいですか？'
     profile:
       title: 'プロフィール'
     followings:
@@ -94,15 +95,23 @@ ja:
     destroy:
       success: 'ログアウトしました！！'
   projects:
+    form:
+      placeholder:
+        body: '例) ガンダムRX-78-2'
+      message:
+        required: 'は必須'
+        body: '作業の工程や注目してほしい箇所を記入しましょう！'
+        image: 'JPEG(jpg) もしくは PNGが選択可能です'
+        state: 'プラモが完成したら[完了]にしてください'
     index:
       title: 'プロジェクト一覧'
     show:
       title: 'プロジェクト詳細'
       message:
-        in_progress: "タスクがありませんよ？ プロジェクトは完成しましたか？"
-        done: "タスクはありません。 このプロジェクトは完了しました"
-      done_project: "プロジェクトを完成させる"
-      add_task: "+ タスクを追加"
+        in_progress: 'タスクがありませんよ？ プロジェクトは完成しましたか？'
+        done: 'タスクはありません。 このプロジェクトは完了しました'
+      done_project: 'プロジェクトを完成させる'
+      add_task: '+ タスクを追加'
     new:
       title: '新規プロジェクト'
       buttons:
@@ -111,12 +120,20 @@ ja:
         painting: '+ 組立〜塗装'
         photography: '+ 撮影のみ'
       message:
-        basic: "プロジェクトの新規作成を行います"
-        template: "%{item}のテンプレートを使用してプロジェクトを作成します"
+        basic: 'プロジェクトの新規作成を行います'
+        template: '%{item}のテンプレートを使用してプロジェクトを作成します'
     edit:
       title: 'プロジェクト編集画面'
       show: 'プロジェクトを見る'
   tasks:
+    form:
+      placeholder:
+        body: '例) ボディパーツの組立'
+      message:
+        required: 'は必須'
+        body: '作業の具体的な内容や注目してほしい箇所を記入しましょう！'
+        image: 'JPEG(jpg) もしくは PNGが選択可能です'
+        task_state: 'タスクが完了したら[完了]にしてください'
     index:
       title: 'タスク:一覧'
     show:

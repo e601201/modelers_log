@@ -1,14 +1,14 @@
-<div class="flex my-2 border-b"> 
-  <div class="w-2/4 flex gap-2">
+<div class='flex my-2 border-b'> 
+  <div class='w-2/4 flex gap-2'>
     <%= task.position %>
     <%= link_to project_task_path(@project,task) do %>
       <%= tag.p task.title&.truncate(10), class: 'hover:text-xl link' %>
     <% end %>
   </div>
-  <div class="w-1/4">
+  <div class='w-1/4'>
     <%= render "task_categories/#{task.task_category}" %>
   </div>
-  <div class= "flex">
+  <div class= 'flex'>
     <% if current_user&.own_project?(@project) %>
       <% if @project.in_progress? %>
         <div id= 'task-position-change' class= 'flex mr-3'>
@@ -20,7 +20,7 @@
           <% end %>
         </div>
         <div id= 'task-state-change'>
-          <%= button_to project_task_status_change_path(@project,task), method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } } , class: 'link link-primary hover:bg-gray-200 hover:scale-150' do %>
+          <%= button_to project_task_status_change_path(@project,task), method: :patch, form: { data: { turbo_confirm: message } } , class: 'link link-primary hover:bg-gray-200 hover:scale-150' do %>
             <%= render 'shared/crud_svg', {object: 'arrows', size: 'h-6 w-6'} %>
           <% end %>
         </div>
