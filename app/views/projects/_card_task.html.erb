@@ -2,7 +2,7 @@
   <div class="w-2/4 flex gap-2">
     <%= task.position %>
     <%= link_to project_task_path(@project,task) do %>
-      <%= tag.p task.title&.truncate(10), class: 'hover:text-3xl link' %>
+      <%= tag.p task.title&.truncate(10), class: 'hover:text-xl link' %>
     <% end %>
   </div>
   <div class="w-1/4">
