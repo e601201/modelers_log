@@ -1,4 +1,4 @@
-<div id="<%= dom_id project %>" class="card shadow-l rounded-none ">
+<div id="<%= dom_id project %>" class='card shadow-l rounded-none'>
   <div id="project-card-image" class="hover:bg-slate-100" >
       <%= render'projects/project_image',{project: project, height: 300, width: 400} %>
   </div>
@@ -10,9 +10,9 @@
       </div>
     <% end %>
   </div>
-  <div id="project-card-body" class="card-body p-1">
-    <% if action_name != 'show' %>
-      <div id="project-card-description" class="card-actions">
+  <div id="project-card-body" class='card-body p-1'>
+    <% if request.fullpath != "/projects/#{project.id}"  %>
+      <div id="project-card-description" class='card-actions'>
         <div id= "project-title" class='border-r border-gray-700 pr-2'>
           <%= project.title&.truncate(30)%>
         </div>
@@ -21,9 +21,9 @@
         </div>
       </div>
     <% end %>
-    <div id="project-card-status" class="flex justify-between">
+    <div id="project-card-status" class='flex justify-between'>
       <% if project.in_progress?%>
-        <div id="project-card-task-progress" class="border-slate-400 border rounded-lg py-2 px-3" >
+        <div id="project-card-task-progress" class='border-slate-400 border rounded-lg py-2 px-3' >
           <%= render 'projects/task_progress', { project: project }%>
         </div>
       <% end %>
