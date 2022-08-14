@@ -1,45 +1,43 @@
-<%= form_with(model: workspace, class: "contents") do |f| %>
+<%= form_with(model: workspace, class: 'contents') do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <% if action_name != "new" %>
-    <div class="my-5">
-      <%= f.label :owner_name %>
-      <%= f.text_field :owner_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <div>
+      <%= tag.span '*', class: 'text-xl text-red-500' %>
+      <%= tag.span t('.message.required') %>
     </div>
-
-    <div class="my-5">
-      <%= f.label :owner_comment %>
-      <%= f.text_area :owner_comment, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full h-60" %>
+    <div class='my-5'>
+      <%= f.label :owner_name, class: 'label font-mono' %>
+      <%= f.text_field :owner_name, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
     </div>
-
+    <div class='my-5'>
+      <%= f.label :owner_comment, class: 'label font-mono' %>
+      <%= f.text_area :owner_comment, class: 'textarea textarea-bordered px-3 py-2 mt-2 w-full h-60' %>
+    </div>
     <% if workspace.owner_avatar.present? %>
       <%= image_tag workspace.owner_avatar.variant(resize_to_limit: [100, 100])%>
-      <%= link_to owner_avatars_path, data: { turbo_method: :delete, turbo_confirm: 'Wow!! You destroy it? Are you sure?'} ,class: 'btn btn-error btn-outline' do %>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      <%= link_to owner_avatars_path, data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm', item: Workspace.human_attribute_name('owner_avatar'))} ,class: 'btn btn-error btn-outline' do %>
+        <%= render 'shared/crud_svg', {object: 'cross', size: 'h-6 w-6'} %>
       <% end %>
     <% end %>
-  
-    <div class="my-5">
-      <%= f.label :owner_avatar %>
-      <%= f.file_field :owner_avatar, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class='my-5'>
+      <%= f.label :owner_avatar, class: 'label font-mono' %>
+      <label class='label py-0'>
+        <%= tag.span t('.message.image'), class: 'label-text-alt text-xs text-slate-400'%>
+      </label>
+      <%= f.file_field :owner_avatar, class: 'input input-bordered px-3 py-2 mt-2 w-full', accept: '.png, .jpg, .jpeg' %>
     </div>
-  <% end %>
-
-    <div class="my-5">
-    <%= f.label :email %>
-    <%= f.text_field :email, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class='my-5'>
+    <%= f.label :email, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
+    <%= f.text_field :email, required: true, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
   </div>
-
-  <div class="my-5">
-    <%= f.label :password %>
-    <%= f.text_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class='my-5'>
+    <%= f.label :password, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
+    <%= f.text_field :password, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
   </div>
-
-  <div class="my-5">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class='my-5'>
+    <%= f.label :password_confirmation, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
+    <%= f.password_field :password_confirmation, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
   </div>
-
-  <div class="inline">
-    <%= f.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class='inline'>
+    <%= f.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>
   </div>
 <% end %>
