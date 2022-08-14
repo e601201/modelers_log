@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? #letter_openerの利用inDev環境
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? #letter_opener
   root 'static_pages#welcome'
 
   namespace :admin do
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get  'login',       to: 'user_sessions#new'                        #ユーザーログイン画面
   post 'login',       to: 'user_sessions#create'                     #ユーザーログイン処理
   delete 'logout',    to: 'user_sessions#destroy'                    #ユーザーログアウト処理
+  post 'guest_login', to: 'user_sessions#guest_login'                #ゲストログイン機能
   resources :password_resets, only: %i[new create edit update]       #パスワードリセット
 
   namespace :template do

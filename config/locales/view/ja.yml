@@ -54,6 +54,10 @@ ja:
       new_project: '新着プロジェクト'
       done_project: '完成プロジェクト'
   workspaces:
+    form:
+      message:
+        required: 'は必須です'
+        image: 'JPEG(jpg) もしくは PNGが選択可能です'
     new:
       title: '新規作成'
       Back to workspaces: 'ワークスペース一覧へ'
