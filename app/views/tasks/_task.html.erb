@@ -1,20 +1,23 @@
 <div id="<%= dom_id task %>">
 
-  <p class="my-5">
+  <p class='my-5'>
     <%= task.title %>
   </p>
 
-  <p class="my-5">
+  <p class='my-5'>
     <%= render 'tasks/task_image', {task: task} %>
   </p>
 
-  <p class="my-5">
+  <p class='my-5'>
     <%= simple_format(task.body) %>
   </p>
+  <p class='my-5'>
+    <%= task.task_state_i18n %>
+  </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this task", project_task_path(task), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this task', edit_task_path(task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  <% if action_name != 'show' %>
+    <%= link_to 'Show this task', project_task_path(task), class: 'rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium' %>
+    <%= link_to 'Edit this task', edit_task_path(task), class: 'rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium' %>
+    <hr class='mt-6'>
   <% end %>
 </div>

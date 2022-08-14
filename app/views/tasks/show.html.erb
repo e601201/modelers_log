@@ -7,11 +7,17 @@
         <%= link_to edit_project_task_path(@project,@task), class: "link link-primary" do %>
           <%= render 'shared/crud_svg', {object: 'note', size: 'h-10 w-10'} %>
         <% end %>
-        <%= button_to project_task_path(@project,@task), method: :delete, form: { data: { turbo_confirm: t('defaults.message.delete_confirm', item:Task.model_name.human) } } , class: "link link-secondary" do %>
+        <%= button_to project_task_path(@project,@task), method: :delete,
+          form: { data: { turbo_confirm: t('defaults.message.delete_confirm', item:Task.model_name.human) } },
+          class: "link link-secondary" do
+        %>
           <%= render 'shared/crud_svg', {object: 'dustbin', size: 'h-10 w-10'} %>
         <% end %>
         <% if @project.in_progress? %>
-          <%= button_to project_task_status_change_path(@project,@task), method: :patch, form: { data: { turbo_confirm: t('defaults.message.change_status_confirm', item:Task.model_name.human) } } , class: "link link-primary" do %>
+          <%= button_to project_task_status_change_path(@project,@task), method: :patch,
+            form: { data: { turbo_confirm: t("defaults.message.change_status_from_#{@task.task_state}", item:Task.model_name.human) } },
+            class: "link link-primary" do
+          %>
             <%= render 'shared/crud_svg', {object: 'arrows', size: 'h-10 w-10'} %>
           <% end %>
         <% end %>

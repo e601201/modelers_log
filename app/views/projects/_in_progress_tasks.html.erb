@@ -8,7 +8,7 @@
         <%= tag.label t('enums.task.task_state.in_progress'), class: 'badge my-2'%>
         <div class='main-content container mx-auto px-8'>
           <% if @tasks.in_progress.present? %>
-            <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task', locals: { message: t('defaults.message.status_done_confirm', item:Task.model_name.human) } %>
+            <%= render partial: 'projects/card_task', collection: @tasks.in_progress, as: 'task' %>
           <% else %>
             <div class='flex'>
               <%= tag.p t('projects.show.message.in_progress')%>
@@ -34,7 +34,7 @@
       <div id='project-done-task' class='flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border'>
         <%= tag.label t('enums.task.task_state.done'), class: 'badge my-2'%>
         <div class='main-content container mx-auto px-8'>
-          <%= render partial: 'projects/card_task', collection: @tasks.done, as: 'task', locals: { message: t('defaults.message.status_in_progress_confirm', item:Task.model_name.human) } %>
+          <%= render partial: 'projects/card_task', collection: @tasks.done, as: 'task' %>
         </div>
       </div>
     </div>

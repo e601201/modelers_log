@@ -40,8 +40,8 @@ ja:
       errors_detected: '件のエラーが検出されました'
       not_supported: 'はサポートされていないフォーマットです'
       keep_under: 'は%{item}以下の画像にしてください'
-      status_in_progress_confirm: '%{item}を未完了状態に戻します'
-      status_done_confirm: '%{item}を完了状態にします'
+      change_status_from_done: '%{item}を未完了状態に戻します'
+      change_status_from_in_progress: '%{item}を完了状態にします'
       done_confirm: '%{item}を完成状態にさせてもよろしいですか？'
       in_progress_confirm: '%{item}を未完成状態に戻してもよろしいですか？'
   helper:

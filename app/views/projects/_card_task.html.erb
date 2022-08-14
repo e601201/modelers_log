@@ -20,7 +20,10 @@
           <% end %>
         </div>
         <div id= 'task-state-change'>
-          <%= button_to project_task_status_change_path(@project,task), method: :patch, form: { data: { turbo_confirm: message } } , class: 'link link-primary hover:bg-gray-200 hover:scale-150' do %>
+          <%= button_to project_task_status_change_path(@project,task),
+            method: :patch,
+            form: { data: { turbo_confirm: t("defaults.message.change_status_from_#{task.task_state}", item:Task.model_name.human) } },
+            class: 'link link-primary hover:bg-gray-200 hover:scale-150' do %>
             <%= render 'shared/crud_svg', {object: 'arrows', size: 'h-6 w-6'} %>
           <% end %>
         </div>
