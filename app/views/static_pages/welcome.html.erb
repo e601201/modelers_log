@@ -1,56 +1,56 @@
-<div id="welcome-page" class="flex flex-col md:flex-row mx-1 md:mx-10">
+<div id='welcome-page' class='flex flex-col md:flex-row mx-1 md:mx-10'>
   <!--center-->
-  <div id="center-welcome-page" class="container mx-auto md:w-9/12 w-11/12 "> 
+  <div id='center-welcome-page' class='container mx-auto md:w-9/12 w-11/12 '> 
     <!--カルーセル-->
-    <div id="carousel-image" class="carousel carousel-center p-5 space-x-4"> 
-      <div class="carousel-item">
-        <%= render partial: "projects/project_image", collection: @projects.image_attached_projects(8), as: 'project', locals: {height: 200, width: 200} %>
+    <div id='carousel-image' class='carousel carousel-center p-5 space-x-4'> 
+      <div class='carousel-item'>
+        <%= render partial: 'projects/project_image', collection: @projects.image_attached_projects(8), as: 'project', locals: {height: 200, width: 200} %>
       </div>
     </div>
     <!--新規プロジェクト-->
-    <div id="new-project">
-      <div id="new-project-header">
-        <%=tag.div t('.new_project'), class: 'divider my-10 text-3xl' %>
+    <div id='new-project'>
+      <div id='new-project-header'>
+        <%=tag.div t('.new_project'), class:'divider my-10 text-3xl' %>
       </div>
-      <div id="new-project-main" class="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.recent_in_progress(8), as: 'project' %>
+      <div id='new-project-main' class='grid grid-cols-2 lg:grid-cols-4 gap-4'>
+        <%= render partial: 'projects/project', collection: @projects.recent_in_progress(8), as: 'project' %>
       </div>
-      <div id="new-project-footer" class= "flex flex-row-reverse ">
-        <%= link_to t('defaults.read_more'), projects_path, class: 'link text-3xl' %>
+      <div id='new-project-footer' class='flex flex-row-reverse p-5 '>
+        <%= link_to t('defaults.read_more'), projects_path, class:'link text-3xl hover:link-primary' %>
       </div>
     </div>
     <!--完了プロジェクト-->
-    <div id="done-project">
-      <div id="done-project-header">
-        <%=tag.div t('.done_project'), class: 'divider my-10 text-3xl' %>
+    <div id='done-project'>
+      <div id='done-project-header'>
+        <%=tag.div t('.done_project'), class:'divider my-10 text-3xl' %>
       </div>
-      <div id="done-project-main" class="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.recent_done(4), as: 'project' %>
+      <div id='done-project-main' class='grid grid-cols-1 lg:grid-cols-4 gap-4 '>
+        <%= render partial: 'projects/project', collection: @projects.recent_done(4), as: 'project' %>
       </div>
-      <div id="done-project-footer" class= "flex flex-row-reverse my-5">
-        <%= link_to controller: "projects", action: "index", q: { state_eq_any: 5 } do %>
-          <%= tag.div t('defaults.read_more'), class: 'link text-3xl' %>
+      <div id='done-project-footer' class= 'flex flex-row-reverse p-5 my-5'>
+        <%= link_to controller: 'projects', action: 'index', q: { state_eq_any: 5 } do %>
+          <%= tag.div t('defaults.read_more'), class: 'link text-3xl hover:link-primary' %>
         <% end %>
       </div>
     </div>
   </div>
   <!--right side-->
-  <div id="right-welcome-page" class="mx-auto md:w-3/12 w-11/12 " >
+  <div id='right-welcome-page' class='mx-auto md:w-3/12 w-11/12'>
     <!--お知らせ-->
-    <div id= "news">
-      <div id="news-header">
-        <div class="divider my-10 text-3xl">お知らせ</div>
+    <div id= 'news'>
+      <div id='news-header'>
+        <div class='divider my-10 text-3xl'>お知らせ</div>
       </div>
-      <div id="news-main">
-        <div class="overflow-auto h-40"> 
-          <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week} "  %>
-          <table class="table w-full">
+      <div id='news-main'>
+        <div class='overflow-auto h-40'> 
+          <%= tag.h1 "#{Date.current.beginning_of_week}  ~  #{Date.current.end_of_week}" %>
+          <table class='table w-full'>
             <tbody>
               <!-- sample -->
               <!--
               <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%# @news.created_at %></div>
+                  <div class='text-stone-400 text-sm'><%# @news.created_at %></div>
                   <%# link_to @news.title , news %>
                 </td>
               </tr>
@@ -59,37 +59,37 @@
               <!-- row 1 -->
               <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div class='text-stone-400 text-sm'><%= Date.current %></div>
                   <div>なんかのお知らせ（工事中）</div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div class='text-stone-400 text-sm'><%= Date.current %></div>
                   <div>いい感じのお知らせ（工事中）</div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div class='text-stone-400 text-sm'><%= Date.current %></div>
                   <div>気分が上がるお知らせ（工事中）</div>
                 </td>
               </tr>
                         <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div class='text-stone-400 text-sm'><%= Date.current %></div>
                   <div>なんかのお知らせ（工事中）</div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div class='text-stone-400 text-sm'><%= Date.current %></div>
                   <div>いい感じのお知らせ（工事中）</div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div class="text-stone-400 text-sm"><%= Date.current %></div>
+                  <div class='text-stone-400 text-sm'><%= Date.current %></div>
                   <div>気分が上がるお知らせ（工事中）</div>
                 </td>
               </tr>
@@ -99,15 +99,15 @@
       </div>
     </div>
     <!--新規ユーザー-->
-    <div id="new-workspace-owners">
-      <div id="new-workspace-owners-header">
+    <div id='new-workspace-owners'>
+      <div id='new-workspace-owners-header'>
         <%=tag.div t('defaults.user.new_user'), class: 'divider my-10 text-3xl' %>
       </div>
-      <div id="new-workspace-owners-main">
-        <div class="overflow-x-auto h-2/5"> 
-          <table class="table w-full">
+      <div id='new-workspace-owners-main'>
+        <div class='overflow-x-auto h-2/5'> 
+          <table class='table w-full'>
             <tbody>
-              <%= render partial: "workspace_avatar", collection: @workspaces.limit(8), as: "workspace" %>
+              <%= render partial: 'workspace_avatar', collection: @workspaces.limit(8), as: 'workspace' %>
             </tbody>
           </table>
         </div>

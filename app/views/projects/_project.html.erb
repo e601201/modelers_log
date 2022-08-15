@@ -1,8 +1,6 @@
 <div id='<%= dom_id project %>' class='card shadow-l rounded shadow-lg border border-cyan-200'>
   <div id='project-card-image' class='hover:bg-slate-100' >
-    <%= link_to project do %>
       <%= render'projects/project_image',{project: project, height: 300, width: 400} %>
-    <% end %>
   </div>
   <div id='project-card-owner' class='flex item-center hover:bg-slate-100'>
     <%= link_to workspace_path(project.workspace_id) do %>
@@ -16,10 +14,10 @@
     <% if request.fullpath != "/projects/#{project.id}" %>
       <%= link_to project, class: 'hover:bg-slate-100 border-b-2' do %>
         <div id='project-card-description'>
-          <div id= 'project-title' class='h-14 font-mono text-lg'>
+          <div id= 'project-title' class='h-14 font-mono text-lg text-slate-500 border-b border-dashed'>
             <%= project.title&.truncate(30) %>
           </div>
-          <div id= 'project-body' class='h-14 text-xs'>
+          <div id= 'project-body ' class='h-14 text-xs first-letter:text-sm first-letter:text-mono'>
             <%= simple_format project.body&.truncate(50) %>
           </div>
         </div>
