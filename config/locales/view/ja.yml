@@ -2,6 +2,7 @@ ja:
   defaults:
     user:
       guest: 'guest'
+      project: 'あなたのプロジェクト'
       page: 'あなたのページ'
       new_user: '新着ユーザー'
       no_name: '名無しさん'
@@ -9,6 +10,8 @@ ja:
       profile: 'Your profile'
     login: 'ログイン'
     logout: 'ログアウト'
+    follow: 'フォローする'
+    unfollow: 'フォロー解除'
     home: 'ホーム'
     list: '一覧'
     edit: '編集'

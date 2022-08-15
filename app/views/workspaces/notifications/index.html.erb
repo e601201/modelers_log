@@ -1,12 +1,10 @@
 <%= content_for(:title, current_user.owner_name + ' | ' + t('workspaces.notifications.index.title')) %>
 <%= render 'shared/main_tab', {object: current_user}%>
-
-<div class="container mx-auto">
-  <div class="w-full">
-    <table>
+<div class='container px-5 flex flex-col md:flex-row md:mx-auto'>
+  <%= render 'workspaces/profiles/form', profile: current_user %>
+    <table class='border rounded-lg m-3 p-2 md:w-full'>
       <% @notifications.each do |note| %>
         <%= render "workspaces/notifications/#{note.action_type}", {note: note} %>
       <% end %>
     </table>
-  </div>
 </div>

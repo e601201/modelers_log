@@ -1,16 +1,16 @@
-<div id="<%= dom_id workspace %>">
-  <div classs= "card">
-    <div class= "flex items-center ">
+<div id='<%= dom_id workspace %>'>
+  <div classs= 'card'>
+    <div class= 'flex items-center '>
       <%= link_to workspace do %>
-        <div class= "flex items-center ">
+        <div class= 'flex flex-col items-center '>
           <% if workspace.owner_avatar.present? %>
             <%=cl_image_tag "daichi-test/animal-test/#{workspace.owner_avatar.key}",
-            gravity: "face", height: 100, width: 100, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+            gravity: 'face', height: 100, width: 100, crop: 'thumb', radius: 'max', fetch_format: :auto  %>
           <% else %>
-            <%= image_tag "sample_avatar.png", size: '100x100', class: 'rounded-full' %>
+            <%= image_tag 'sample_avatar.png', size: '100x100', class: 'rounded-full' %>
           <% end %>
-          <div class= "ml-5 ">
-            <p class="flex-1 font-bold text-m" > <%= workspace.owner_name&.truncate(20) %> さん</p>
+          <div class= 'ml-5 '>
+            <p class='flex-1 font-bold text-m' > <%= workspace.owner_name&.truncate(20) %> さん</p>
           </div>
         </div>
       <% end %>

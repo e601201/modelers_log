@@ -50,10 +50,10 @@
   <div class='navbar-center'>
   </div>
   <div class='navbar-end'>
-    <%= link_to t('.my_project'), workspace_path(current_user), class: 'btn btn-primary btn-outline btn-sm mr-3' %>
-    <div class='tooltip h-8' data-tip='add project'>
+    <%= link_to t('defaults.user.project'), workspace_path(current_user), class: 'btn btn-primary btn-outline mr-3' %>
+    <div class='tooltip' data-tip='<%= t('projects.new.title') %>'>
       <div class='dropdown dropdown-end'>
-        <label tabindex='0' class='btn btn-outline'>
+        <label tabindex='0' class='btn btn-outline btn-secondary'>
           <%= render 'shared/crud_svg', {object: 'folder-add', size: 'h-11 w-11' } %>
         </label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>

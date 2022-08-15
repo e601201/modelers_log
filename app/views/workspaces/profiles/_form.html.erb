@@ -1,40 +1,45 @@
 <!--プロフィールフォーム-->
-<div id="<%= dom_id profile %>" class='container px-5 flex flex-col md:flex-row md:mx-auto' >
-  <div id='profile-id-content'>
+<div id='<%= dom_id profile %>'>
+  <div id='owner-id' class='border rounded-lg m-3 p-2'>
     <%= render 'workspaces/owner_avatar', {user: profile, size: '100x100'} %>
-    <div id='profile-name' class='my-3'>
+    <div id='profile-name'>
       <p class='text'>
         <%= profile.owner_name %>
       </p>
     </div>
-    <div id='profile-comment' class='my-3'>
+    <div id='profile-comment'>
       <div>
-      <%= simple_format(profile.owner_comment) %>
+        <%= simple_format(profile.owner_comment) %>
       </div>
     </div>
-    <div id='profile-relations' class= 'flex gap-3 my-3'>
-      <div id='profile-followings' class= 'flex'>
-        <%= link_to "#{profile.followings.count}", followings_path(profile), class: 'link text-lg mr-1' %>
-        <strong class='block font-medium mb-1'>フォロー中</strong>
-      </div>
-      <div id='profile-followers' class= 'flex'>
-        <%= link_to "#{profile.followers.count}", followers_path(profile), class: 'link text-lg mr-1' %>
-        <strong class='block font-medium mb-1'>フォロワー</strong>
-      </div>
+    <div class='tooltip' data-tip='<%= t('workspaces.edit.title') %>'>
+    <% if profile == current_user %>
+      <%= link_to edit_workspace_path(profile), class: 'btn btn-primary mr-3' do %>
+        <%= render 'shared/crud_svg', {object: 'note', size: 'h-6 w-6'} %>
+      <% end %>
+    <% end %>
     </div>
-    <div id='profile-sns' class='my-3'>
-      <div>
-        <strong class='block font-medium mb-1' >SNS:</strong>
-      </div>
-      <div>
-        <p>工事中</p>
-      </div>
+    <%= render 'workspaces/follow_button', { workspace: profile } %>
+  </div>
+  <div id='profile-relations' class='border rounded-lg m-3 p-2'>
+    <div id='profile-followings' class= 'flex'>
+      <%= link_to "#{profile.followings.count}", followings_path(profile), class: 'link text-lg mr-1' %>
+      <strong class='block font-medium mb-1'>フォロー中</strong>
+    </div>
+    <div id='profile-followers' class= 'flex'>
+      <%= link_to "#{profile.followers.count}", followers_path(profile), class: 'link text-lg mr-1' %>
+      <strong class='block font-medium mb-1'>フォロワー</strong>
     </div>
   </div>
-
-  <div id='profile-toolsets-content' class='border-2 p-5 w-full rounded-xl my-3'>
+  <div id='favorites-projects' class='border rounded-lg m-3 p-2'>
     <div>
-      <strong class='block font-medium mb-1' >ツールセット:</strong>
+      <strong class='block font-medium mb-1' >お気に入りのプロジェクト</strong>
+    </div>
+    <%= link_to "#{profile.favorites.count}", favorites_path(profile), class: 'link text-lg mr-1' %>
+  </div>
+  <div id='profile-sns' class='border rounded-lg m-3 p-2'>
+    <div>
+      <strong class='block font-medium mb-1' >SNS:</strong>
     </div>
     <div>
       <p>工事中</p>
