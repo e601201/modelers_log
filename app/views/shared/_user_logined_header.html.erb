@@ -57,7 +57,7 @@
           <%= render 'shared/crud_svg', {object: 'folder-add', size: 'h-11 w-11' } %>
         </label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
-          <%= tag.div t('new_project'), class: 'divider' %>
+          <%= tag.div t('projects.new.title'), class: 'divider' %>
           <li><%= link_to t('projects.new.buttons.basic'), new_project_path, data: { turbo_method: :get, turbo_confirm: t('projects.new.message.basic')} %></li>
           <%= tag.div t('template.gun_pla'), class: 'divider' %>
           <li><%= link_to t('projects.new.buttons.assembly'), template_assembly_path, data: { turbo_method: :post, turbo_confirm: t('projects.new.message.template',item: t('template.assembly'))} %></li>
