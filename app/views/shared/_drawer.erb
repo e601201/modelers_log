@@ -1,12 +1,26 @@
-<li><%= link_to t('defaults.home'), root_path %></li>
-<li><%= link_to t('projects.index.title'), projects_path %></li>
-<li><%= link_to t('workspaces.index.title'), workspaces_path %></li>
-
-<label for="my-drawer" class="btn btn-primary"> close </label>
+<li>
+  <%= link_to t('defaults.home'), root_path %>
+</li>
+<%= tag.div t('defaults.list'), class: 'divider' %>
+<li>
+  <%= link_to t('projects.index.title'), projects_path %>
+</li>
+<li>
+  <%= link_to t('workspaces.index.title'), workspaces_path %>
+</li>
 <% if logged_in? %>
-  <div class="divider">Yours</div>
-  <li> <%= link_to t('defaults.user.workspace'), workspace_path(current_user) %> </li>
-  <li><%= link_to t('defaults.user.profile'), workspace_profile_path(current_user) %></li>
-  <li><%= link_to t('defaults.user.followings'), followings_path(current_user) %></li>
-  <li><%= link_to t('defaults.user.favorites'), favorites_path(current_user)%></li>
+  <%= tag.div class: 'divider' %>
+  <li>
+    <%= link_to Workspace.model_name.human, workspace_path(current_user) %>
+  </li>
+  <li>
+    <%= link_to t('workspaces.profile.title'), workspace_profile_path(current_user) %>
+  </li>
+  <li>
+    <%= link_to t('workspaces.followings.index.title'), followings_path(current_user) %>
+  </li>
+  <li>
+    <%= link_to t('workspaces.favorites.index.title'), favorites_path(current_user) %>
+  </li>
 <% end %>
+<%= tag.label t('defaults.close'),for: 'my-drawer', class: 'btn btn-primary' %>
