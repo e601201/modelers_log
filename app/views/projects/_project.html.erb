@@ -1,41 +1,43 @@
-<div id="<%= dom_id project %>" class='card shadow-l rounded-none'>
-  <div id="project-card-image" class="hover:bg-slate-100" >
+<div id='<%= dom_id project %>' class='card shadow-l rounded shadow-lg border border-cyan-200'>
+  <div id='project-card-image' class='hover:bg-slate-100' >
       <%= render'projects/project_image',{project: project, height: 300, width: 400} %>
   </div>
-  <div id="project-card-owner" class="flex item-center hover:bg-slate-100">
+  <div id='project-card-owner' class='flex item-center hover:bg-slate-100'>
     <%= link_to workspace_path(project.workspace_id) do %>
-      <div class="flex items-center flex-none px-3">
-        <%= render 'workspaces/owner_avatar', {user: project.workspace, size: '60x60'} %>
-        <%= tag.p project.workspace.owner_name&.truncate(20), class: "font-bold w-28" %>
+      <div class='flex items-center flex-none px-3 border-y-2 border-slate-100'>
+        <%= render 'workspaces/owner_avatar', {user: project.workspace, size: '40x40'} %>
+        <%= tag.p project.workspace.owner_name&.truncate(20), class: 'font-bold w-28 text-slate-400' %>
       </div>
     <% end %>
   </div>
-  <div id="project-card-body" class='card-body p-1'>
-    <% if request.fullpath != "/projects/#{project.id}"  %>
-      <div id="project-card-description" class='card-actions'>
-        <div id= "project-title" class='border-r border-gray-700 pr-2'>
-          <%= project.title&.truncate(30)%>
+  <div id='project-card-body' class='card-body p-1'>
+    <% if request.fullpath != "/projects/#{project.id}" %>
+      <%= link_to project, class: 'hover:bg-slate-100 border-b-2' do %>
+        <div id='project-card-description'>
+          <div id= 'project-title' class='h-14 font-mono text-lg text-slate-500 border-b border-dashed'>
+            <%= project.title&.truncate(30) %>
+          </div>
+          <div id= 'project-body ' class='h-14 text-xs first-letter:text-sm first-letter:text-mono'>
+            <%= simple_format project.body&.truncate(50) %>
+          </div>
         </div>
-        <div id= "project-body" >
-          <%= simple_format project.body&.truncate(30) %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
-    <div id="project-card-status" class='flex justify-between'>
-      <% if project.in_progress?%>
-        <div id="project-card-task-progress" class='border-slate-400 border rounded-lg py-2 px-3' >
-          <%= render 'projects/task_progress', { project: project }%>
+    <div id='project-card-status' class='flex justify-between border-b-2'>
+      <% if project.in_progress? %>
+        <div id='project-card-task-progress' class='py-2 px-3' >
+          <%= render 'projects/task_progress', { project: project } %>
         </div>
       <% end %>
       <% if logged_in? %>
-        <div id="project-card-favorite">
-          <%= render 'projects/favorite_button',{ project: project }%>
+        <div id='project-card-favorite' class='p-3'>
+          <%= render 'projects/favorite_button',{ project: project } %>
         </div>
       <% end %>
     </div>
-    <div id="project-card-tabs" class="card-actions justify-end ">
-      <%= tag.div project.state_i18n, class: "justify-center badge badge-secondary badge-outline" %>
-      <%= tag.div project.project_category_i18n, class: "badge badge-outline"%>
+    <div id='project-card-tabs' class='card-actions justify-end '>
+      <%= tag.div project.state_i18n, class: 'justify-center badge badge-secondary badge-outline' %>
+      <%= tag.div project.project_category_i18n, class: 'badge badge-outline' %>
     </div>
   </div>
 </div>

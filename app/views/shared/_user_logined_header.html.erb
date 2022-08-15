@@ -1,16 +1,16 @@
-<div class="navbar bg-base-100 container mx-auto border-b">
-  <div class= "navbar-start">
-    <%= link_to "Modelers Log", root_path, class: "btn btn-ghost normal-case text-2xl xl:text-4xl" %>
+<div class='navbar bg-base-100 container mx-auto border-b'>
+  <div class= 'navbar-start'>
+    <%= link_to 'Modelers Log', root_path, class: 'btn btn-ghost normal-case text-2xl xl:text-4xl' %>
   </div>
-  <div class= "navbar-center ">
+  <div class= 'navbar-center '>
   </div>
-  <div class= "navbar-end">
-    <div class="indicator mr-5">
+  <div class= 'navbar-end'>
+    <div class='indicator mr-5'>
       <% if current_user.unread_notifications.size > 0 %>
         <%= tag.span current_user.unread_notifications.size, class: 'indicator-item badge badge-secondary mt-2 mr-2' %>
       <% end %>
-      <div class="dropdown dropdown-end">
-        <div class="btn btn-ghost btn-circle avatar">
+      <div class='dropdown dropdown-end'>
+        <div class='btn btn-ghost btn-circle avatar'>
           <%= link_to notifications_path(current_user) do %>
             <%= render 'shared/crud_svg',{object: 'bell', size: 'h-8 w-8'} %>
           <% end %>
@@ -18,46 +18,46 @@
       </div>
     </div>
     <%#--profile dropdown start--%>
-    <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+    <div class='dropdown dropdown-end'>
+      <label tabindex='0' class='btn btn-ghost btn-circle avatar'>
         <%= render 'workspaces/owner_avatar', {user: current_user, size: '150x150'} %>
       </label>
-      <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-        <div class="m-auto"><%= tag.p "hello #{current_user.owner_name}" %></div>
-        <div class="divider"></div>
-        <li> <%= link_to t('defaults.user.workspace'), workspace_path(current_user) %> </li>
-        <li><%= link_to t('defaults.user.profile'), workspace_profile_path(current_user) %></li>
-        <li><%= link_to t('defaults.user.followings'), followings_path(current_user) %></li>
-        <li><%= link_to t('defaults.user.favorites'), favorites_path(current_user)%></li>
-        <div class="divider"></div>
-        <li><%= link_to t('edit workspace'), edit_workspace_path(current_user), class: "justify-between" %></li>
+      <ul tabindex='0' class='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'>
+        <div class='m-auto'><%= tag.p current_user.owner_name %></div>
+        <%= tag.div class: 'divider'%>
+        <li><%= link_to Workspace.model_name.human, workspace_path(current_user) %></li>
+        <li><%= link_to t('workspaces.profile.title'), workspace_profile_path(current_user) %></li>
+        <li><%= link_to t('workspaces.followings.index.title'), followings_path(current_user) %></li>
+        <li><%= link_to t('workspaces.favorites.index.title'), favorites_path(current_user)%></li>
+        <div class='divider'></div>
+        <li><%= link_to t('workspaces.edit.title'), edit_workspace_path(current_user), class: 'justify-between' %></li>
         <li><a>Settings(工事中)</a></li>
-        <div class="divider"></div>
-        <li><%=button_to t('.logout'), logout_path, method: :delete, data: { turbo: false } %><li>
+        <div class='divider'></div>
+        <li><%=button_to t('defaults.logout'), logout_path, method: :delete, data: { turbo: false } %><li>
       </ul>
     </div>
     <%#--profile dropdown end--%>
   </div>
 </div>
-<div class="navbar bg-base-100 container mx-auto border-b">
-  <div class="navbar-start">
-    <label for="my-drawer" class="btn btn-circle swap swap-rotate">
-      <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+<div class='navbar bg-base-100 container mx-auto border-b'>
+  <div class='navbar-start'>
+    <label for='my-drawer' class='btn btn-circle swap swap-rotate'>
+      <svg class='fill-current' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
         <%= tag.path d:emmbed_svg('menu')['path'] %>
       </svg>
     </label>
   </div>
-  <div class="navbar-center ">
+  <div class='navbar-center'>
   </div>
-  <div class="navbar-end">
-    <%= link_to t('.my_project'), workspace_path(current_user), class: "btn btn-primary btn-outline btn-sm mr-3"%>
-    <div class="tooltip h-8" data-tip="add project">
-      <div class="dropdown dropdown-end">
-        <label tabindex="0" class="btn btn-outline">
+  <div class='navbar-end'>
+    <%= link_to t('defaults.user.project'), workspace_path(current_user), class: 'btn btn-primary btn-outline mr-3' %>
+    <div class='tooltip' data-tip='<%= t('projects.new.title') %>'>
+      <div class='dropdown dropdown-end'>
+        <label tabindex='0' class='btn btn-outline btn-secondary'>
           <%= render 'shared/crud_svg', {object: 'folder-add', size: 'h-11 w-11' } %>
         </label>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-          <%= tag.div t('new_project'), class: 'divider' %>
+        <ul tabindex='0' class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'>
+          <%= tag.div t('projects.new.title'), class: 'divider' %>
           <li><%= link_to t('projects.new.buttons.basic'), new_project_path, data: { turbo_method: :get, turbo_confirm: t('projects.new.message.basic')} %></li>
           <%= tag.div t('template.gun_pla'), class: 'divider' %>
           <li><%= link_to t('projects.new.buttons.assembly'), template_assembly_path, data: { turbo_method: :post, turbo_confirm: t('projects.new.message.template',item: t('template.assembly'))} %></li>

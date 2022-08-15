@@ -1,4 +1,13 @@
-<%= content_for(:title, @profile.owner_name + " | " + t('workspaces.profile.title')) %>
+<%= content_for(:title, @profile.owner_name + ' | ' + t('workspaces.profile.title')) %>
 <%= render 'shared/main_tab', {object: @profile}%>
-<%= render "form", profile: @profile %>
-<%# link_to 'back', :back ,class: 'btn btn-primary'%>
+<div class='container px-5 flex flex-col md:flex-row md:mx-auto'>
+  <%= render "form", profile: @profile %>
+  <div id='profile-toolsets-content' class='border rounded-lg m-3 p-2 md:w-full'>
+    <div>
+      <strong class='block font-medium mb-1' >ツールセット:</strong>
+    </div>
+    <div>
+      <p>工事中</p>
+    </div>
+  </div>
+</div>

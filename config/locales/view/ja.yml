@@ -2,20 +2,22 @@ ja:
   defaults:
     user:
       guest: 'guest'
-      page: 'Your Page'
+      project: 'あなたのプロジェクト'
+      page: 'あなたのページ'
       new_user: '新着ユーザー'
       no_name: '名無しさん'
       workspace: 'Your workspace'
       profile: 'Your profile'
-      followings: 'Your followings'
-      followers: 'Your followers'
-      favorites: 'Your favorites'
     login: 'ログイン'
     logout: 'ログアウト'
+    follow: 'フォローする'
+    unfollow: 'フォロー解除'
     home: 'ホーム'
+    list: '一覧'
     edit: '編集'
     state_change: '進捗状況の変更'
     destroy: '削除'
+    close: '閉じる'
     back: '戻る'
     revert: '元に戻す'
     read_more: 'もっと見る'
@@ -75,13 +77,13 @@ ja:
       title: 'プロフィール'
     followings:
       index:
-        title: 'フォロー'
+        title: 'フォローメンバー'
     followers:
       index:
-        title: 'フォロワー'
+        title: 'フォロワーメンバー'
     favorites:
       index:
-        title: 'お気に入り'
+        title: 'お気に入りプロジェクト'
     notifications:
       index:
         title: 'お知らせ'

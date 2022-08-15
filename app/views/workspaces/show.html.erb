@@ -1,38 +1,17 @@
-<%= content_for(:title, @workspace.owner_name + " | " + t('workspaces.show.title')) %>
+<%= content_for(:title, @workspace.owner_name + ' | ' + t('workspaces.show.title')) %>
 <%= render 'shared/main_tab', {object: @workspace}%>
 <!--ワークスペースの中身-->
-<div class="flex flex-col mx-3 md:flex-row md:mx-10">
-  <div class="container mx-auto w-full md:w-1/5 ">
-    <div class='mt-10'>
-      <%= render @workspace %>
+<div class='container px-5 flex flex-col md:flex-row md:mx-auto'>
+  <%= render 'workspaces/profiles/form', profile: @workspace %>
+  <div id='workspace-project' class='w-full border rounded-lg m-3 p-2'>
+    <div id='project-head'>
+      <%= render 'projects/search_form',{q: @q, url: workspace_path} %>
     </div>
-    <div class='flex'>
-      <% if current_user == @workspace %>
-        <%= link_to edit_workspace_path(@workspace), class: "btn btn-primary mr-3" do %>
-          <%= render 'shared/crud_svg', {object: 'note', size: 'h-6 w-6'} %>
-        <% end %>
-      <% else %>
-        <%= link_to workspace_profile_path(@workspace), class: "btn btn-info" do %>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        <% end %>
-      <% end %>
-      <%= link_to t('defaults.back'), :back, class: "btn btn-primary ml-3" %>
-      <%= link_to t('defaults.home'), root_path, class: "btn btn-primary ml-3" %>
+    <div id='project-main' class='grid grid-cols-2 lg:grid-cols-3 gap-4 '>
+      <%= render partial: 'projects/project', collection: @projects.order(created_at: :desc), as: 'project' %>
     </div>
-  </div>
-  <div id="workspace-project" class="mx-auto md:w-3/5 w-full flex">
-    <div class= 'mt-10'>
-      <div id="project-head">
-        <%= render 'projects/search_form',{q: @q, url: workspace_path} %>
-      </div>
-      <div id="project-main" class="grid grid-cols-2 lg:grid-cols-3 gap-4 ">
-        <%= render partial: "projects/project", collection: @projects.order(created_at: :desc), as: 'project' %>
-      </div>
-      <div>
-        <%= paginate @projects %>
-      </div>
+    <div>
+      <%= paginate @projects %>
     </div>
   </div>
 </div>

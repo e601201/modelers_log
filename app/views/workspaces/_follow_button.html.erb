@@ -1,13 +1,9 @@
 <div class= "ml-5">
   <% unless current_user == workspace %>
     <% if current_user&.follow?(workspace)%>
-      <%= button_to workspace_relationships_path(workspace), method: :delete, class: "btn btn-primary btn-gap-1 btn-sm " do %>
-        - Un Follow
-      <% end %> 
+      <%= button_to t('defaults.unfollow'), workspace_relationships_path(workspace), method: :delete, class: "btn btn-primary btn-gap-1 btn-sm " %>
     <% else %>
-      <%= link_to workspace_relationships_path(workspace), data: { turbo_method: :post }, class: "btn btn-secondary btn-gap-1 btn-sm " do %>
-        + Follow
-      <% end %>
+      <%= link_to t('defaults.follow'), workspace_relationships_path(workspace), data: { turbo_method: :post }, class: "btn btn-secondary btn-gap-1 btn-sm " %>
     <% end %>
   <% end %>
 </div>
