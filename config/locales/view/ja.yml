@@ -2,14 +2,11 @@ ja:
   defaults:
     user:
       guest: 'guest'
-      page: 'Your Page'
+      page: 'あなたのページ'
       new_user: '新着ユーザー'
       no_name: '名無しさん'
       workspace: 'Your workspace'
       profile: 'Your profile'
-      followings: 'Your followings'
-      followers: 'Your followers'
-      favorites: 'Your favorites'
     login: 'ログイン'
     logout: 'ログアウト'
     home: 'ホーム'
@@ -75,13 +72,13 @@ ja:
       title: 'プロフィール'
     followings:
       index:
-        title: 'フォロー'
+        title: 'フォローメンバー'
     followers:
       index:
-        title: 'フォロワー'
+        title: 'フォロワーメンバー'
     favorites:
       index:
-        title: 'お気に入り'
+        title: 'お気に入りプロジェクト'
     notifications:
       index:
         title: 'お知らせ'
