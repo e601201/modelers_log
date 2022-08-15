@@ -1,12 +1,13 @@
+<!--カルーセル-->
+<label class="label">
+  <span class="label-text-alt">スクロールで左右に動きます</span>
+</label>
+<div id='carousel-image' class='carousel carousel-center'> 
+  <%= render partial: 'shared/carousel_project_image', collection: @projects.image_attached_projects(8), as: 'project', locals: {height: 200, width: 200} %>
+</div>
 <div id='welcome-page' class='flex flex-col md:flex-row mx-1 md:mx-10'>
   <!--center-->
   <div id='center-welcome-page' class='container mx-auto md:w-9/12 w-11/12 '> 
-    <!--カルーセル-->
-    <div id='carousel-image' class='carousel carousel-center p-5'> 
-      <div class='carousel-item'>
-        <%= render partial: 'projects/project_image', collection: @projects.image_attached_projects(8), as: 'project', locals: {height: 200, width: 200} %>
-      </div>
-    </div>
     <!--新規プロジェクト-->
     <div id='new-project'>
       <div id='new-project-header'>
