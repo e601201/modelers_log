@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? #letter_opener
   root 'static_pages#welcome'
 
-  namespace :admin do
-    root 'dashboards#index'
-    get  'login',       to: 'user_sessions#new'                      #管理者ログイン画面
-    post 'login',       to: 'user_sessions#create'                   #管理者ログイン処理
-    delete 'logout',    to: 'user_sessions#destroy'                  #管理者ログアウト処理
-    resources :projects, except: %i[new create]                      #projects管理
-    resources :workspaces, except: %i[new create]                    #workspaces管理
-    resources :tasks, except: %i[new create]                         #tasks管理
-  end
+  #namespace :admin do
+    #get 'user_sessions/new'
+    #get 'user_sessions/create'
+    #get 'user_sessions/destroy'
+    #root 'dashboards#index'
+    #get  'login',       to: 'user_sessions#new'                      #管理者ログイン画面
+    #post 'login',       to: 'user_sessions#create'                   #管理者ログイン処理
+    #delete 'logout',    to: 'user_sessions#destroy'                  #管理者ログアウト処理
+    #resources :projects, except: %i[new create]                      #projects管理
+    #resources :workspaces, except: %i[new create]                    #workspaces管理
+    #resources :tasks, except: %i[new create]                         #tasks管理
+  #end
 
   get  'login',       to: 'user_sessions#new'                        #ユーザーログイン画面
   post 'login',       to: 'user_sessions#create'                     #ユーザーログイン処理
