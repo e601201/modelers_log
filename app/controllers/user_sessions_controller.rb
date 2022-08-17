@@ -22,7 +22,7 @@ class UserSessionsController < ApplicationController
     @workspace = Workspace.create(
       owner_name: 'ゲストユーザー',
       owner_comment: 'ゲストユーザです',
-      email: "#{email_account}@example.com",
+      email: email_account + '@example.com',
       password: 'password',
       password_confirmation: 'password',
       role: :guest
