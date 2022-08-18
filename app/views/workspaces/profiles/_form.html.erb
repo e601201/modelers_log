@@ -12,13 +12,11 @@
         <%= simple_format(profile.owner_comment) %>
       </div>
     </div>
-    <div class='tooltip' data-tip='<%= t('workspaces.edit.title') %>'>
     <% if profile == current_user %>
-      <%= link_to edit_workspace_path(profile), class: 'btn btn-primary mr-3' do %>
-        <%= render 'shared/crud_svg', {object: 'note', size: 'h-6 w-6'} %>
+      <%= link_to edit_workspace_path(profile), class: 'btn btn-primary btn-xs btn-outline mr-3' do %>
+        <%= tag.p t('workspaces.profile.edit') %>
       <% end %>
     <% end %>
-    </div>
     <%= render 'workspaces/follow_button', { workspace: profile } %>
   </div>
   <div id='profile-relations' class='border rounded-lg m-3 p-2'>

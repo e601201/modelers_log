@@ -4,7 +4,7 @@
                 %0a%0a%23モデラーズログ%20%23プラモデル%0a%23レシピ公開中%20%23#{@project.project_category_i18n}%0a%0a",
     title: 'Twitter', target: '_blank' do%>
     <div class='btn btn-outline btn-primary '>
-      <p>シェアする<p>
+      <%= tag.p t('defaults.share') %>
         <%= render 'shared/sns_svg', {sns: 'twitter'} %>
     </div>
   <% end %>

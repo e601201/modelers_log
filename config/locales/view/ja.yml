@@ -21,6 +21,7 @@ ja:
     back: '戻る'
     revert: '元に戻す'
     read_more: 'もっと見る'
+    share: 'シェアする'
     search: '検索'
     search_word: '検索ワード'
     password_reset: 'パスワードリセット'
@@ -75,6 +76,7 @@ ja:
       message: '%{item}を削除いたします。ユーザー情報等も全て失われますが、よろしいですか？'
     profile:
       title: 'プロフィール'
+      edit: 'プロフィール編集'
     followings:
       index:
         title: 'フォローメンバー'
