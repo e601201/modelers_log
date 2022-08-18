@@ -1,4 +1,10 @@
 <%= content_for(:title, @profile.owner_name + ' | ' + t('workspaces.profile.title')) %>
+<% set_meta_tags description: @profile.owner_comment,
+  og: { title: @profile.owner_name,
+        image: cl_image_path("daichi-test/animal-test/#{@profile.owner_avatar.key}.jpg"),
+        description: @profile.owner_comment
+      }
+%>
 <%= render 'shared/main_tab', {object: @profile}%>
 <div class='container px-5 flex flex-col md:flex-row md:mx-auto'>
   <%= render "form", profile: @profile %>

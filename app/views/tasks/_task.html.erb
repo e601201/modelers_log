@@ -1,19 +1,48 @@
+<% set_meta_tags description: task.body,
+  og: { title: task.title,
+        image: cl_image_path("daichi-test/animal-test/#{task.task_image.key}.jpg"),
+        description: task.body
+      }
+%>
 <div id="<%= dom_id task %>">
-
-  <p class='my-5'>
+  <div class='flex flex-row-reverse'>
+    <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{@project.workspace.owner_name}さんのタスクです。
+                  %0a%0a#{task.title.truncate(30)}
+                  %0a%0a#{task.body.truncate(30)}
+                  %0a%0a%23モデラーズログ%20%23プラモデル%20%23#{task.task_category_i18n}%0a%0a",
+      title: 'Twitter', target: '_blank' do%>
+      <div class='btn btn-outline btn-primary '>
+        <%= tag.p t('defaults.share') %>
+          <%= render 'shared/sns_svg', {sns: 'twitter'} %>
+      </div>
+    <% end %>
+  </div>
+  <div class='mb-5'>
+    <label class='label py-0'>
+      <%= tag.span Task.human_attribute_name('title'), class: 'label-text-alt text-xs text-slate-400'%>
+    </label>
     <%= task.title %>
-  </p>
+  </div>
 
-  <p class='my-5'>
+  <div class='mb-5'>
+    <label class='label py-0'>
+      <%= tag.span Task.human_attribute_name('task_image'), class: 'label-text-alt text-xs text-slate-400'%>
+    </label>
     <%= render 'tasks/task_image', {task: task} %>
-  </p>
+  </div>
 
-  <p class='my-5'>
+  <div class='mb-5'>
+    <label class='label py-0'>
+      <%= tag.span Task.human_attribute_name('body'), class: 'label-text-alt text-xs text-slate-400'%>
+    </label>
     <%= simple_format(task.body) %>
-  </p>
-  <p class='my-5'>
+  </div>
+  <div class='mb-5'>
+    <label class='label py-0'>
+      <%= tag.span Task.human_attribute_name('task_state'), class: 'label-text-alt text-xs text-slate-400'%>
+    </label>
     <%= task.task_state_i18n %>
-  </p>
+  </div>
 
   <% if action_name != 'show' %>
     <%= link_to 'Show this task', project_task_path(task), class: 'rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium' %>
