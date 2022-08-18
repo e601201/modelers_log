@@ -28,6 +28,8 @@
         <div id='project-card-task-progress' class='py-2 px-3' >
           <%= render 'projects/task_progress', { project: project } %>
         </div>
+      <% elsif %>
+        <%= image_tag 'checked.png', size: '80x20', class: 'py-2 px-3' %>
       <% end %>
       <% if logged_in? %>
         <div id='project-card-favorite' class='p-3'>
