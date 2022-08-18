@@ -1,4 +1,9 @@
 <%= content_for(:title, @project.title + " | " + t('projects.show.title')) %>
+<% set_meta_tags description: @project.body,
+  og: { title: @project.title, image: return_ogp_rul(@project),
+        description: @project.body
+      }
+%>
 
 <div id="project-header" class="container text-3xl p-5 mx-auto my-5 md:text-5xl">
   <%= @project.title&.truncate(20) %>

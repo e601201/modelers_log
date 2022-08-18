@@ -3,6 +3,18 @@
         <%= render partial: 'tasks/task_image', collection: @tasks, as: 'task' %>
       </div>
     </div>
+    <div class='flex flex-row-reverse'>
+      <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{@project.workspace.owner_name}さんのプロジェクト
+                    %0a%0a#{@project.title.truncate(30)}
+                    %0a%0aタスク達成率 #{@project.decorate.percentage_of_done_tasks}％
+                    %0a%0a%23モデラーズログ%20%23プラモデル%20%23#{@project.project_category_i18n}%0a%0a",
+        title: 'Twitter', target: '_blank' do%>
+        <div class='btn btn-outline btn-primary '>
+          <p>シェアする<p>
+            <%= render 'shared/sns_svg', {sns: 'twitter'} %>
+        </div>
+      <% end %>
+    </div>
     <div id='project-task' class='flex flex-col w-full xl:flex-row mt-5'>
       <div id='project-in-progress-task' class='flex flex-col flex-grow card rounded-box place-items-center border-gray-800 rounded-2xl border'>
         <%= tag.label t('enums.task.task_state.in_progress'), class: 'badge my-2'%>
