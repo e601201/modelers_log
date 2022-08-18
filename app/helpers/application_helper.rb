@@ -8,4 +8,44 @@ module ApplicationHelper
   def emmbed_svg(object)
     YAML.load_file('icon_svg.yml')[object]
   end
+
+  def default_meta_tags
+    {
+      title: 'Modelers Log',
+      reverse: false,
+      charset: 'utf-8',
+      description: 'プラモデラーのためのタスク管理、手順書共有サイトです。プラモデル作りを通してものづくりの楽しさを共有しましょう！！',
+      keywords: 'modelers-log,プラモデル,手順書,タスク管理',
+      canonical: 'https://modelers-log.com/',
+      separator: '|',
+      icon: [
+        { href: image_url('sample_avatar.png') }
+      ],
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: :canonical,
+        image: image_url('sample_project.png'),
+        locale: 'ja_JP',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@nagaemon1111',
+      }
+    }
+  end
+
+  def return_ogp_rul(project)
+    transformation = [{ x: 0, y: -65, gravity: 'west', color: '#F87373', overlay: {
+      font_size: 40,
+      font_weight: 'bold',
+      text_align: 'left',
+      text: project.title,
+      font_family: "Arial"
+    } }]
+    cloudinary_url('ogp.png', sign_url: true, type: 'authenticated', transformation: transformation)
+  end
+
 end
