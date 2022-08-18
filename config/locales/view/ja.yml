@@ -139,7 +139,7 @@ ja:
         required: 'は必須'
         body: '作業の具体的な内容や注目してほしい箇所を記入しましょう！'
         image: 'JPEG(jpg) もしくは PNGが選択可能です'
-        task_state: 'タスクが完了したら[完了]にしてください'
+        task_state: 'タスクが完了したら[完成!!]にしてください'
     index:
       title: 'タスク:一覧'
     show:

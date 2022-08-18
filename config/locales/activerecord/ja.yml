@@ -53,8 +53,8 @@ ja:
         admin: '管理者'
     project:
       state:
-        in_progress: '未完成'
-        done: '完成！！'
+        in_progress: '取組中'
+        done: '完成!!'
         published: 'レシピ(工事中)'
       project_category:
         gun_pla: 'ガンプラ'
@@ -67,8 +67,8 @@ ja:
         other: 'その他'
     task:
       task_state:
-        in_progress: '未完了(タスク)'
-        done: '完了(タスク)'
+        in_progress: '取組中'
+        done: '完成!!'
       task_category:
         assembly: '組み立て'
         surface: '表面処理'
