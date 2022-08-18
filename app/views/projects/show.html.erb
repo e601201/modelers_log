@@ -1,6 +1,7 @@
 <%= content_for(:title, @project.title + " | " + t('projects.show.title')) %>
 <% set_meta_tags description: @project.body,
-  og: { title: @project.title, image: return_ogp_rul(@project),
+  og: { title: @project.title,
+        image: cl_image_path("daichi-test/animal-test/#{@project.project_image.key}.jpg"),
         description: @project.body
       }
 %>

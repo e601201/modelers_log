@@ -11,6 +11,7 @@ module ApplicationHelper
 
   def default_meta_tags
     {
+      site: 'Modelers Log',
       title: 'Modelers Log',
       reverse: false,
       charset: 'utf-8',
@@ -27,7 +28,7 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: :canonical,
-        image: image_url('sample_project.png'),
+        image: 'https://modelers-log.com/app/assets/images/sample_project.png',
         locale: 'ja_JP',
       },
       twitter: {

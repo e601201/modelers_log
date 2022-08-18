@@ -1,7 +1,7 @@
 <% if user.owner_avatar.present? %>
   <div class="rounded-full">
-    <%=cl_image_tag "daichi-test/animal-test/#{user.owner_avatar.key}",
-    gravity: "face", size: size, crop: "thumb", radius: 'max', fetch_format: :auto  %>
+    <%=cl_image_tag "daichi-test/animal-test/#{user.owner_avatar.key}.jpg",
+    gravity: "face", size: size, crop: "thumb", radius: 'max' %>
   </div>
 <% else %>
   <div class="rounded-full">
