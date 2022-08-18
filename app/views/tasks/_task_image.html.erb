@@ -1,6 +1,7 @@
 <%= link_to project_task_path(@project,task), class: "link" do %>
   <% if task.task_image? %>
-    <%= image_tag task.task_image.variant(resize_to_fill: [200, 200]) %>
+    <%= cl_image_tag "daichi-test/animal-test/#{task.task_image.key}",
+    gravity: 'face', height: 200, width: 200, crop: 'fill' %>
   <% else %>
     <%= image_tag "sample_project.png", size: '200x200' %>
   <% end %>
