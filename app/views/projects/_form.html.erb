@@ -13,7 +13,7 @@
       </div>
       <div class='my-5'>
         <%= form.label :title, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
-        <%= form.text_field :title, class: 'input input-bordered px-3 py-2 mt-2 w-5/6', placeholder: t('.placeholder.body')  %>
+        <%= form.text_field :title, required: true, class: 'input input-bordered px-3 py-2 mt-2 w-5/6', placeholder: t('.placeholder.body')  %>
       </div>
 
       <div class='my-5'>
