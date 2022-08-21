@@ -10,16 +10,16 @@ RSpec.describe Favorite, type: :model do
     end
 
     context "異常系" do
-      it "workspace_idがnilの場合は保存できない" do
+      fit "workspace_idがnilの場合は保存できない" do
         favorite.workspace_id = nil
         favorite.valid?
-        expect(favorite.errors[:workspace_id]).to include("を入力してください")
+        expect(favorite.errors[:workspace]).to include("を入力してください")
       end
 
       it "project_idがnilの場合は保存できない" do
         favorite.project_id = nil
         favorite.valid?
-        expect(favorite.errors[:project_id]).to include("を入力してください")
+        expect(favorite.errors[:project]).to include("を入力してください")
       end
     end
 

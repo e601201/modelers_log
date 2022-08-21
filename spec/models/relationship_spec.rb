@@ -13,13 +13,13 @@ RSpec.describe Relationship, type: :model do
       it "follower_idがnilの場合は保存できない" do
         relationship.follower_id = nil
         relationship.valid?
-        expect(relationship.errors[:follower_id]).to include("を入力してください")
+        expect(relationship.errors[:follower]).to include("を入力してください")
       end
 
       it "following_idがnilの場合は保存できない" do
         relationship.following_id = nil
         relationship.valid?
-        expect(relationship.errors[:following_id]).to include("を入力してください")
+        expect(relationship.errors[:following]).to include("を入力してください")
       end
     end
 
