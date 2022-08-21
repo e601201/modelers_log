@@ -8,7 +8,7 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
   validates :body, length: { maximum: 255 }
-  validates :task_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
+  validates :task_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 5_242_880 }
 
   scope :image_attached_tasks, -> { select { |a| a.task_image.attached? } }
   scope :recent_in_progress, -> { in_progress.order(created_at: :desc) }
