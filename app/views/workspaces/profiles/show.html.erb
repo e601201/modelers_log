@@ -1,7 +1,7 @@
 <%= content_for(:title, @profile.owner_name + ' | ' + t('workspaces.profile.title')) %>
 <% set_meta_tags description: @profile.owner_comment,
   og: { title: @profile.owner_name,
-        image: cl_image_path("daichi-test/animal-test/#{@profile.owner_avatar.key}.jpg"),
+        image: cl_image_path("daichi-test/animal-test/#{@profile.owner_avatar.key}"),
         description: @profile.owner_comment
       }
 %>
