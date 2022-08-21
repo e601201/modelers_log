@@ -29,24 +29,12 @@ module ApplicationHelper
         type: 'website',
         url: :canonical,
         image: 'https://modelers-log.com/app/assets/images/sample_project.png',
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@nagaemon1111',
+        site: '@nagaemon1111'
       }
     }
   end
-
-  def return_ogp_rul(project)
-    transformation = [{ x: 0, y: -65, gravity: 'west', color: '#F87373', overlay: {
-      font_size: 40,
-      font_weight: 'bold',
-      text_align: 'left',
-      text: project.title,
-      font_family: "Arial"
-    } }]
-    cloudinary_url('ogp.png', sign_url: true, type: 'authenticated', transformation: transformation)
-  end
-
 end
