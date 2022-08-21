@@ -3,6 +3,10 @@ class Favorite < ApplicationRecord
   belongs_to :project
   has_one :notification, as: :notifiable, dependent: :destroy
 
+  validates :workspace_id, presence: true
+  validates :project_id, presence: true
+  validates :project_id, uniqueness: { scope: :workspace_id }
+
   def send_notification(project)
     Notification.find_or_create_by!(notifiable: self, workspace_id: project.workspace_id, action_type: 'favorit_to_own_project')
   end

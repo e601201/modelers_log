@@ -31,11 +31,11 @@
   </div>
   <div class='my-5'>
     <%= f.label :password, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
-    <%= f.password_field :password, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
+    <%= f.password_field :password, required: true, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
   </div>
   <div class='my-5'>
     <%= f.label :password_confirmation, class: 'font-mono' %><span class= 'text-xl text-red-500' > * </span>
-    <%= f.password_field :password_confirmation, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
+    <%= f.password_field :password_confirmation, required: true, class: 'input input-bordered px-3 py-2 mt-2 w-full' %>
   </div>
   <div class='inline'>
     <%= f.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>

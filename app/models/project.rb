@@ -11,7 +11,7 @@ class Project < ApplicationRecord
   enum project_category: { gun_pla: 0, charactor: 1, car: 2, bike: 3, battle_tank: 4, airplane: 5, buildings: 6, other: 10 }
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }
-  validates :project_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
+  validates :project_image, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 5_242_880 }
   scope :image_attached_projects, ->(count) { select { |a| a.project_image.attached? }.sample(count) }
   scope :recent_in_progress, ->(count) { in_progress.order(created_at: :desc).limit(count) }
   scope :recent_done, ->(count) { done.order(created_at: :desc).limit(count) }

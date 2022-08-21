@@ -14,12 +14,13 @@ class Workspace < ApplicationRecord
   # has_many  :own_toolsets, through: :workspace_toolsets, source: :toolset
 
   enum role: { general: 0, guest: 5, admin: 10 }
+  validates :password, presence: true
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :owner_name, length: { maximum: 30 }
   validates :owner_avatar, images: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 524_288_000 }
 
