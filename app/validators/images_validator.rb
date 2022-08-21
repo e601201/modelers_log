@@ -19,7 +19,7 @@ class ImagesValidator < ActiveModel::EachValidator
   def validate_maximum(record, attribute, value)
     if value.byte_size > options[:maximum]
       record.errors.add attribute,
-       (options[:message] || I18n.t('.defaults.message.keep_under',
+        (options[:message] || I18n.t('.defaults.message.keep_under',
         item: number_to_human_size(options[:maximum])))
       false
     else
