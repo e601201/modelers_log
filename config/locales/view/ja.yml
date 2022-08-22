@@ -8,6 +8,8 @@ ja:
       no_name: '名無しさん'
       workspace: 'Your workspace'
       profile: 'Your profile'
+    signin: 'ログイン画面'
+    signup: '新規登録'
     login: 'ログイン'
     logout: 'ログアウト'
     follow: 'フォローする'
