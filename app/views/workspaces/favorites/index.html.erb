@@ -1,4 +1,4 @@
-<%= content_for(:title, @workspace.owner_name + ' | ' + t('workspaces.favorites.index.title')) %>
+<%= content_for(:title, "#{@workspace.owner_name} | #{t('workspaces.favorites.index.title')}") %>
 <%= render 'shared/main_tab', {object: @workspace}%>
 <div class='container px-5 flex flex-col md:flex-row md:mx-auto'>
   <%= render 'workspaces/profiles/form', profile: @workspace %>
