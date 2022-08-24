@@ -25,7 +25,8 @@ class WorkspacesController < ApplicationController
     @workspace.owner_name = t('defaults.user.no_name') unless @workspace.owner_name
 
     if @workspace.save
-      redirect_to :workspaces, success: t('defaults.message.created', item: Workspace.model_name.human)
+      auto_login(@workspace)
+      redirect_to root_path, success: t('defaults.message.created', item: Workspace.model_name.human)
     else
       render :new, status: :unprocessable_entity
     end
