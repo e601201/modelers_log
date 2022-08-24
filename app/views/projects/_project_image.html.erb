@@ -1,7 +1,7 @@
 <%= link_to project, class: 'hover:bg-slate-100' do %>
   <% if project.project_image.attached? %>
     <%=cl_image_tag "daichi-test/animal-test/#{project.project_image.key}",
-    gravity: 'face', height: height, width: width, crop: 'fill' %>
+    height: height, width: width, crop: 'fill' %>
   <% else %>
     <%= image_tag 'sample_project.png' %>
   <% end %>
