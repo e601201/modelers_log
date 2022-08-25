@@ -13,7 +13,7 @@
       <div id='new-project-header'>
         <%=tag.div t('.new_project'), class:'divider my-10 text-3xl' %>
       </div>
-      <div id='new-project-main' class='grid grid-cols-2 lg:grid-cols-4 gap-4 p-10 rounded-xl border-2 border-violet-100 border-dashed'>
+      <div id='new-project-main' class='grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-xl border-2 border-violet-100 border-dashed'>
         <%= render partial: 'projects/project', collection: @projects.recent_in_progress(8), as: 'project' %>
       </div>
       <div id='new-project-footer' class='flex flex-row-reverse p-5 '>
@@ -25,7 +25,7 @@
       <div id='done-project-header'>
         <%=tag.div t('.done_project'), class:'divider my-10 text-3xl' %>
       </div>
-      <div id='done-project-main' class='grid grid-cols-1 lg:grid-cols-4 gap-4 p-10 rounded-xl border-2 border-violet-100 border-dashed'>
+      <div id='done-project-main' class='grid grid-cols-1 lg:grid-cols-4 gap-4 p-5 rounded-xl border-2 border-violet-100 border-dashed'>
         <%= render partial: 'projects/project', collection: @projects.recent_done(4), as: 'project' %>
       </div>
       <div id='done-project-footer' class= 'flex flex-row-reverse p-5 my-5'>
