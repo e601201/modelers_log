@@ -1,0 +1,6 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <%= render partial:'admin/workspaces/admin_workspace', locals: {admin_workspace: @admin_workspace} %>
+    <%= link_to "Back to workspaces", admin_workspaces_path, class: 'btn btn-primary' %>
+  </div>
+</div>
