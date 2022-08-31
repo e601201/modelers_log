@@ -1,0 +1,23 @@
+<div class="w-full">
+
+  <div id="admin_workspaces" class="min-w-full">
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Comment</th>
+            <th>Role</th>
+            <th>avatar</th>
+            <th>crud</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: 'admin/workspaces/admin_workspace', collection: @admin_workspaces %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

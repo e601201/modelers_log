@@ -1,0 +1,5 @@
+<% flash.each do |message_type, message| %>
+  <div class="flex flex-row-reverse">
+    <%= tag.div message, id:"flash-message", class: "alert shadow-lg container my-2 md:mr-10 md:w-1/5" %>
+  </div>
+<% end %>

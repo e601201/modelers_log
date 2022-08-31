@@ -1,0 +1,23 @@
+<tr id='<%= dom_id admin_workspace %>'>
+  <th><%= admin_workspace.id %></th>
+  <td><%= admin_workspace.owner_name&.truncate(20) %></td>
+  <td><%=admin_workspace.owner_comment&.truncate(30)%></td>
+  <td class='text-rose-600'><%=admin_workspace.role_i18n%></td>
+  <td>
+    <% if admin_workspace.owner_avatar.present? %>
+      <%=cl_image_tag "daichi-test/animal-test/#{admin_workspace.owner_avatar.key}",
+      gravity: 'face', height: 50, width: 50, crop: 'thumb', radius: 'max' %>
+    <% else %>
+      <%= image_tag 'sample_avatar.png', size: '50x50', class: 'rounded-full' %>
+    <% end %>
+  </td>
+  <td>
+    <div class="flex gap-4">
+      <%= link_to 'Show', admin_workspace_path(admin_workspace), class: 'btn' %>
+      <%= link_to 'Edit', edit_admin_workspace_path(admin_workspace), class: 'btn' %>
+      <%= button_to 'Destroy', admin_workspace_path(admin_workspace), method: :delete,
+        form: { data: { turbo_confirm: "削除しますか？" } },
+        class: "btn" %>
+    </div>
+  </td>
+</tr>

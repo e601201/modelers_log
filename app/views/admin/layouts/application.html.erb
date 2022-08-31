@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html data-theme="cmyk">
+  <head>
+    <title><%= page_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render 'admin/shared/header' %>
+    <%= render 'admin/shared/flash_message' %>
+    <main>
+      <div class="drawer">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <%= yield %>
+          <%= render 'admin/shared/footer'%>
+        </div>
+        <div class="drawer-side">
+          <label for="my-drawer" class="drawer-overlay"></label>
+          <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+            <%= render 'admin/shared/drawer'%>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <% if Rails.env.development? %>
+      <script type="module" src="https://cdn.skypack.dev/@aki77/rails-template-inspector"></script>
+      <rails-inspector url-prefix="vscode://file" root="<%= Rails.root %>" combo-key="command-shift-v"></rails-inspector>
+    <% end %>
+  </body>
+</html>
