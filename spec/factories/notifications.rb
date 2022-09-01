@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :notification do
     workspace_id      { FactoryBot.create(:workspace).id }
-    read              {"unread"}
+    read              { "unread" }
 
     trait :relation do
       action_type { "followed_me" }
