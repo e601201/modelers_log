@@ -1,0 +1,16 @@
+<div class="mx-auto w-full flex">
+  <div class="mx-auto">
+    <%= render partial: 'admin/projects/admin_project', locals: {admin_project: @admin_project} %>
+    <%= link_to 'Back', admin_projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+  <div class="mx-auto">
+    <% @admin_project.tasks.each do |task| %>
+      <div class='border p-3 my-2'>
+        <%= task.id %>
+        <%= task.title %>
+        <%= task.body %>
+        <%= task.task_state_i18n %>
+      </div>
+    <% end %>
+  </div>
+</div>

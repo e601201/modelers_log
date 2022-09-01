@@ -1,0 +1,24 @@
+<div class="w-full">
+
+  <div id="admin_projects" class="min-w-full">
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>title</th>
+            <th>category</th>
+            <th>image</th>
+            <th>state</th>
+            <th>workspace_id</th>
+            <th>crud</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: 'admin/projects/admin_project', collection: @admin_projects %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<tr id="<%= dom_id admin_project %>">
+  <th><%= admin_project.id %></th>
+  <td><%= admin_project.title %></td>
+  <td><%= admin_project.project_category %></td>
+  <td>
+    <% if admin_project.project_image.representable? %>
+      <%= image_tag admin_project.project_image.representation(resize_to_limit: [80, 80])%>
+    <% end %>
+  </td>
+  <td><%= admin_project.state_i18n %></td>
+  <td><%= admin_project.workspace_id %></td>
+  <td>
+    <div class="flex gap-4">
+      <%= link_to 'Show', admin_project_path(admin_project), class: 'btn' %>
+      <%= link_to 'Edit', edit_admin_project_path(admin_project), class: 'btn' %>
+      <%= button_to 'Destroy', admin_project_path(admin_project), method: :delete,
+        form: { data: { turbo_confirm: "削除しますか？" } },
+        class: "btn" %>
+    </div>
+  </td>
+</tr>

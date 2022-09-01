@@ -1,6 +1,16 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="mx-auto w-full flex">
   <div class="mx-auto">
     <%= render partial:'admin/workspaces/admin_workspace', locals: {admin_workspace: @admin_workspace} %>
-    <%= link_to "Back to workspaces", admin_workspaces_path, class: 'btn btn-primary' %>
+    <%= link_to "Back", admin_workspaces_path, class: 'btn btn-primary' %>
+  </div>
+  <div class="mx-auto">
+    <% @admin_workspace.projects.each do |project| %>
+      <div class='border p-3 my-2'>
+        <%= project.id %>
+        <%= project.title %>
+        <%= project.body %>
+        <%= link_to 'Show', admin_project_path(project), class: 'link link-primary' %>
+      </div>
+    <% end %>
   </div>
 </div>

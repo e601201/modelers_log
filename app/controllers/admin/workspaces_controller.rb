@@ -40,7 +40,7 @@ class Admin::WorkspacesController < Admin::BaseController
   private
 
   def set_admin_workspace
-    @admin_workspace = Workspace.find(params[:id])
+    @admin_workspace = Workspace.includes(:projects).find(params[:id])
   end
 
   def admin_workspace_params
