@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :projects, except: %i[new create]                      #projects管理
     resources :workspaces, except: %i[new create]                    #workspaces管理
     resources :tasks, except: %i[new create]                         #tasks管理
+    resources :news                                                  #お知らせの管理
   end
 
   get  'login',       to: 'user_sessions#new'                        #ユーザーログイン画面

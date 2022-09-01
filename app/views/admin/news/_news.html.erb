@@ -1,0 +1,24 @@
+<div id="<%= dom_id news %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= news.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Note url:</strong>
+    <%= news.note_url %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Created at:</strong>
+    <%= l news.created_at, format: :long %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to 'Edit', edit_admin_news_path(news), class: "btn btn-info" %>
+    <%= button_to 'Destroy', admin_news_path(news), method: :delete,
+        form: { data: { turbo_confirm: "削除しますか？" } },
+        class: "btn btn-secondary" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
