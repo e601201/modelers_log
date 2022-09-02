@@ -1,6 +1,9 @@
 <div class='navbar bg-base-100 container mx-auto border-b'>
   <div class= 'navbar-start'>
-    <%= link_to 'Modelers Log', root_path, class: 'btn btn-ghost normal-case text-2xl xl:text-4xl' %>
+    <%= link_to root_path do %>
+      <%= image_tag 'top_logo.png', size: '100x100'  %>
+    <% end %>
+    <%= link_to 'Modelers Log', root_path, class: 'normal-case text-sm xl:text-2xl text-slate-400' %>
   </div>
   <div class= 'navbar-center '>
   </div>
