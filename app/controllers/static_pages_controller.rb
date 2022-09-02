@@ -3,6 +3,6 @@ class StaticPagesController < ApplicationController
   def welcome
     @projects = Project.includes(:tasks).order(created_at: :desc)
     @workspaces = Workspace.includes(:projects).order(created_at: :desc)
-    # 後でdecoclassにつける page(params[:page]).per(6)
+    @news = News.all.latest_news_of_this_week
   end
 end
