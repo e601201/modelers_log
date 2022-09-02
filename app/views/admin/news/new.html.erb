@@ -1,0 +1,7 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">New news</h1>
+
+  <%= render "form", { admin_news: @admin_news, url: admin_news_index_path  } %>
+
+  <%= link_to 'Back', admin_news_index_path, class: 'btn' %>
+</div>

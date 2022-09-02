@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_10_073417) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_153516) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,6 +47,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_073417) do
     t.index ["project_id"], name: "index_favorites_on_project_id"
     t.index ["workspace_id", "project_id"], name: "index_favorites_on_workspace_id_and_project_id", unique: true
     t.index ["workspace_id"], name: "index_favorites_on_workspace_id"
+  end
+
+  create_table "news", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "note_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

@@ -1,0 +1,10 @@
+<div class="container mx-auto">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Tests</h1>
+    <%= link_to 'New', new_admin_news_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div id="tests" class="min-w-full">
+    <%= render @news %>
+  </div>
+</div>

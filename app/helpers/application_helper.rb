@@ -20,7 +20,7 @@ module ApplicationHelper
       canonical: 'https://modelers-log.com/',
       separator: '|',
       icon: [
-        { href: image_url('sample_avatar.png') }
+        { href: image_url('modelers-log.ico') }
       ],
       og: {
         site_name: :site,
@@ -28,7 +28,7 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: :canonical,
-        image: 'https://modelers-log.com/app/assets/images/sample_project.png',
+        image: image_url('OGP.png'),
         locale: 'ja_JP'
       },
       twitter: {

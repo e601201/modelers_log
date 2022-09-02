@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Workspace.destroy_all
+News.destroy_all
+5.times{ FactoryBot.create(:news) }
 
 #ログイン用ユーザー
 
