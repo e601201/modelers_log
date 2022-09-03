@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_153516) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_03_102938) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -90,6 +90,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_153516) do
     t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
+  create_table "sns_informations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "sns_category", default: 0, null: false
+    t.string "sns_account", null: false
+    t.bigint "workspace_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workspace_id"], name: "index_sns_informations_on_workspace_id"
+  end
+
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
@@ -127,5 +136,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_153516) do
   add_foreign_key "favorites", "workspaces"
   add_foreign_key "notifications", "workspaces"
   add_foreign_key "projects", "workspaces"
+  add_foreign_key "sns_informations", "workspaces"
   add_foreign_key "tasks", "projects"
 end
