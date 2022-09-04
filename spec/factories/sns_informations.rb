@@ -4,10 +4,6 @@ FactoryBot.define do
     sns_category { 0 }
     association :workspace
 
-    trait :twitter do
-      sns_category { 1 }
-    end
-
     trait :facebook do
       sns_category { 2 }
     end
