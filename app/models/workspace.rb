@@ -8,7 +8,7 @@ class Workspace < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :following
   has_many :favorites, dependent: :destroy
   has_many :favorite_projects, through: :favorites, source: :project
-  # has_many  :sns_informations, dependent: :destroy
+  has_many :sns_informations, dependent: :destroy
   has_many :notifications, dependent: :destroy
   # has_many  :received_notifications, dependent: :destroy
   # has_many  :own_toolsets, through: :workspace_toolsets, source: :toolset
