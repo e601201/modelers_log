@@ -39,7 +39,7 @@ ja:
       tag:
         name: '名前'
       sns_information:
-        site_url: 'URL情報'
+        sns_account: 'アカウント名'
         sns_category: 'SNSの種類'
       notification:
         body: '内容'
@@ -75,3 +75,9 @@ ja:
         painting: '塗装'
         photography: '撮影のみ'
         other: 'その他'
+    sns_information:
+      sns_category:
+        others: 'その他'
+        twitter: 'twitter'
+        facebook: 'facebook'
+        instagram: 'instagram'
