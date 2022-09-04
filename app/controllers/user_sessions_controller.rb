@@ -19,15 +19,19 @@ class UserSessionsController < ApplicationController
 
   def guest_login
     email_account = SecureRandom.uuid
-    @workspace = Workspace.create(
-      owner_name: 'ゲストユーザー',
+    @workspace = Workspace.create!(
+      owner_name: "ゲストユーザー",
       owner_comment: 'ゲストユーザです',
       email: "#{email_account}@example.com",
       password: 'password',
       password_confirmation: 'password',
       role: :guest
     )
-    @workspace.update!(owner_name: "ゲストユーザー_#{@workspace.id}")
+    @workspace.update!(
+      owner_name: "ゲストユーザー_#{@workspace.id}",
+      password: 'password',
+      password_confirmation: 'password'
+    )
     auto_login(@workspace)
     redirect_back_or_to root_path, success: 'ゲストユーザーとしてログインしました'
   end
