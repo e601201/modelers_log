@@ -36,11 +36,14 @@
     <%= link_to "#{profile.favorites.count}", favorites_path(profile), class: 'link text-lg mr-1' %>
   </div>
   <div id='profile-sns' class='border rounded-lg m-3 p-2'>
-    <div>
-      <strong class='block font-medium mb-1' >SNS:</strong>
+    <div class= 'flex justify-between'>
+      <strong class='block font-medium mb-1' >SNS</strong>
+      <% if current_user == profile || current_user.admin? %>
+        <%= link_to t('defaults.edit_page'), workspace_sns_informations_path(profile), class: 'btn btn-primary btn-xs text-cyan-50' %>
+      <% end %>
     </div>
-    <div>
-      <p>工事中</p>
+    <div class= 'flex'>
+      <%= render partial: 'sns_informations/sns_information', collection: profile.sns_informations, as: 'sns_information' %>
     </div>
   </div>
 </div>

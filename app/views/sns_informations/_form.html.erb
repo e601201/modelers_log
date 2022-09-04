@@ -1,0 +1,29 @@
+<%= form_with(model: sns_information, url: url, class: "contents") do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+  <div class="my-5">
+    <%= form.label :sns_category %>
+    <%= form.select :sns_category, SnsInformation.sns_categories_i18n.invert,
+        {} ,class: 'select select-bordered'
+    %>
+  </div>
+  <div class="my-5">
+    <%= form.label :sns_account %>
+    <div class= 'ml-3'>
+      <label class='label py-0'>
+        <%= tag.span 'twitter: https://twitter.com/[アカウント名]', class: 'label-text-alt text-xs text-slate-400'%>
+      </label>
+      <label class='label py-0'>
+        <%= tag.span 'facebook: https://www.facebook.com/profile.php?id=[アカウント名]', class: 'label-text-alt text-xs text-slate-400'%>
+      </label>
+      <label class='label py-0'>
+        <%= tag.span 'instagram: https://www.instagram.com/[アカウント名]/', class: 'label-text-alt text-xs text-slate-400'%>
+      </label>
+    </div>
+    <%= form.text_field :sns_account,
+      placeholder: '[アカウント名]の中身をご記入ください',
+      class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

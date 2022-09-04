@@ -1,0 +1,7 @@
+<div class= 'container mx-auto p-3'>
+  <ul>
+    <%= render @sns_informations %>
+  </ul>
+  <%= link_to t('.new'), new_workspace_sns_information_path, class: 'btn btn-primary text-cyan-50' %>
+  <%= link_to t('.back'), workspace_profile_path, class: 'btn btn-primary text-cyan-50' %>
+</div>
