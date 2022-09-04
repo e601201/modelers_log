@@ -9,6 +9,17 @@ module ApplicationHelper
     YAML.load_file('icon_svg.yml')[object]
   end
 
+  def sns_link(sns)
+    case sns.sns_category
+    when 'twitter'
+      "https://twitter.com/#{sns.sns_account}"
+    when 'facebook'
+      "https://www.facebook.com/profile.php?id=#{sns.sns_account}"
+    when 'instagram'
+      "https://www.instagram.com/#{sns.sns_account}/"
+    end
+  end
+
   def default_meta_tags
     {
       site: 'Modelers Log',

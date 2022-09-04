@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   resources :workspaces do                                           #workspaces
     resource :profile,          only: :show, module: 'workspaces'    #workspaces/profile
+    resources :sns_informations, except: :show
     resources :notifications, only: [] do
       resource :read, only: :create                                  #通知の既読の有無
     end

@@ -17,6 +17,7 @@ ja:
     home: 'ホーム'
     list: '一覧'
     edit: '編集'
+    edit_page: '編集画面'
     state_change: '進捗状況の変更'
     destroy: '削除'
     close: '閉じる'
@@ -91,6 +92,10 @@ ja:
     notifications:
       index:
         title: 'お知らせ'
+  sns_informations:
+    index:
+      new: アカウントを追加する
+      back: プロフィールに戻る
   user_sessions:
     form:
       title: 'ログインページ'
