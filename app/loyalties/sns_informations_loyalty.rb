@@ -1,5 +1,4 @@
 class SnsInformationsLoyalty < ApplicationLoyalty
-
   def index?
     user == record || user.admin?
   end

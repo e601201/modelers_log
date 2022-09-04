@@ -20,7 +20,7 @@ class UserSessionsController < ApplicationController
   def guest_login
     email_account = SecureRandom.uuid
     @workspace = Workspace.create!(
-      owner_name: "ゲストユーザー",
+      owner_name: 'ゲストユーザー',
       owner_comment: 'ゲストユーザです',
       email: "#{email_account}@example.com",
       password: 'password',
