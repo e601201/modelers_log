@@ -7,5 +7,6 @@ class CreateSnsInformations < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :sns_informations, [:sns_category, :workspace_id], unique: true
   end
 end

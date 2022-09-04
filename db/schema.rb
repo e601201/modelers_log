@@ -96,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_102938) do
     t.bigint "workspace_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["sns_category", "workspace_id"], name: "index_sns_informations_on_sns_category_and_workspace_id", unique: true
     t.index ["workspace_id"], name: "index_sns_informations_on_workspace_id"
   end
 
