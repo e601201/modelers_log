@@ -3,7 +3,6 @@
     <%= render 'shared/sns_svg', {sns: sns_information.sns_category } %>
   <% end %>
   <% if request.fullpath == "/workspaces/#{@workspace&.id}/sns_informations" %>
-    <%= action_name %>
     <%= sns_information.sns_account %>
     <%= link_to t('defaults.edit'), edit_workspace_sns_information_path(@workspace,sns_information), class: "btn btn-info btn-xs ml-2" %>
     <%= button_to t('defaults.destroy'), workspace_sns_information_path(@workspace,sns_information), method: :delete,
