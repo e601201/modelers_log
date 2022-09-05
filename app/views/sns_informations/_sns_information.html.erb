@@ -1,5 +1,5 @@
 <div id="<%= dom_id sns_information %>" class= 'flex m-1'>
-  <%= link_to sns_link(sns_information), class: 'link ml-2', target: '_brank', rel: 'noopener noreferrer' do %>
+  <%= link_to sns_link(sns_information), class: 'link ml-2', target: '_blank', rel: 'noopener noreferrer' do %>
     <%= render 'shared/sns_svg', {sns: sns_information.sns_category } %>
   <% end %>
   <% if request.fullpath == "/workspaces/#{@workspace&.id}/sns_informations" %>
