@@ -2,9 +2,6 @@
   <div>
     <%= tag.span Project.model_name.human, class: 'footer-title font-bold' %>
     <%= link_to t('projects.index.title'), projects_path, class: 'link link-hover' %>
-    <a class="link link-hover">カテゴリー別（工事中）</a> 
-    <a class="link link-hover">新着プロジェクト（工事中）</a> 
-    <a class="link link-hover">人気のプロジェクト（工事中）</a> 
   </div> 
   <div>
     <%= tag.span Workspace.model_name.human, class: 'footer-title font-bold' %>
@@ -13,8 +10,10 @@
   <% if logged_in? %>
     <div>
       <%= tag.span t('defaults.user.page'), class: 'footer-title font-bold' %>
-      <%= link_to t('defaults.user.workspace'), workspace_path(current_user.id), class: 'link link-hover' %>
-      <%= link_to t('defaults.user.profile'), workspace_profile_path(current_user.id), class: 'link link-hover' %>
+      <%= link_to t('defaults.user.workspace'), workspace_path(current_user.id),
+          class: 'link link-hover' %>
+      <%= link_to t('defaults.user.profile'), workspace_profile_path(current_user.id),
+          class: 'link link-hover' %>
     </div>
   <% else %>
     <div>
@@ -25,17 +24,21 @@
   <% end %>
   <div>
     <%= tag.span t('defaults.customer_support'), class: 'footer-title font-bold' %> 
-    <a class="link link-hover">よくある質問(工事中)</a> 
-    <%= link_to t('defaults.question_box'), 'https://forms.gle/vZUzWfCv124BkPe28', class: 'link link-hover' %>
+    <%= link_to t('defaults.help'), page_path('faq'),
+        target: '_blank', rel: 'noopener noreferrer', class: 'link link-hover' %>
+    <%= link_to t('defaults.question_box'), 'https://forms.gle/vZUzWfCv124BkPe28',
+        target: '_blank', rel: 'noopener noreferrer', class: 'link link-hover' %>
   </div>
   <div>
-    <span class="footer-title font-bold">法的事項(工事中)</span> 
-    <a class="link link-hover">利用規約</a> 
-    <a class="link link-hover">プライバシーポリシー</a> 
-    <a class="link link-hover">このサイトについて</a> 
+    <%= tag.span t('defaults.legal_matters'), class: 'footer-title font-bold' %> 
+    <%= link_to t('defaults.terms_of_use'), 'https://kiyac.app/termsOfService/Tew7wOh7gIlrq7amz8mo',
+        target: '_blank', rel: 'noopener noreferrer', class: 'link link_hover'%>
+    <%= link_to t('defaults.privacy_policy'), 'https://kiyac.app/privacypolicy/ZhCcmPYBlfSBRDPPZoi7',
+        target: '_blank', rel: 'noopener noreferrer', class: 'link link-hover' %>
   </div>
 </footer> 
 <footer class="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+  <p>Copyright© Modelers-Log. All Rights Reserved</p>
 
   <div class="md:place-self-center md:justify-self-end">
     <div class="grid grid-flow-col gap-4 mr-10">
