@@ -166,6 +166,7 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    high_voltage (3.1.2)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -419,6 +420,7 @@ DEPENDENCIES
   draper
   enum_help
   factory_bot_rails
+  high_voltage
   image_processing (~> 1.2)
   importmap-rails
   kaminari

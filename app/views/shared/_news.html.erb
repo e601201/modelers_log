@@ -1,7 +1,7 @@
 <tr>
   <td>
     <div class='text-stone-400 text-sm'><%= l news.created_at, format: :long %></div>
-    <%= link_to "https://note.com/arthur1111/n/#{news.note_url}", target: :_blank do %>
+    <%= link_to "https://note.com/arthur1111/n/#{news.note_url}", target: :_blank, rel: 'noopener noreferrer' do %>
       <div class='link link-neutral p-2 text-indigo-400' ><%= news.title %></div>
     <% end %>
   </td>
