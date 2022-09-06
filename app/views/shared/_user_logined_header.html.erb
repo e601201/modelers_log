@@ -34,7 +34,6 @@
         <li><%= link_to t('workspaces.favorites.index.title'), favorites_path(current_user)%></li>
         <div class='divider'></div>
         <li><%= link_to t('workspaces.edit.title'), edit_workspace_path(current_user), class: 'justify-between' %></li>
-        <li><a>Settings(工事中)</a></li>
         <div class='divider'></div>
         <li><%=button_to t('defaults.logout'), logout_path, method: :delete, data: { turbo: false } %><li>
       </ul>

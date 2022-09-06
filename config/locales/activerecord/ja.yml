@@ -55,7 +55,6 @@ ja:
       state:
         in_progress: '取組中'
         done: '完成!!'
-        published: 'レシピ(工事中)'
       project_category:
         gun_pla: 'ガンプラ'
         charactor: 'キャラクター関連'
