@@ -10,8 +10,8 @@ class Workspace < ApplicationRecord
   has_many :favorite_projects, through: :favorites, source: :project
   has_many :sns_informations, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  # has_many  :received_notifications, dependent: :destroy
-  # has_many  :own_toolsets, through: :workspace_toolsets, source: :toolset
+  has_many :tools, dependent: :destroy
+  # has_many :like_tools, through: :like_tools, source: :tool
 
   enum role: { general: 0, guest: 5, admin: 10 }
   validates :password, presence: true
