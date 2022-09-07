@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     end
     resource :relationships,    only: %i[create destroy]             #好きなwaorkspaceをお気に入りに追加
     member do
-      resources :tool_set                                            #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
+      resources :tools,         except: :index                      #任意のworkspaceの道具一覧(workspaceのnew時に一緒にnewする)
       resources :followers,     only: :index, module: 'workspaces'   #フォロワー一覧
       resources :followings,    only: :index, module: 'workspaces'   #フォロー一覧
       resources :favorites,     only: :index, module: 'workspaces'   #お気に入り一覧
