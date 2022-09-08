@@ -176,3 +176,10 @@ ja:
     assembly: 'ガンプラ（素組み）'
     painting: 'ガンプラ（組立〜塗装）'
     photography: 'ガンプラ（撮影のみ）'
+  tool:
+    tool_category:
+      modeling_tool: '模型工具'
+      painting: '塗装'
+      finishing: '仕上げ・表面加工'
+      modeling_material: '造形工具'
+      other: 'その他'

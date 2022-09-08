@@ -4,7 +4,7 @@ ja:
       workspace: 'ワークスペース'
       project: 'プロジェクト'
       task: 'タスク'
-      toolset: 'ツールセット'
+      tool: 'ツール'
       tag: 'タグ'
       sns_information: 'SNS情報'
       favorite: 'お気に入り'
@@ -55,7 +55,6 @@ ja:
       state:
         in_progress: '取組中'
         done: '完成!!'
-        published: 'レシピ(工事中)'
       project_category:
         gun_pla: 'ガンプラ'
         charactor: 'キャラクター関連'
@@ -81,3 +80,11 @@ ja:
         twitter: 'twitter'
         facebook: 'facebook'
         instagram: 'instagram'
+    tool:
+      tool_category:
+        modeling_tool: '模型工具'
+        painting: '塗装'
+        finishing: '仕上げ・表面加工'
+        modeling_material: '造形工具'
+        other: 'その他'
+        

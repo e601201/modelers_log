@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_03_102938) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_083147) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -113,6 +113,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_102938) do
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
+  create_table "tools", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "tool_category", default: 0, null: false
+    t.string "name", null: false
+    t.text "body"
+    t.bigint "workspace_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workspace_id"], name: "index_tools_on_workspace_id"
+  end
+
   create_table "workspaces", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -139,4 +149,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_102938) do
   add_foreign_key "projects", "workspaces"
   add_foreign_key "sns_informations", "workspaces"
   add_foreign_key "tasks", "projects"
+  add_foreign_key "tools", "workspaces"
 end

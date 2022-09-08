@@ -38,7 +38,7 @@
   <div id='profile-sns' class='border rounded-lg m-3 p-2'>
     <div class= 'flex justify-between'>
       <strong class='block font-medium mb-1' >SNS</strong>
-      <% if current_user == profile || current_user.admin? %>
+      <% if current_user == profile || current_user&.admin? %>
         <%= link_to t('defaults.edit_page'), workspace_sns_informations_path(profile), class: 'btn btn-primary btn-xs text-cyan-50' %>
       <% end %>
     </div>

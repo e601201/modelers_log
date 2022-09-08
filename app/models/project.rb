@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   # has_many :project_tags, dependent: :destroy
   # has_many :notifications, dependent: :destroy
 
-  enum state: { in_progress: 0, done: 5, published: 10 }
+  enum state: { in_progress: 0, done: 5 }
   enum project_category: { gun_pla: 0, charactor: 1, car: 2, bike: 3, battle_tank: 4, airplane: 5, buildings: 6, other: 10 }
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }
