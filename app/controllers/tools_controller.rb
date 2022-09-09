@@ -4,11 +4,12 @@ class ToolsController < ApplicationController
     @workspace = Workspace.find(params[:workspace_id])
     @tool = @workspace.tools.new
     authorize! @tool
+    params[:tool_category] = 'other' if params[:tool_category].nil?
   end
 
   def create
-    authorize! @tool
     @tool = current_user.tools.build(tool_params)
+    authorize! @tool
     if @tool.save
       redirect_to workspace_profile_path(current_user), success: t('defaults.message.created', item: Tool.model_name.human)
     else

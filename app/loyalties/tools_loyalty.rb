@@ -4,7 +4,7 @@ class ToolsLoyalty < ApplicationLoyalty
   end
 
   def new?
-    index?
+    user.id == record.workspace_id || user.admin?
   end
 
   def update?
