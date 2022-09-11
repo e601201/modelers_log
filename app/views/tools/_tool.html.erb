@@ -1,18 +1,21 @@
 <div class='px-5 py-2'>
   <div>
-    <div class='flex items-center'>
+    <div class='flex justify-between items-center'>
       <%= tag.p tool.name %>
       <% if @profile == current_user %>
         <div class='flex m-2'>
-          <%= link_to '編集', edit_workspace_tool_path(@profile,tool), class: "btn btn-info btn-xs mt-0.5" %>
-          <%= button_to '削除', workspace_tool_path(@profile,tool), method: :delete,
-              form: { data: { turbo_confirm: "削除しますか？" } },
-              class: "btn btn-secondary btn-xs ml-2" 
-          %>
+          <%= link_to edit_workspace_tool_path(@profile,tool), class: 'btn btn-info btn-xs mt-0.5' do %>
+            <%= render 'shared/crud_svg',{object: 'note', size: 'h-4 w-4'} %>
+          <% end %>
+          <%= button_to workspace_tool_path(@profile,tool), method: :delete,
+              form: { data: { turbo_confirm: '削除しますか？' } },
+              class: 'btn btn-secondary btn-xs ml-2 mt-0.5' do %>
+              <%= render 'shared/crud_svg',{object: 'dustbin', size: 'h-4 w-4'} %>
+          <% end %>
         </div>
       <% end %>
     </div>
-    <span class="label-text-alt text-xs text-slate-400">
+    <span class='label-text-alt text-xs text-slate-400'>
     <%= tag.p tool.body %>
     </span>
   </div>

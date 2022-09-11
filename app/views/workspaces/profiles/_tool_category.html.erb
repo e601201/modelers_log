@@ -1,0 +1,12 @@
+<div class='basis-1/2 p-1 rounded-3xl border border-dashed m-2'>
+  <div class= 'flex justify-between'>
+    <%= tag.div t("tool.tool_category.#{tool_category}"), class: 'badge badge-outline m-2' %>
+    <% if @profile == current_user %>
+      <div id='toolset-new'>
+        <%= link_to t('tool.tool_category.add'), new_workspace_tool_path(@profile, tool_category: tool_category),
+          class: 'btn btn-primary btn-sm m-2 text-slate-100' %>
+      </div>
+    <% end %>
+  </div>
+  <%= render partial: 'tools/tool', collection: collection, as: 'tool' %>
+</div>

@@ -7,43 +7,23 @@
 %>
 <%= render 'shared/main_tab', {object: @profile}%>
 <div class='container px-5 flex flex-col md:flex-row md:mx-auto'>
-  <%= render "form", profile: @profile %>
+  <%= render 'form', profile: @profile %>
   <div id='profile-toolsets-content' class='border rounded-lg m-3 p-2 md:w-full'>
-    <div class="flex justify-between">
-      <div id="toolset-title">
-        <h1 class="block font-medium p-3 text-2xl">マイツール</h1>
+    <div class='flex justify-between'>
+      <div id='toolset-title'>
+        <h1 class='block font-medium p-3 text-2xl'>マイツール</h1>
       </div>
-      <% if @profile == current_user %>
-        <div id="toolset-new">
-          <%= link_to '追加する', new_workspace_tool_path(@profile) , class: 'btn btn-primary m-2' %>
-        </div>
-      <% end %>
     </div>
-    <span class="label-text-alt text-xs text-slate-400">
+    <span class='label-text-alt text-xs text-slate-400'>
       <p>例：模型工具（ニッパー、やすり）・塗装（筆、エアブラシ）・塗料（水性、油性）</p>
       <p>自分のお気に入りの道具を登録したり、欲しい道具をメモしておこう！</p>
     </span>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="basis-1/2 p-1 rounded-3xl border border-dashed m-2">
-        <%= tag.div t('tool.tool_category.modeling_tool'), class: 'badge badge-outline m-2' %>
-        <%= render partial: 'tools/tool', collection: @tools.modeling_tool, as: 'tool' %>
-      </div>
-      <div class="basis-1/2 p-1 rounded-3xl border border-dashed m-2">
-        <%= tag.div t('tool.tool_category.painting'), class: 'badge badge-outline m-2' %>
-        <%= render partial: 'tools/tool', collection: @tools.painting, as: 'tool' %>
-      </div>
-      <div class="basis-1/2 p-1 rounded-3xl border border-dashed m-2">
-        <%= tag.div t('tool.tool_category.finishing'), class: 'badge badge-outline m-2' %>
-        <%= render partial: 'tools/tool', collection: @tools.finishing, as: 'tool' %>
-      </div>
-      <div class="basis-1/2 p-1 rounded-3xl border border-dashed m-2">
-        <%= tag.div t('tool.tool_category.modeling_material'), class: 'badge badge-outline m-2' %>
-        <%= render partial: 'tools/tool', collection: @tools.modeling_material, as: 'tool' %>
-      </div>
-      <div class="basis-1/2 p-1 rounded-3xl border border-dashed m-2">
-        <%= tag.div t('tool.tool_category.other'), class: 'badge badge-outline m-2' %>
-        <%= render partial: 'tools/tool', collection: @tools.other, as: 'tool' %>
-      </div>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+      <%= render 'tool_category', { tool_category: 'modeling_tool', collection: @tools.modeling_tool } %>
+      <%= render 'tool_category', { tool_category: 'painting', collection: @tools.painting } %>
+      <%= render 'tool_category', { tool_category: 'finishing', collection: @tools.finishing } %>
+      <%= render 'tool_category', { tool_category: 'modeling_material', collection: @tools.modeling_material } %>
+      <%= render 'tool_category', { tool_category: 'other', collection: @tools.other } %>
     </div>
   </div>
 </div>
