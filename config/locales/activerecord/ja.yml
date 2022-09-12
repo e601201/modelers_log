@@ -45,6 +45,9 @@ ja:
         body: '内容'
         action_type: 'アクションタイプ'
         checked: '確認済み'
+      tool:
+        name: 'ツール名'
+        body: '説明文'
   enums:
     workspace:
       role:

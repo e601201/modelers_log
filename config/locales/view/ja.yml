@@ -161,6 +161,11 @@ ja:
       title: '新規タスク'
     edit:
       title: 'タスク編集画面'
+  tools:
+    new:
+      title: 'ツール作成'
+    edit:
+      title: 'ツール編集'
   password_resets:
     edit:
       title: 'パスワードリセット画面'

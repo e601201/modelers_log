@@ -1,7 +1,7 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing news</h1>
+  <%= tag.h1 t('.title'), class: 'font-bold text-4xl' %>
 
-  <%= render "form", { tool: @tool, url: workspace_tool_path  }%>
+  <%= render 'form', { tool: @tool, url: workspace_tool_path  }%>
 
-  <%= link_to "Back", workspace_profile_path, class: "btn" %>
+  <%= link_to t('defaults.back'), workspace_profile_path, class: "btn" %>
 </div>
