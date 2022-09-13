@@ -27,7 +27,13 @@
       <div class='divider'>
         or
       </div>
-      <%= button_to 'Guest_Login', guest_login_path, method: :post, form: { data: { turbo_confirm: 'ゲストユーザーとしてログインします。' } }, class: 'btn btn-secondary' %>
+      <label class='label py-0'>
+        <%= tag.span 'メールアドレスとパスワードがランダムで作成されます', class: 'label-text-alt text-xs text-slate-400'%>
+      </label>
+      <label class='label py-0'>
+        <%= tag.span 'お試しで使われる際にご利用ください。', class: 'label-text-alt text-xs text-slate-400'%>
+      </label>
+      <%= button_to 'ゲストログイン', guest_login_path, method: :post, form: { data: { turbo_confirm: 'ゲストユーザーとしてログインします。' } }, class: 'btn btn-secondary' %>
     </div>
   </div>
 </div>
