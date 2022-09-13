@@ -36,6 +36,7 @@ ja:
     terms_of_use: '利用規約'
     privacy_policy: 'プライバシーポリシー'
     message:
+      forgot_password?: 'パスワードをお忘れですか？'
       not_index: 'プロジェクトがありません'
       not_authenticated: 'ログインしてください'
       created: '%{item}を作成しました'
