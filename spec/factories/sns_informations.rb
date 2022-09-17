@@ -5,11 +5,11 @@ FactoryBot.define do
     association :workspace
 
     trait :facebook do
-      sns_category { 2 }
+      sns_category { 5 }
     end
 
     trait :instagram do
-      sns_category { 3 }
+      sns_category { 10 }
     end
   end
 end
