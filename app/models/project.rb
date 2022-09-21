@@ -1,11 +1,31 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id               :bigint           not null, primary key
+#  body             :text(65535)
+#  project_category :integer          default("gun_pla"), not null
+#  project_image    :string(255)
+#  state            :integer          default("in_progress"), not null
+#  title            :string(255)      not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  workspace_id     :bigint           not null
+#
+# Indexes
+#
+#  index_projects_on_workspace_id  (workspace_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (workspace_id => workspaces.id)
+#
 class Project < ApplicationRecord
   has_one_attached :project_image
   belongs_to :workspace
   has_many :tasks, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :workspace
-  # has_many :project_tags, dependent: :destroy
-  # has_many :notifications, dependent: :destroy
 
   enum state: { in_progress: 0, done: 5 }
   enum project_category: { gun_pla: 0, charactor: 1, car: 2, bike: 3, battle_tank: 4, airplane: 5, buildings: 6, other: 10 }
