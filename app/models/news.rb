@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: news
+#
+#  id         :bigint           not null, primary key
+#  note_url   :string(255)      not null
+#  title      :string(255)      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class News < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :note_url, presence: true, length: { maximum: 255 }
