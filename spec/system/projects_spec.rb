@@ -68,8 +68,6 @@ RSpec.describe "Projects", type: :system do
           expect(page.accept_confirm).to eq "プロジェクトを削除してもよろしいですか？"
           expect(page).to have_content "プロジェクトを削除しました"
           end
-          it "完成させたプロジェクトを未完成状態に戻すことができる" do
-          end
         end
       end
     end
