@@ -359,6 +359,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     sorcery (0.16.3)
       bcrypt (~> 3.1)
       oauth (~> 0.5, >= 0.5.5)
@@ -440,6 +442,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  sitemap_generator
   sorcery
   sprockets-rails
   stimulus-rails
