@@ -14,6 +14,7 @@ AllCops:
     - 'config/**/*'
     - 'Gemfile'
     - 'app/validators/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
   DisplayCopNames: true
 
 Layout/MultilineBlockLayout:
