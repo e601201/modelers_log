@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @tasks = @project.tasks.order(:position)
+    @tasks = @project.tasks.includes([:task_image_attachment]).order(:position)
   end
 
   def new

@@ -9,7 +9,7 @@ class WorkspacesController < ApplicationController
 
   def show
     @q = @workspace.projects.ransack(params[:q])
-    @projects = @q.result(distinct: true).includes(:workspace).page(params[:page])
+    @projects = @q.result(distinct: true).includes([:workspace, :tasks, :project_image_attachment]).page(params[:page])
   end
 
   def new
